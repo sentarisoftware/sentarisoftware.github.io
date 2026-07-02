@@ -43,7 +43,10 @@
   nav{border-bottom:1px solid var(--line);position:sticky;top:0;background:rgba(247,244,236,.9);backdrop-filter:blur(8px);z-index:20}
   nav .wrap{display:flex;align-items:center;justify-content:space-between;height:68px}
   .logo{font-family:var(--serif);font-size:1.4rem;font-weight:600;letter-spacing:-.02em}
-  .logo span{color:var(--gold)}
+  .logo .mark{display:flex;flex-direction:column;line-height:1}
+  .logo .word{line-height:1}
+  .logo .mark-tag{font-family:var(--sans);font-size:.56rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-top:4px}
+  @media (max-width:520px){.logo .mark-tag{display:none}}
   nav a.cta{font-size:.9rem;font-weight:600;text-decoration:none;border-bottom:2px solid var(--gold);padding-bottom:2px}
 
   /* hero */
@@ -130,8 +133,13 @@
   .final h2{font-size:clamp(2rem,4vw,2.8rem);max-width:18ch;margin:14px auto 22px}
   .final .contact{margin-top:18px;color:var(--ink-soft);font-size:.95rem}
 
-  footer{padding:34px 0;border-top:1px solid var(--line);color:var(--ink-soft);font-size:.9rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+  footer{padding:30px 0;border-top:1px solid var(--line);color:var(--ink-soft);font-size:.9rem}
   footer .logo{font-size:1.1rem}
+  footer .footer-origin{text-align:center;font-family:var(--serif);font-size:clamp(1.02rem,1.6vw,1.2rem);color:var(--ink);line-height:1.35;letter-spacing:.005em;padding-bottom:22px;margin-bottom:22px;border-bottom:1px solid var(--line)}
+  footer .footer-origin strong{font-weight:600}
+  footer .footer-origin em{font-style:italic;color:var(--gold);font-weight:500}
+  footer .footer-row{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;align-items:center}
+  @media (min-width:1000px){footer .footer-origin{white-space:nowrap}}
 
   @media (max-width:780px){
     .hero .grid,.cards,.steps{grid-template-columns:1fr}
@@ -144,9 +152,9 @@
 <body>
 
 <nav><div class="wrap">
-  <a class="logo" href="/" aria-label="Sentari Software home" style="display:flex;align-items:center;gap:10px;text-decoration:none">
+  <a class="logo" href="/" aria-label="Sentari Software home" style="display:flex;align-items:center;gap:11px;text-decoration:none">
     <svg width="36" height="36" viewBox="20 20 160 160" aria-hidden="true"><circle cx="100" cy="100" r="72" fill="#101a26"/><circle cx="100" cy="100" r="62" fill="none" stroke="#c79a4f" stroke-width="2" opacity="0.5"/><rect x="62" y="74" width="46" height="8" rx="4" fill="#c79a4f"/><rect x="62" y="96" width="34" height="8" rx="4" fill="#c79a4f" opacity="0.85"/><rect x="62" y="118" width="22" height="8" rx="4" fill="#c79a4f" opacity="0.7"/><path d="M108 100 H140" stroke="#c79a4f" stroke-width="8" stroke-linecap="round"/><path d="M132 88 L146 100 L132 112" fill="none" stroke="#c79a4f" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    <span>Sentari<span style="color:var(--gold)">.</span></span>
+    <span class="mark"><span class="word">Sentari<span style="color:var(--gold)">.</span></span><small class="mark-tag">Latin: to sense</small></span>
   </a>
   <a class="cta" href="https://cal.com/cartrel-james-dwefpy/free-20-minute-call" target="_blank" rel="noopener">Book a free call →</a>
 </div></nav>
@@ -281,9 +289,12 @@
   </form>
 </div></section>
 
-<footer><div class="wrap" style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;width:100%">
-  <div class="logo">Sentari<span style="color:var(--gold)">.</span> Software</div>
-  <div>Document &amp; workflow automation · Serving firms nationwide</div>
+<footer><div class="wrap" style="width:100%">
+  <p class="footer-origin"><strong>Sentari</strong> &mdash; from the Latin <em>sentire</em>, &ldquo;to sense&rdquo;: software that reads your documents, so your team doesn&rsquo;t have to.</p>
+  <div class="footer-row">
+    <div class="logo">Sentari<span style="color:var(--gold)">.</span> Software</div>
+    <div>Document &amp; workflow automation · Secure, fully managed, built to last</div>
+  </div>
 </div></footer>
 
 </body>
