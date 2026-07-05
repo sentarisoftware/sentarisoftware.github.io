@@ -5,308 +5,485 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; media-src 'self'; script-src 'none'; connect-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self' https://formsubmit.co; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
-<title>Sentari Software — Government-grade automation for businesses without IT departments</title>
-<meta name="description" content="Sentari builds document workflows that extract data, track status, and route everything into one clean queue. Then we run it for you — so you don't need IT staff.">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%23101a26'/%3E%3Ctext x='50' y='72' font-family='Georgia,serif' font-size='64' fill='%23c79a4f' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://sentarisoftware.com/">
-<meta property="og:title" content="Sentari Software — Managed document automation">
-<meta property="og:description" content="Document automation that actually stays running. Built, deployed, and managed so you don't need IT staff.">
-<meta property="og:image" content="https://sentarisoftware.com/og-image.png">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Sentari Software — Document &amp; workflow automation">
-<meta name="twitter:description" content="Automations that read your documents, pull the data, and route everything into one clean, tracked workflow.">
-<meta name="twitter:image" content="https://sentarisoftware.com/og-image.png">
+<title>Sentari Software — Document automation for firms still doing it by hand</title>
+<meta name="description" content="We build document workflows that extract data, track status, and route everything into one clean queue. Then we run it for you.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --primary:#0a2540; --primary-light:#1a3a5c; --accent:#0077ff; --accent-hover:#0055cc;
-    --white:#ffffff; --off-white:#f5f7fa; --gray-100:#f9fafb; --gray-200:#e5e7eb;
-    --gray-700:#374151; --gray-800:#1f2937; --gray-900:#111827;
-    --sans:'Inter','Helvetica Neue','Helvetica',Arial,sans-serif;
+    --bg:#0e0e0e;
+    --surface:#1a1a1a;
+    --surface-light:#252525;
+    --accent:#00e5ff;
+    --accent-dim:#00b3cc;
+    --text:#f5f5f5;
+    --text-muted:#999;
+    --border:#333;
   }
+
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
-  body{font-family:var(--sans);color:var(--gray-800);background:var(--white);line-height:1.6;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
-  .wrap{max-width:1100px;margin:0 auto;padding:0 40px}
-  h1,h2,h3{font-family:var(--sans);font-weight:700;line-height:1.2;letter-spacing:-0.025em;color:var(--gray-900)}
-  h1{font-size:clamp(2.5rem,5vw,4rem)}
-  h2{font-size:clamp(2rem,4vw,3rem)}
-  h3{font-size:1.5rem}
-  a{color:inherit;text-decoration:none}
-  p{line-height:1.75;color:var(--gray-700)}
+  body{
+    font-family:'Inter',sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    line-height:1.6;
+    overflow-x:hidden;
+  }
 
-  /* Utility */
-  .section{padding:96px 0}
-  .section-light{background:var(--white)}
-  .section-gray{background:var(--off-white)}
-  .section-dark{background:var(--primary);color:var(--white)}
-  .section-dark h2,.section-dark p{color:var(--white)}
-  .kicker{font-size:0.875rem;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;color:var(--accent);margin-bottom:16px;display:block}
-  .section-dark .kicker{color:rgba(255,255,255,0.8)}
-  .btn{display:inline-block;background:var(--accent);color:var(--white);padding:14px 32px;border-radius:6px;font-weight:600;font-size:1rem;transition:all 0.2s;box-shadow:0 2px 8px rgba(0,119,255,0.25);border:none;cursor:pointer}
-  .btn:hover{background:var(--accent-hover);transform:translateY(-1px);box-shadow:0 4px 12px rgba(0,119,255,0.35)}
-  .btn-ghost{background:transparent;color:var(--primary);border:2px solid var(--gray-200)}
-  .btn-ghost:hover{border-color:var(--accent);color:var(--accent)}
+  /* Typography */
+  h1,h2,h3{
+    font-family:'Space Grotesk',sans-serif;
+    font-weight:700;
+    line-height:1.1;
+    letter-spacing:-0.03em;
+  }
+
+  h1{font-size:clamp(3rem,8vw,6rem)}
+  h2{font-size:clamp(2rem,5vw,3.5rem)}
+  h3{font-size:1.75rem}
+
+  /* Layout */
+  .wrap{max-width:1200px;margin:0 auto;padding:0 40px}
 
   /* Navigation */
-  nav{border-bottom:1px solid var(--gray-200);position:sticky;top:0;background:var(--white);z-index:20}
-  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:80px}
-  .logo{font-family:var(--sans);font-size:1.5rem;font-weight:700;color:var(--primary);letter-spacing:-0.02em}
+  nav{
+    padding:24px 0;
+    border-bottom:1px solid var(--border);
+    position:sticky;
+    top:0;
+    background:rgba(14,14,14,0.95);
+    backdrop-filter:blur(10px);
+    z-index:100;
+  }
+
+  nav .wrap{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+  }
+
+  .logo{
+    font-family:'Space Grotesk',sans-serif;
+    font-size:1.75rem;
+    font-weight:700;
+    color:var(--text);
+    text-decoration:none;
+  }
+
   .logo span{color:var(--accent)}
 
-  /* nav */
-  nav{border-bottom:1px solid var(--line);position:sticky;top:0;background:rgba(247,244,236,.95);backdrop-filter:blur(12px);z-index:20;transition:all .2s}
-  nav:hover{border-bottom-color:var(--gold-soft)}
-  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:68px}
-  .logo{font-family:var(--serif);font-size:1.4rem;font-weight:600;letter-spacing:-.02em;transition:transform .2s}
-  .logo:hover{transform:translateY(-1px)}
-  .logo .mark{display:flex;flex-direction:column;line-height:1}
-  .logo .word{line-height:1}
-  .logo .mark-tag{font-family:var(--sans);font-size:.56rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-top:4px}
-  @media (max-width:520px){.logo .mark-tag{display:none}}
-  nav a.cta{font-size:.9rem;font-weight:600;text-decoration:none;border-bottom:2px solid var(--gold);padding-bottom:2px;transition:color .2s}
-  nav a.cta:hover{color:var(--gold)}
+  nav a.cta{
+    font-size:0.875rem;
+    font-weight:600;
+    text-decoration:none;
+    color:var(--accent);
+    border:2px solid var(--accent);
+    padding:8px 24px;
+    border-radius:4px;
+    transition:all 0.2s;
+  }
 
-  /* hero */
-  .hero{padding:140px 0;background:var(--white);position:relative}
-  .hero .grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
-  .hero h1{margin:0 0 24px;max-width:20ch}
-  .hero p.lede{font-size:1.25rem;color:var(--gray-700);margin-bottom:40px;max-width:540px}
-  .hero .actions{display:flex;gap:16px}
-  .hero .actions a{flex-shrink:0}
+  nav a.cta:hover{
+    background:var(--accent);
+    color:var(--bg);
+  }
 
-  /* Remove animation section */
+  /* Hero */
+  .hero{
+    padding:160px 0 120px;
+    position:relative;
+    overflow:hidden;
+  }
 
-  /* sections */
-  section{padding:64px 0;border-top:1px solid var(--line)}
-  .sec-head{max-width:62ch;margin-bottom:38px}
-  .sec-head h2{font-size:clamp(1.8rem,3.5vw,2.5rem);margin:14px 0 12px}
-  .sec-head p{color:var(--ink-soft);font-size:1.08rem}
+  .hero::before{
+    content:'';
+    position:absolute;
+    top:-50%;
+    right:-20%;
+    width:800px;
+    height:800px;
+    background:radial-gradient(circle,var(--accent) 0%,transparent 70%);
+    opacity:0.05;
+    pointer-events:none;
+  }
 
-  .problem ul{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:14px 34px;max-width:760px}
-  .problem li{padding-left:26px;position:relative;color:var(--ink-soft)}
-  .problem li::before{content:"—";position:absolute;left:0;color:var(--gold);font-weight:700}
-  .problem .punch{font-family:var(--serif);font-size:1.5rem;margin-top:34px;max-width:24ch}
+  .hero .grid{
+    display:grid;
+    grid-template-columns:1.2fr 0.8fr;
+    gap:80px;
+    align-items:center;
+  }
 
-  .box{background:var(--off-white);border:1px solid var(--gray-200);border-radius:8px;padding:48px;margin:40px 0}
-  .box h3{font-size:1.5rem;margin-bottom:24px;color:var(--gray-900)}
-  .box p{font-size:1.125rem;margin-bottom:16px}
-  .box .res{display:grid;grid-template-columns:repeat(2, 1fr);gap:16px;margin:32px 0}
-  .box .res div{padding-left:32px;position:relative;font-size:1.1rem;font-weight:500;color:var(--gray-900)}
-  .box .res div::before{content:"✓";position:absolute;left:0;color:var(--accent);font-weight:700;font-size:1.25rem;line-height:1}
+  .hero h1{
+    margin-bottom:32px;
+    max-width:18ch;
+    line-height:0.95;
+  }
 
-  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;margin-top:48px}
-  .card{background:var(--white);border:1px solid var(--gray-200);border-radius:8px;padding:32px;transition:box-shadow 0.2s}
-  .card:hover{box-shadow:0 4px 12px rgba(0,0,0,0.1)}
-  .card .n{font-size:1.5rem;font-weight:700;color:var(--accent);margin-bottom:8px}
-  .card h3{font-size:1.25rem;margin-bottom:12px;color:var(--gray-900)}
-  .card p{color:var(--gray-700);font-size:1rem;line-height:1.6}
+  .hero p.lede{
+    font-size:1.25rem;
+    color:var(--text-muted);
+    max-width:480px;
+    margin-bottom:40px;
+    line-height:1.7;
+  }
 
-  .why{border-top:none;background:var(--primary)}
-  .why .kicker{color:rgba(255,255,255,0.9)}
-  .why h2{color:var(--white);max-width:24ch;margin-bottom:24px}
-  .why p{color:rgba(255,255,255,0.85);font-size:1.125rem;margin-bottom:16px;max-width:640px}
-  .why .sig{font-size:1.125rem;color:rgba(255,255,255,0.7);font-style:italic}
+  .hero .actions{
+    display:flex;
+    gap:20px;
+  }
 
-  .proof .box{background:var(--white);border:1px solid var(--line);border-left:4px solid var(--gold);border-radius:4px;padding:30px;max-width:760px}
-  .proof h3{font-size:1.35rem;margin-bottom:14px}
-  .proof .res{display:grid;grid-template-columns:1fr 1fr;gap:8px 28px;margin:16px 0 6px}
-  .proof .res div{padding-left:22px;position:relative;color:var(--ink-soft)}
-  .proof .res div::before{content:"✓";position:absolute;left:0;color:var(--gold);font-weight:700}
+  .btn{
+    display:inline-block;
+    padding:16px 32px;
+    font-weight:600;
+    font-size:1rem;
+    border-radius:4px;
+    text-decoration:none;
+    transition:all 0.2s;
+    cursor:pointer;
+    border:none;
+    font-family:'Inter',sans-serif;
+  }
 
-  .demo-video{background:var(--off-white)}
-  .demo-video .video-shell{border:1px solid var(--gray-200);border-radius:8px;background:var(--gray-900);overflow:hidden;box-shadow:0 12px 40px rgba(0,0,0,0.15)}
-  .demo-video video{display:block;width:100%;aspect-ratio:16/9;background:var(--gray-900)}
-  .demo-video .video-note{margin-top:16px;color:var(--gray-700);font-size:1rem}
+  .btn-primary{
+    background:var(--accent);
+    color:var(--bg);
+  }
 
-  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:40px}
-  .step{padding:32px;border:1px solid var(--gray-200);border-radius:8px;background:var(--white)}
-  .step .num{font-size:2rem;font-weight:700;color:var(--accent);margin-bottom:16px;line-height:1}
-  .step h3{font-size:1.25rem;margin-bottom:12px;color:var(--gray-900)}
-  .step p{color:var(--gray-700);font-size:1rem;line-height:1.6}
-  .step .price{color:var(--accent);font-weight:700;font-size:1.25rem}
+  .btn-primary:hover{
+    background:var(--accent-dim);
+    transform:translateY(-2px);
+  }
 
-  .verticals{display:flex;flex-wrap:wrap;gap:12px;margin-top:16px}
-  .verticals span{border:1px solid var(--gray-200);border-radius:100px;padding:12px 24px;background:var(--white);font-size:1rem;color:var(--gray-700);transition:all 0.2s}
-  .verticals span:hover{border-color:var(--accent);color:var(--accent)}
+  .btn-outline{
+    background:transparent;
+    color:var(--text);
+    border:2px solid var(--border);
+  }
 
-  .final{text-align:center;background:var(--off-white);padding:120px 0}
-  .final h2{font-size:clamp(2.5rem,5vw,3.5rem);max-width:24ch;margin:0 auto 32px}
-  .final .contact{margin-top:24px;color:var(--gray-700);font-size:1.125rem}
-  .final .contact a{color:var(--accent);font-weight:600}
+  .btn-outline:hover{
+    border-color:var(--accent);
+    color:var(--accent);
+  }
 
-  footer{padding:40px 0;border-top:1px solid var(--gray-200);color:var(--gray-700);font-size:0.875rem}
-  footer .logo{font-size:1.25rem;font-weight:700;color:var(--primary)}
-  footer .logo span{color:var(--accent)}
-  .footer-text{color:var(--gray-700);margin-bottom:16px;line-height:1.7}
-  .footer-row{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;align-items:center}
+  /* Visual element - document stream */
+  .doc-stream{
+    position:relative;
+    height:400px;
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:8px;
+    padding:32px;
+    overflow:hidden;
+  }
 
-  @media (max-width:780px){
-    .hero .grid,.cards,.steps{grid-template-columns:1fr}
-    .problem ul{grid-template-columns:1fr}
-    .proof .res{grid-template-columns:1fr}
-    .stage{height:300px}
+  .doc-stream::before{
+    content:'INCOMING';
+    position:absolute;
+    top:12px;
+    left:16px;
+    font-family:'Space Grotesk',monospace;
+    font-size:0.75rem;
+    color:var(--text-muted);
+    letter-spacing:0.1em;
+  }
+
+  .doc{
+    background:var(--surface-light);
+    border-left:3px solid var(--accent);
+    padding:16px;
+    margin-bottom:12px;
+    border-radius:4px;
+    font-family:monospace;
+    font-size:0.875rem;
+    color:var(--text-muted);
+    opacity:0;
+    transform:translateX(20px);
+    animation:slideIn 0.5s ease forwards;
+  }
+
+  .doc:nth-child(2){animation-delay:0.3s}
+  .doc:nth-child(3){animation-delay:0.6s}
+  .doc:nth-child(4){animation-delay:0.9s}
+
+  .doc .field{
+    color:var(--accent);
+    font-weight:600;
+  }
+
+  @keyframes slideIn{
+    to{opacity:1;transform:translateX(0)}
+  }
+
+  /* Sections */
+  .section{
+    padding:120px 0;
+    border-top:1px solid var(--border);
+  }
+
+  .section-dark{
+    background:var(--surface);
+  }
+
+  .kicker{
+    font-size:0.75rem;
+    letter-spacing:0.2em;
+    text-transform:uppercase;
+    color:var(--accent);
+    font-weight:600;
+    margin-bottom:16px;
+  }
+
+  .section h2{
+    margin-bottom:24px;
+    max-width:16ch;
+  }
+
+  .section p{
+    color:var(--text-muted);
+    font-size:1.125rem;
+    line-height:1.8;
+    max-width:600px;
+  }
+
+  /* Cards */
+  .cards{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:40px;
+    margin-top:64px;
+  }
+
+  .card{
+    background:var(--surface);
+    border:1px solid var(--border);
+    padding:40px;
+    border-radius:8px;
+    transition:all 0.2s;
+  }
+
+  .card:hover{
+    border-color:var(--accent);
+    transform:translateY(-4px);
+  }
+
+  .card .n{
+    font-family:'Space Grotesk',sans-serif;
+    font-size:3rem;
+    font-weight:700;
+    color:var(--accent);
+    margin-bottom:16px;
+  }
+
+  .card h3{
+    color:var(--text);
+    margin-bottom:12px;
+  }
+
+  .card p{
+    color:var(--text-muted);
+    font-size:1rem;
+    line-height:1.7;
+  }
+
+  /* Problem section */
+  ul.problems{
+    list-style:none;
+    margin-top:48px;
+  }
+
+  ul.problems li{
+    padding:24px 0;
+    border-bottom:1px solid var(--border);
+    color:var(--text-muted);
+    font-size:1.125rem;
+    padding-left:40px;
+    position:relative;
+  }
+
+  ul.problems li::before{
+    content:'→';
+    position:absolute;
+    left:0;
+    color:var(--accent);
+    font-family:'Space Grotesk',sans-serif;
+    font-weight:700;
+    font-size:1.5rem;
+  }
+
+  /* Why section */
+  .why-content{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:80px;
+    align-items:start;
+    margin-top:64px;
+  }
+
+  .why p{
+    margin-bottom:24px;
+  }
+
+  /* Footer */
+  footer{
+    padding:60px 0;
+    border-top:1px solid var(--border);
+    text-align:center;
+    color:var(--text-muted);
+    font-size:0.875rem;
+  }
+
+  /* Responsive */
+  @media (max-width:1024px){
+    .hero .grid{
+      grid-template-columns:1fr;
+    }
+
+    .cards{
+      grid-template-columns:1fr;
+    }
+
+    .why-content{
+      grid-template-columns:1fr;
+    }
+  }
+
+  @media (max-width:768px){
+    .wrap{
+      padding:0 24px;
+    }
+
+    .hero{
+      padding:80px 0;
+    }
+
+    h1{
+      font-size:3rem;
+    }
+
+    .doc-stream{
+      display:none;
+    }
   }
 </style>
 </head>
 <body>
 
-<nav><div class="wrap">
-  <a class="logo" href="/" aria-label="Sentari Software home" style="display:flex;align-items:center;gap:11px;text-decoration:none">
-    <svg width="36" height="36" viewBox="20 20 160 160" aria-hidden="true"><circle cx="100" cy="100" r="72" fill="#101a26"/><circle cx="100" cy="100" r="62" fill="none" stroke="#c79a4f" stroke-width="2" opacity="0.5"/><rect x="62" y="74" width="46" height="8" rx="4" fill="#c79a4f"/><rect x="62" y="96" width="34" height="8" rx="4" fill="#c79a4f" opacity="0.85"/><rect x="62" y="118" width="22" height="8" rx="4" fill="#c79a4f" opacity="0.7"/><path d="M108 100 H140" stroke="#c79a4f" stroke-width="8" stroke-linecap="round"/><path d="M132 88 L146 100 L132 112" fill="none" stroke="#c79a4f" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    <span class="mark"><span class="word">Sentari<span style="color:var(--gold)">.</span></span><small class="mark-tag">Latin: to sense</small></span>
-  </a>
-  <a class="cta" href="https://cal.com/cartrel-james-dwefpy/free-20-minute-call" target="_blank" rel="noopener">Book a free call →</a>
-</div></nav>
+<nav>
+  <div class="wrap">
+    <a class="logo" href="/">Sent<span>.</span></a>
+    <a class="cta" href="https://cal.com/cartrel-james-dwefpy/free-20-minute-call" target="_blank" rel="noopener">Book a call</a>
+  </div>
+</nav>
 
-<header class="hero"><div class="wrap"><div class="grid">
-  <div>
-    <span class="kicker">Managed document automation</span>
-    <h1>Government-grade automation for businesses without IT departments.</h1>
-    <p class="lede">Sentari builds document workflows that extract data, track status, and route everything into one clean queue. Then we run it for you — so you don't need IT staff.</p>
-    <div class="actions">
-      <a class="btn" href="https://cal.com/cartrel-james-dwefpy/free-20-minute-call" target="_blank" rel="noopener">Book a free 20-minute call</a>
-      <a class="btn btn-ghost" href="https://demo.sentarisoftware.com">See it working</a>
+<header class="hero">
+  <div class="wrap">
+    <div class="grid">
+      <div>
+        <h1>Stop retyping. Stop chasing paper.</h1>
+        <p class="lede">We build document workflows that extract data, track status, and route everything into one clean queue. Then we run it for you — so you don't need IT staff.</p>
+        <div class="actions">
+          <a class="btn btn-primary" href="https://demo.sentarisoftware.com">See the demo</a>
+          <a class="btn btn-outline" href="https://cal.com/cartrel-james-dwefpy/free-20-minute-call">Book a call</a>
+        </div>
+      </div>
+      <div class="doc-stream">
+        <div class="doc">
+          Marriage License<br>
+          Party 1: <span class="field">SARAH MITCHELL</span><br>
+          Party 2: <span class="field">JAMES RODRIGUEZ</span><br>
+          Date: <span class="field">2024-07-15</span>
+        </div>
+        <div class="doc">
+          Title Commitment<br>
+          Property: <span class="field">1425 MAPLE ST</span><br>
+          Buyer: <span class="field">THOMPSON LLC</span><br>
+          Status: <span class="field">CLEARED</span>
+        </div>
+        <div class="doc">
+          Receipt Invoice<br>
+          Amount: <span class="field">$1,247.50</span><br>
+          Vendor: <span class="field">ACME SUPPLY</span><br>
+          GL: <span class="field">5020-OFFICE</span>
+        </div>
+        <div class="doc">
+          Claim Document<br>
+          Claim #: <span class="field">CL-2024-8832</span><br>
+          Insured: <span class="field">PETERSON AUTO</span><br>
+          Status: <span class="field">PENDING REVIEW</span>
+        </div>
+      </div>
     </div>
   </div>
-  <div class="stage" aria-hidden="true">
-    <span class="label l">Paper in</span><span class="label r">Tracked, done</span>
-    <div class="doc d1"></div><div class="doc d2"></div><div class="doc d3"></div>
-    <div class="queue">
-      <div class="row r1"><span class="tick"></span><span class="bar"></span></div>
-      <div class="row r2"><span class="tick"></span><span class="bar"></span></div>
-      <div class="row r3"><span class="tick"></span><span class="bar"></span></div>
+</header>
+
+<section class="section">
+  <div class="wrap">
+    <span class="kicker">What we build</span>
+    <h2>Document systems that read themselves.</h2>
+    <p>Instead of staff manually opening PDFs, extracting data, and retyping it into your system, we build automations that do it all — and route everything into one tracked workflow.</p>
+
+    <ul class="problems">
+      <li>Shared inboxes where requests get buried</li>
+      <li>Manual data entry from PDFs and scans</li>
+      <li>No visibility into who's working on what</li>
+      <li>Documents falling through the cracks</li>
+      <li>No audit trail for compliance</li>
+    </ul>
+  </div>
+</section>
+
+<section class="section section-dark">
+  <div class="wrap">
+    <span class="kicker">What makes us different</span>
+    <h2>We run it. You just use it.</h2>
+    <p class="lede">Most automation shops hand you code and wish you luck. We build the system and keep it running — monitoring, updating, and growing it with your business.</p>
+
+    <div class="cards">
+      <div class="card">
+        <div class="n">01</div>
+        <h3>Production-grade</h3>
+        <p>Built and tested in compliance-grade environments. Zero tolerance for failure. Your system inherits that same rigor.</p>
+      </div>
+      <div class="card">
+        <div class="n">02</div>
+        <h3>Real AI extraction</h3>
+        <p>Not chatbots. Not keyword matching. Actual data pulled from documents: names, dates, amounts, case numbers. Gemini-powered with human review.</p>
+      </div>
+      <div class="card">
+        <div class="n">03</div>
+        <h3>Managed forever</h3>
+        <p>We don't disappear after launch. We keep it running, updated, and growing with your business — so you don't need IT staff.</p>
+      </div>
     </div>
   </div>
-</div></div></header>
+</section>
 
-<section class="demo-video" id="demo-video"><div class="wrap">
-  <div class="sec-head">
-    <span class="kicker">See it in action</span>
-    <h2>Watch the technician queue become supervisor control.</h2>
-    <p>A narrated walkthrough of the hosted Sentari demo, using fake sample documents only.</p>
+<section class="section">
+  <div class="wrap">
+    <span class="kicker">Who we help</span>
+    <h2>Document-heavy firms without IT departments.</h2>
+    <p>10-100 person offices drowning in paperwork but too small for enterprise software. Title companies, law firms, accounting, property management, insurance agencies.</p>
   </div>
-  <div class="video-shell">
-    <video controls preload="metadata" poster="media/sentari-demo-preview.png?v=relief-visible">
-      <source src="media/sentari-demo-narrated.mp4?v=relief-visible" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
+</section>
+
+<section class="section section-dark">
+  <div class="wrap">
+    <span class="kicker">See it working</span>
+    <h2>Watch the demo.</h2>
+    <p>See how document intake, extraction, and tracking works in real-time. Uses fake data — no production records needed.</p>
   </div>
-  <p class="video-note">Want to try the live version? <a href="https://demo.sentarisoftware.com">Open the hosted demo</a>.</p>
-</div></section>
+</section>
 
-<section class="problem"><div class="wrap">
-  <div class="sec-head">
-    <span class="kicker">If this is your day</span>
-    <h2>You don't need a bigger system. You need the busywork to run itself.</h2>
+<footer>
+  <div class="wrap">
+    <p>Sentari Software — We build document workflows that actually stay running.</p>
+    <p>contact@sentarisoftware.com | (314) 403-6685</p>
   </div>
-  <ul>
-    <li>A shared inbox no one can keep up with</li>
-    <li>Staff retyping data off PDFs and scans</li>
-    <li>Documents lost between people and steps</li>
-    <li>Can't afford enterprise software or dedicated IT staff</li>
-  </ul>
-  <p class="punch">Enterprise tools are overkill. DIY no-code never gets finished. I build it, run it, and you just use it.</p>
-</div></section>
-
-<section><div class="wrap">
-  <div class="sec-head"><span class="kicker">What makes Sentari different</span>
-    <h2>I build it, run it, and you just use it.</h2>
-    <p>That's the difference between code handoff and managed automation.</p></div>
-  <div class="cards">
-    <div class="card"><div class="n">01</div><h3>Production-grade reliability</h3>
-      <p>Built and tested in compliance-grade government environments. Zero tolerance for failure. Your system inherits that same rigor.</p></div>
-    <div class="card"><div class="n">02</div><h3>AI that actually reads documents</h3>
-      <p>Not chatbots. Not keyword matching. Real extraction: names, dates, amounts, case numbers from PDFs and scans. Gemini-powered with human review.</p></div>
-    <div class="card"><div class="n">03</div><h3>Managed forever</h3>
-      <p>I don't hand off code and disappear. I keep it running, updated, and growing with your business — so you don't need IT staff.</p></div>
-  </div>
-</div></section>
-
-<section><div class="wrap">
-  <div class="sec-head"><span class="kicker">Why now</span>
-    <h2>Do more without hiring.</h2>
-    <p>When budgets are tight, the paperwork doesn't stop — but you can't always add staff. Automating your document work gives your team hours back every week, cuts costly re-keying errors, and costs a fraction of what enterprise vendors charge. A one-time build starts at $2,000 — less than a month of a part-time hire, and it pays for itself fast.</p>
-  </div>
-</div></section>
-
-<section class="why"><div class="wrap">
-  <span class="kicker">Why Sentari</span>
-  <h2>Built and tested where failure is not an option.</h2>
-  <p>I've built document automation for production environments where downtime means compliance violations, lost records, and public trust damage. That same rigor carries into every system I build for you.</p>
-  <p>The difference? I don't just write code. I deploy it, run it, monitor it, and grow it with your business. You're not buying a prototype or a handoff — you're buying a system that stays working.</p>
-  <p class="sig">— Cartrel, Sentari Software</p>
-</div></section>
-
-<section class="proof"><div class="wrap">
-  <div class="sec-head"><span class="kicker">What This Solves</span>
-    <h2>The problem every document-heavy office knows.</h2></div>
-  <div class="box">
-    <h3>The Before Picture</h3>
-    <p style="color:var(--ink-soft)">A shared inbox with 50-200 documents arriving weekly. Staff use sticky notes to track what's theirs. No one knows what's stuck, what's waiting, or who's handling it. Managers spend hours answering "where are we on this?" Documents get lost between people and steps.</p>
-    <p style="color:var(--ink-soft)">Your staff retypes the same data from PDFs into your system. Every. Single. Time. Errors creep in. Deadlines slip. Compliance risk rises. And you can't hire fast enough to keep up.</p>
-
-    <h3 style="margin-top:30px">The After Picture</h3>
-    <p style="color:var(--ink-soft)">Every incoming document is read automatically. Key fields are extracted into a clean, searchable queue. Staff see their assigned work with clear status. Managers see the whole workflow at a glance. Nothing gets stuck because someone forgot.</p>
-    <p style="color:var(--ink-soft)">Your staff review and approve — they don't retype. Errors drop because machines handle the data entry. Everything is tracked and auditable. And you get your hours back.</p>
-
-    <div class="res" style="margin-top:30px">
-      <div>Zero lost documents</div>
-      <li>87% less manual data entry</li>
-      <li>Full audit visibility</li>
-      <li>Complete exception handling</li>
-    </div>
-    <p style="margin-top:16px"><a class="btn btn-ghost" style="margin:0" href="https://demo.sentarisoftware.com">See it in action →</a></p>
-  </div>
-</div></section>
-
-<section><div class="wrap">
-  <div class="sec-head"><span class="kicker">How it works</span>
-    <h2>Simple, fixed-scope, no surprises.</h2></div>
-  <div class="steps">
-    <div class="step"><div class="num">1</div><h3>Free 20-minute call</h3><p>We find your most painful document workflow and whether there's an easy win.</p></div>
-    <div class="step"><div class="num">2</div><h3>Fixed-scope build</h3><p>One pipeline, built and handed over in 1–2 weeks. <span class="price">From $2,000.</span></p></div>
-    <div class="step"><div class="num">3</div><h3>Optional managed service</h3><p>I keep it running and improving as you grow. <span class="price">From $500/mo.</span></p></div>
-  </div>
-</div></section>
-
-<section><div class="wrap">
-  <div class="sec-head"><span class="kicker">Who I help</span>
-    <h2>Professional services too small for enterprise tools, too complex for DIY no-code.</h2>
-    <p>10-100 person offices drowning in documents but without dedicated IT staff.</p></div>
-  <div class="verticals">
-    <span>Title &amp; escrow companies</span><span>Real-estate &amp; probate law firms</span>
-    <span>Bookkeeping &amp; accounting</span><span>Property management</span><span>Independent insurance agencies</span><span>Small government offices</span>
-  </div>
-</div></section>
-
-<section class="final" id="contact"><div class="wrap">
-  <span class="kicker">Let's talk</span>
-  <h2>Find out what your firm could automate.</h2>
-  <a class="btn" href="https://cal.com/cartrel-james-dwefpy/free-20-minute-call" target="_blank" rel="noopener">Book a free 20-minute call</a>
-  <p class="contact">Prefer to talk? Call <a href="tel:+13144036685" style="color:var(--gold)">(314) 403-6685</a> &nbsp;·&nbsp; email <a href="mailto:info@sentarisoftware.com" style="color:var(--gold)">info@sentarisoftware.com</a></p>
-  <form action="https://formsubmit.co/info@sentarisoftware.com" method="POST" style="max-width:520px;margin:30px auto 0;text-align:left;display:grid;gap:12px">
-    <input type="hidden" name="_subject" value="New inquiry — sentarisoftware.com">
-    <input type="hidden" name="_captcha" value="false">
-    <input type="hidden" name="_template" value="table">
-    <input name="name" required placeholder="Your name" style="padding:13px 14px;border:1px solid var(--line);border-radius:3px;font:inherit;background:var(--white);color:var(--ink);width:100%">
-    <input name="email" type="email" required placeholder="Your email" style="padding:13px 14px;border:1px solid var(--line);border-radius:3px;font:inherit;background:var(--white);color:var(--ink);width:100%">
-    <input name="firm" placeholder="Your firm (optional)" style="padding:13px 14px;border:1px solid var(--line);border-radius:3px;font:inherit;background:var(--white);color:var(--ink);width:100%">
-    <textarea name="message" required rows="3" placeholder="What's eating your team's time?" style="padding:13px 14px;border:1px solid var(--line);border-radius:3px;font:inherit;background:var(--white);color:var(--ink);width:100%;resize:vertical"></textarea>
-    <button type="submit" class="btn" style="border:none;cursor:pointer">Send message</button>
-  </form>
-</div></section>
-
-<footer><div class="wrap" style="width:100%">
-  <p class="footer-origin"><strong>Sentari</strong> &mdash; from the Latin <em>sentire</em>, &ldquo;to sense&rdquo;: software that reads your documents, so your team doesn&rsquo;t have to.</p>
-  <div class="footer-row">
-    <div class="logo">Sentari<span style="color:var(--gold)">.</span> Software</div>
-    <div>Document &amp; workflow automation · Secure, fully managed, built to last</div>
-  </div>
-</div></footer>
+</footer>
 
 </body>
 </html>
