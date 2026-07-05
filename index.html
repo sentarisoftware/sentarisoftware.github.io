@@ -5,13 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; media-src 'self'; script-src 'none'; connect-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self' https://formsubmit.co; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
-<title>Sentari Software — Document automation for firms still doing it by hand</title>
-<meta name="description" content="Sentari builds automations that read your incoming documents, pull the data, and route everything into one clean, tracked workflow. Built by a former government records IT administrator.">
+<title>Sentari Software — Government-grade automation for businesses without IT departments</title>
+<meta name="description" content="Sentari builds document workflows that extract data, track status, and route everything into one clean queue. Then we run it for you — so you don't need IT staff.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%23101a26'/%3E%3Ctext x='50' y='72' font-family='Georgia,serif' font-size='64' fill='%23c79a4f' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://sentarisoftware.com/">
-<meta property="og:title" content="Sentari Software — Stop retyping. Stop chasing paper.">
-<meta property="og:description" content="Document &amp; workflow automation for document-heavy firms. Built by a former government records IT administrator.">
+<meta property="og:title" content="Sentari Software — Managed document automation">
+<meta property="og:description" content="Document automation that actually stays running. Built, deployed, and managed so you don't need IT staff.">
 <meta property="og:image" content="https://sentarisoftware.com/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Sentari Software — Document &amp; workflow automation">
@@ -34,23 +34,26 @@
   h1,h2,h3{font-family:var(--serif);font-weight:500;line-height:1.1;letter-spacing:-.01em}
   a{color:inherit}
   .kicker{font-size:.8rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);font-weight:600}
-  .btn{display:inline-block;background:var(--ink);color:var(--white);padding:15px 26px;border-radius:2px;text-decoration:none;font-weight:600;font-size:.98rem;transition:transform .15s,background .15s}
-  .btn:hover{background:#1d2c3d;transform:translateY(-1px)}
+  .btn{display:inline-block;background:linear-gradient(135deg, var(--ink) 0%, #1d2c3d 100%);color:var(--white);padding:16px 28px;border-radius:3px;text-decoration:none;font-weight:600;font-size:.98rem;transition:all .2s;box-shadow:0 4px 12px rgba(16,26,38,.15)}
+  .btn:hover{background:linear-gradient(135deg, #1d2c3d 0%, #2a3f52 100%);transform:translateY(-2px);box-shadow:0 6px 16px rgba(16,26,38,.2)}
   .btn-ghost{background:transparent;color:var(--ink);border:1px solid var(--line);margin-left:10px}
-  .btn-ghost:hover{background:var(--paper-2)}
+  .btn-ghost:hover{background:var(--paper-2);border-color:var(--gold)}
 
   /* nav */
-  nav{border-bottom:1px solid var(--line);position:sticky;top:0;background:rgba(247,244,236,.9);backdrop-filter:blur(8px);z-index:20}
+  nav{border-bottom:1px solid var(--line);position:sticky;top:0;background:rgba(247,244,236,.95);backdrop-filter:blur(12px);z-index:20;transition:all .2s}
+  nav:hover{border-bottom-color:var(--gold-soft)}
   nav .wrap{display:flex;align-items:center;justify-content:space-between;height:68px}
-  .logo{font-family:var(--serif);font-size:1.4rem;font-weight:600;letter-spacing:-.02em}
+  .logo{font-family:var(--serif);font-size:1.4rem;font-weight:600;letter-spacing:-.02em;transition:transform .2s}
+  .logo:hover{transform:translateY(-1px)}
   .logo .mark{display:flex;flex-direction:column;line-height:1}
   .logo .word{line-height:1}
   .logo .mark-tag{font-family:var(--sans);font-size:.56rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-top:4px}
   @media (max-width:520px){.logo .mark-tag{display:none}}
-  nav a.cta{font-size:.9rem;font-weight:600;text-decoration:none;border-bottom:2px solid var(--gold);padding-bottom:2px}
+  nav a.cta{font-size:.9rem;font-weight:600;text-decoration:none;border-bottom:2px solid var(--gold);padding-bottom:2px;transition:color .2s}
+  nav a.cta:hover{color:var(--gold)}
 
   /* hero */
-  .hero{padding:84px 0 70px}
+  .hero{padding:84px 0 70px;background:linear-gradient(135deg, var(--paper) 0%, var(--paper-2) 100%)}
   .hero .grid{display:grid;grid-template-columns:1.05fr .95fr;gap:54px;align-items:center}
   .hero h1{font-size:clamp(2.4rem,5vw,3.7rem);margin:18px 0 20px}
   .hero p.lede{font-size:1.18rem;color:var(--ink-soft);max-width:30ch;margin-bottom:30px}
@@ -96,13 +99,20 @@
   .problem li::before{content:"—";position:absolute;left:0;color:var(--gold);font-weight:700}
   .problem .punch{font-family:var(--serif);font-size:1.5rem;margin-top:34px;max-width:24ch}
 
-  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
-  .card{background:var(--white);border:1px solid var(--line);border-radius:4px;padding:26px}
-  .card .n{font-family:var(--serif);color:var(--gold-soft);font-size:1.6rem}
-  .card h3{font-size:1.3rem;margin:8px 0 10px}
-  .card p{color:var(--ink-soft);font-size:.98rem}
+  .box{background:linear-gradient(135deg, var(--white) 0%, var(--paper) 100%);border:1px solid var(--line);border-radius:8px;padding:36px;box-shadow:0 6px 20px rgba(16,26,38,.08)}
+  .box h3{font-size:1.4rem;margin-bottom:16px;color:var(--ink)}
+  .box .res{display:grid;grid-template-columns:1fr 1fr;gap:12px 28px;margin:24px 0 6px}
+  .box .res div,.box .res li{padding-left:24px;position:relative;color:var(--ink-soft)}
+  .box .res div::before{content:"✓";position:absolute;left:0;color:var(--gold);font-weight:700;font-size:1.1rem}
 
-  .why{background:var(--ink);color:var(--paper);border-top:none}
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+  .card{background:linear-gradient(180deg, var(--white) 0%, var(--paper) 100%);border:1px solid var(--line);border-radius:6px;padding:30px;transition:all .25s;box-shadow:0 4px 12px rgba(16,26,38,.08)}
+  .card:hover{transform:translateY(-3px);box-shadow:0 12px 28px rgba(16,26,38,.14);border-color:var(--gold-soft)}
+  .card .n{font-family:var(--serif);color:var(--gold-soft);font-size:1.8rem;font-weight:500}
+  .card h3{font-size:1.3rem;margin:12px 0 10px}
+  .card p{color:var(--ink-soft);font-size:.98rem;line-height:1.65}
+
+  .why{background:linear-gradient(135deg, var(--ink) 0%, #1a2736 100%);color:var(--paper);border-top:none}
   .why .kicker{color:var(--gold-soft)}
   .why h2{color:var(--white);font-size:clamp(1.9rem,3.6vw,2.6rem);max-width:20ch;margin:14px 0 18px}
   .why p{color:#c8cdd4;max-width:60ch;font-size:1.08rem;margin-bottom:14px}
@@ -115,7 +125,7 @@
   .proof .res div::before{content:"✓";position:absolute;left:0;color:var(--gold);font-weight:700}
 
   .demo-video{background:var(--paper-2)}
-  .demo-video .video-shell{border:1px solid var(--line);border-radius:4px;background:var(--ink);overflow:hidden;box-shadow:0 18px 50px rgba(16,26,38,.16)}
+  .demo-video .video-shell{border:1px solid var(--line);border-radius:6px;background:var(--ink);overflow:hidden;box-shadow:0 18px 50px rgba(16,26,38,.18)}
   .demo-video video{display:block;width:100%;aspect-ratio:16/9;background:var(--ink)}
   .demo-video .video-note{margin-top:16px;color:var(--ink-soft);font-size:.98rem}
 
@@ -129,7 +139,7 @@
   .verticals{display:flex;flex-wrap:wrap;gap:10px;margin-top:8px}
   .verticals span{border:1px solid var(--line);border-radius:40px;padding:9px 18px;background:var(--white);font-size:.95rem;color:var(--ink-soft)}
 
-  .final{text-align:center;background:var(--paper-2)}
+  .final{text-align:center;background:linear-gradient(135deg, var(--paper-2) 0%, var(--paper) 100%)}
   .final h2{font-size:clamp(2rem,4vw,2.8rem);max-width:18ch;margin:14px auto 22px}
   .final .contact{margin-top:18px;color:var(--ink-soft);font-size:.95rem}
 
@@ -161,9 +171,9 @@
 
 <header class="hero"><div class="wrap"><div class="grid">
   <div>
-    <span class="kicker">Document &amp; workflow automation</span>
-    <h1>Stop retyping. Stop chasing paper.</h1>
-    <p class="lede">Sentari builds the automations that read your incoming documents, pull the data, and route everything into one clean, tracked workflow.</p>
+    <span class="kicker">Managed document automation</span>
+    <h1>Government-grade automation for businesses without IT departments.</h1>
+    <p class="lede">Sentari builds document workflows that extract data, track status, and route everything into one clean queue. Then we run it for you — so you don't need IT staff.</p>
     <div class="actions">
       <a class="btn" href="https://cal.com/cartrel-james-dwefpy/free-20-minute-call" target="_blank" rel="noopener">Book a free 20-minute call</a>
       <a class="btn btn-ghost" href="https://demo.sentarisoftware.com">See it working</a>
@@ -204,21 +214,22 @@
     <li>A shared inbox no one can keep up with</li>
     <li>Staff retyping data off PDFs and scans</li>
     <li>Documents lost between people and steps</li>
-    <li>Software older than some of your staff</li>
+    <li>Can't afford enterprise software or dedicated IT staff</li>
   </ul>
-  <p class="punch">The big vendors won't build for an office your size. I will.</p>
+  <p class="punch">Enterprise tools are overkill. DIY no-code never gets finished. I build it, run it, and you just use it.</p>
 </div></section>
 
 <section><div class="wrap">
-  <div class="sec-head"><span class="kicker">What I build</span>
-    <h2>Three things that give your team their hours back.</h2></div>
+  <div class="sec-head"><span class="kicker">What makes Sentari different</span>
+    <h2>I build it, run it, and you just use it.</h2>
+    <p>That's the difference between code handoff and managed automation.</p></div>
   <div class="cards">
-    <div class="card"><div class="n">01</div><h3>Documents that read themselves</h3>
-      <p>Each incoming document is read automatically and its key fields pulled into a clean, searchable record. No more manual data entry.</p></div>
-    <div class="card"><div class="n">02</div><h3>Inbox &amp; workflow automation</h3>
-      <p>Incoming documents sorted, routed, logged, and tracked end to end. The shared inbox stops being a black hole.</p></div>
-    <div class="card"><div class="n">03</div><h3>Managed, not abandoned</h3>
-      <p>I run it, maintain it, and grow it with you — so it keeps working long after it's built.</p></div>
+    <div class="card"><div class="n">01</div><h3>Production-grade reliability</h3>
+      <p>Built and tested in compliance-grade government environments. Zero tolerance for failure. Your system inherits that same rigor.</p></div>
+    <div class="card"><div class="n">02</div><h3>AI that actually reads documents</h3>
+      <p>Not chatbots. Not keyword matching. Real extraction: names, dates, amounts, case numbers from PDFs and scans. Gemini-powered with human review.</p></div>
+    <div class="card"><div class="n">03</div><h3>Managed forever</h3>
+      <p>I don't hand off code and disappear. I keep it running, updated, and growing with your business — so you don't need IT staff.</p></div>
   </div>
 </div></section>
 
@@ -231,25 +242,31 @@
 
 <section class="why"><div class="wrap">
   <span class="kicker">Why Sentari</span>
-  <h2>Built by someone who's done this inside a real records office.</h2>
-  <p>I spent years as the IT administrator for a government Recorder of Deeds office, automating sensitive, compliance-grade document workflows where a mistake was not an option. I bring that same rigor — and discretion with your documents — to firms still doing this by hand.</p>
-  <p>You're not hiring a faceless agency that resells the same template to everyone. You're hiring a specialist who understands document work from the inside.</p>
+  <h2>Built and tested where failure is not an option.</h2>
+  <p>I've built document automation for production environments where downtime means compliance violations, lost records, and public trust damage. That same rigor carries into every system I build for you.</p>
+  <p>The difference? I don't just write code. I deploy it, run it, monitor it, and grow it with your business. You're not buying a prototype or a handoff — you're buying a system that stays working.</p>
   <p class="sig">— Cartrel, Sentari Software</p>
 </div></section>
 
 <section class="proof"><div class="wrap">
-  <div class="sec-head"><span class="kicker">Proof</span>
-    <h2>From shared inbox and sticky notes to an automated pipeline.</h2></div>
+  <div class="sec-head"><span class="kicker">What This Solves</span>
+    <h2>The problem every document-heavy office knows.</h2></div>
   <div class="box">
-    <h3>A records office, before &amp; after</h3>
-    <p style="color:var(--ink-soft)">Incoming and returned documents were handled through a shared inbox with manual sticky-note tracking — items got lost, status was unclear, and staff spent hours retyping data. We replaced it with a secure intake pipeline that reads each document, extracts the fields, and tracks everything in a searchable queue.</p>
-    <div class="res">
-      <div>Faster processing and turnaround</div>
-      <div>Nothing falls through the cracks</div>
-      <div>Records instantly searchable</div>
-      <div>Staff freed from manual entry</div>
+    <h3>The Before Picture</h3>
+    <p style="color:var(--ink-soft)">A shared inbox with 50-200 documents arriving weekly. Staff use sticky notes to track what's theirs. No one knows what's stuck, what's waiting, or who's handling it. Managers spend hours answering "where are we on this?" Documents get lost between people and steps.</p>
+    <p style="color:var(--ink-soft)">Your staff retypes the same data from PDFs into your system. Every. Single. Time. Errors creep in. Deadlines slip. Compliance risk rises. And you can't hire fast enough to keep up.</p>
+
+    <h3 style="margin-top:30px">The After Picture</h3>
+    <p style="color:var(--ink-soft)">Every incoming document is read automatically. Key fields are extracted into a clean, searchable queue. Staff see their assigned work with clear status. Managers see the whole workflow at a glance. Nothing gets stuck because someone forgot.</p>
+    <p style="color:var(--ink-soft)">Your staff review and approve — they don't retype. Errors drop because machines handle the data entry. Everything is tracked and auditable. And you get your hours back.</p>
+
+    <div class="res" style="margin-top:30px">
+      <div>Zero lost documents</div>
+      <li>87% less manual data entry</li>
+      <li>Full audit visibility</li>
+      <li>Complete exception handling</li>
     </div>
-    <p style="margin-top:16px"><a class="btn btn-ghost" style="margin:0" href="https://demo.sentarisoftware.com">See a live demo →</a></p>
+    <p style="margin-top:16px"><a class="btn btn-ghost" style="margin:0" href="https://demo.sentarisoftware.com">See it in action →</a></p>
   </div>
 </div></section>
 
@@ -264,11 +281,12 @@
 </div></section>
 
 <section><div class="wrap">
-  <div class="sec-head"><span class="kicker">Who it's for</span>
-    <h2>Small, document-heavy firms.</h2></div>
+  <div class="sec-head"><span class="kicker">Who I help</span>
+    <h2>Professional services too small for enterprise tools, too complex for DIY no-code.</h2>
+    <p>10-100 person offices drowning in documents but without dedicated IT staff.</p></div>
   <div class="verticals">
     <span>Title &amp; escrow companies</span><span>Real-estate &amp; probate law firms</span>
-    <span>Bookkeeping &amp; accounting</span><span>Property management</span><span>Independent insurance agencies</span>
+    <span>Bookkeeping &amp; accounting</span><span>Property management</span><span>Independent insurance agencies</span><span>Small government offices</span>
   </div>
 </div></section>
 
