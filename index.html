@@ -6,484 +6,503 @@
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; media-src 'self'; script-src 'none'; connect-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self' https://formsubmit.co; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <title>Sentari Software — Document automation for firms still doing it by hand</title>
-<meta name="description" content="We build document workflows that extract data, track status, and route everything into one clean queue. Then we run it for you.">
+<meta name="description" content="Sentari builds automations that read your incoming documents, pull the data, and route everything into one clean, tracked workflow. Built by a former government records IT administrator.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%230b1220'/%3E%3Ctext x='50' y='72' font-family='Georgia,serif' font-size='64' fill='%23e6b355' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://sentarisoftware.com/">
+<meta property="og:title" content="Sentari Software — Stop retyping. Stop chasing paper.">
+<meta property="og:description" content="Document &amp; workflow automation for document-heavy firms. Built by a former government records IT administrator.">
+<meta property="og:image" content="https://sentarisoftware.com/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg:#0e0e0e;
-    --surface:#1a1a1a;
-    --surface-light:#252525;
-    --accent:#00e5ff;
-    --accent-dim:#00b3cc;
-    --text:#f5f5f5;
-    --text-muted:#999;
-    --border:#333;
+    --bg:#0b1220; --bg-2:#0e1a2b; --panel:#122036; --panel-2:#16263f;
+    --paper:#f6f2e9; --paper-2:#efe9db; --white:#fffdf8;
+    --ink:#0b1220; --ink-soft:#4a5464;
+    --text-dk:#e9eef6; --text-dk-soft:#9db0c8; --line-dk:rgba(255,255,255,.10);
+    --line:#e2dccd;
+    --gold:#e6b355; --gold-deep:#c98a2c; --gold-soft:#f0c877;
+    --cyan:#3fd6c6; --cyan-deep:#1fb3a6;
+    --serif:'Fraunces',Georgia,'Times New Roman',serif;
+    --sans:'Inter',-apple-system,Segoe UI,Roboto,sans-serif;
+    --mono:'IBM Plex Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
   }
-
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
-  body{
-    font-family:'Inter',sans-serif;
-    background:var(--bg);
-    color:var(--text);
-    line-height:1.6;
-    overflow-x:hidden;
+  body{font-family:var(--sans);color:var(--text-dk);background:var(--bg);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  .wrap{max-width:1140px;margin:0 auto;padding:0 28px}
+  h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.06;letter-spacing:-.015em;text-wrap:balance}
+  a{color:inherit}
+
+  .kicker{display:inline-flex;align-items:center;gap:9px;font-family:var(--mono);font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);font-weight:500}
+  .kicker::before{content:"";width:26px;height:1px;background:linear-gradient(90deg,var(--gold),transparent)}
+  .kicker.cy{color:var(--cyan)}.kicker.cy::before{background:linear-gradient(90deg,var(--cyan),transparent)}
+
+  .btn{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,var(--gold-soft),var(--gold-deep));color:#241503;padding:15px 28px;border-radius:8px;text-decoration:none;font-weight:700;font-size:1rem;box-shadow:0 8px 26px rgba(230,179,85,.28);transition:transform .16s,box-shadow .16s}
+  .btn:hover{transform:translateY(-2px);box-shadow:0 14px 36px rgba(230,179,85,.42)}
+  .btn-ghost{background:transparent;color:var(--text-dk);border:1px solid var(--line-dk);box-shadow:none;padding:14px 24px}
+  .btn-ghost:hover{background:rgba(255,255,255,.05);border-color:rgba(255,255,255,.24)}
+  .btn-ink{background:var(--ink);color:var(--white);box-shadow:0 8px 24px rgba(11,18,32,.25)}
+  .btn-ink:hover{box-shadow:0 14px 34px rgba(11,18,32,.35)}
+
+  /* ---- nav ---- */
+  nav{position:sticky;top:0;z-index:40;background:rgba(11,18,32,.72);backdrop-filter:blur(14px);border-bottom:1px solid var(--line-dk)}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:72px}
+  .logo{display:flex;align-items:center;gap:11px;text-decoration:none}
+  .logo .word{font-family:var(--serif);font-size:1.42rem;font-weight:700;letter-spacing:-.02em;line-height:1}
+  .logo .mark-tag{font-family:var(--mono);font-size:.56rem;font-weight:500;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);display:block;margin-top:3px}
+  @media (max-width:520px){.logo .mark-tag{display:none}}
+  nav .navcta{display:inline-flex;align-items:center;gap:8px;font-size:.92rem;font-weight:600;text-decoration:none;padding:9px 18px;border:1px solid rgba(230,179,85,.4);border-radius:7px;color:var(--gold-soft);transition:background .15s,border-color .15s}
+  nav .navcta:hover{background:rgba(230,179,85,.12);border-color:var(--gold)}
+
+  /* ---- glow helpers ---- */
+  .orb{position:absolute;border-radius:50%;filter:blur(70px);opacity:.55;pointer-events:none}
+  @keyframes drift{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(30px,-24px) scale(1.12)}}
+  @keyframes drift2{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(-34px,26px) scale(1.08)}}
+
+  /* ---- hero ---- */
+  .hero{position:relative;padding:92px 0 60px;overflow:hidden;
+    background:
+      radial-gradient(1100px 520px at 78% -6%, rgba(63,214,198,.14), transparent 60%),
+      radial-gradient(900px 480px at 8% 8%, rgba(230,179,85,.16), transparent 62%),
+      linear-gradient(180deg,var(--bg),var(--bg-2))}
+  .hero::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:.5;
+    background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);
+    background-size:52px 52px;mask-image:radial-gradient(circle at 50% 30%,#000,transparent 78%)}
+  .hero .orb.a{width:340px;height:340px;background:var(--gold);left:-60px;top:-40px;animation:drift 12s ease-in-out infinite}
+  .hero .orb.b{width:300px;height:300px;background:var(--cyan);right:2%;top:20%;opacity:.4;animation:drift2 14s ease-in-out infinite}
+  .hero .grid{position:relative;z-index:2;display:grid;grid-template-columns:1.08fr .92fr;gap:52px;align-items:center}
+  .hero h1{font-size:clamp(2.6rem,5.4vw,4.15rem);margin:20px 0 22px;letter-spacing:-.025em}
+  .hero h1 .hl{background:linear-gradient(120deg,var(--gold-soft),var(--cyan));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .hero p.lede{font-size:1.2rem;color:var(--text-dk-soft);max-width:34ch;margin-bottom:30px}
+  .hero .actions{display:flex;flex-wrap:wrap;align-items:center;gap:12px}
+
+  /* stat strip */
+  .stats{position:relative;z-index:2;margin-top:56px;display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line-dk);border:1px solid var(--line-dk);border-radius:14px;overflow:hidden}
+  .stats div{background:rgba(255,255,255,.02);padding:24px 16px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:10px}
+  .stats .fig{font-family:var(--serif);font-size:1.75rem;font-weight:600;color:var(--white);line-height:1;white-space:nowrap;display:inline-flex;align-items:baseline;gap:6px}
+  .stats .fig em{font-style:normal;font-family:var(--sans);font-size:.92rem;font-weight:600;color:var(--gold);letter-spacing:0}
+  .stats .lab{font-family:var(--mono);font-size:.64rem;letter-spacing:.13em;text-transform:uppercase;color:var(--text-dk-soft);line-height:1.3}
+
+  /* ---- app-window pipeline ---- */
+  .window{position:relative;border-radius:16px;background:linear-gradient(180deg,var(--panel),var(--bg-2));border:1px solid var(--line-dk);
+     box-shadow:0 30px 80px rgba(0,0,0,.5),inset 0 1px 0 rgba(255,255,255,.06);overflow:hidden}
+  .window::before{content:"";position:absolute;inset:-1px;border-radius:16px;padding:1px;pointer-events:none;
+     background:linear-gradient(135deg,rgba(230,179,85,.6),rgba(63,214,198,.5),transparent 60%);
+     -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude}
+  .window .bar{display:flex;align-items:center;gap:7px;padding:12px 16px;border-bottom:1px solid var(--line-dk);background:rgba(255,255,255,.02)}
+  .window .bar i{width:11px;height:11px;border-radius:50%;background:#33405a;display:block}
+  .window .bar i:nth-child(1){background:#e0603f}.window .bar i:nth-child(2){background:var(--gold)}.window .bar i:nth-child(3){background:var(--cyan)}
+  .window .bar span{margin-left:10px;font-family:var(--mono);font-size:.72rem;color:var(--text-dk-soft)}
+  .stage{position:relative;height:320px}
+  .stage .lab{position:absolute;top:14px;font-family:var(--mono);font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;color:#6f819b}
+  .stage .lab.l{left:18px}.stage .lab.r{right:18px;color:var(--cyan)}
+  .doc{position:absolute;left:20px;width:104px;height:130px;background:linear-gradient(180deg,#f4f0e6,#e6dece);border-radius:6px;
+     box-shadow:0 10px 26px rgba(0,0,0,.4);padding:13px}
+  .doc::before,.doc::after{content:"";display:block;height:6px;background:#c9bfa6;border-radius:3px;margin-bottom:8px}
+  .doc::before{width:66%}.doc::after{width:88%;box-shadow:0 13px 0 #d3cab2,0 26px 0 #d3cab2,0 39px 0 #d3cab2}
+  .queue{position:absolute;right:22px;top:58px;width:168px}
+  .row{display:flex;align-items:center;gap:9px;background:rgba(63,214,198,.08);border:1px solid rgba(63,214,198,.28);border-left:3px solid var(--cyan);
+     border-radius:7px;padding:10px 11px;margin-bottom:10px;opacity:0;transform:translateX(14px)}
+  .row .tick{width:16px;height:16px;border-radius:50%;background:var(--cyan);flex:none;position:relative;box-shadow:0 0 12px rgba(63,214,198,.6)}
+  .row .tick::after{content:"";position:absolute;left:5px;top:3px;width:4px;height:8px;border:solid #06231f;border-width:0 2px 2px 0;transform:rotate(45deg)}
+  .row .bar2{height:6px;background:rgba(233,238,246,.5);border-radius:3px;width:74%}
+  @keyframes fly{0%{left:20px;top:96px;opacity:0;transform:rotate(-6deg)}12%{opacity:1}
+     68%{left:calc(100% - 150px);top:62px;opacity:1;transform:rotate(0)}84%{opacity:0}100%{opacity:0}}
+  @keyframes settle{to{opacity:1;transform:translateX(0)}}
+  .doc.d1{animation:fly 6s ease-in-out infinite}
+  .doc.d2{animation:fly 6s ease-in-out 2s infinite}
+  .doc.d3{animation:fly 6s ease-in-out 4s infinite}
+  .row.r1{animation:settle .5s ease 1.6s forwards}
+  .row.r2{animation:settle .5s ease 3.6s forwards}
+  .row.r3{animation:settle .5s ease 5.6s forwards}
+
+  /* ---- section scaffolding ---- */
+  section{padding:84px 0;position:relative}
+  .band-light{background:var(--paper);color:var(--ink)}
+  .band-light h2{color:var(--ink)}
+  .band-light .sec-head p{color:var(--ink-soft)}
+  .sec-head{max-width:none;margin-bottom:44px}
+  .sec-head h2{font-size:clamp(1.9rem,3.7vw,2.7rem);margin:16px 0 12px}
+  .sec-head p{color:var(--text-dk-soft);font-size:1.1rem;max-width:60ch}
+  .sec-head.center{text-align:center}
+  .sec-head.center .kicker{justify-content:center}
+  .sec-head.center p{margin-left:auto;margin-right:auto}
+
+  /* problem */
+  .problem ul{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:16px 40px;max-width:820px}
+  .problem li{padding-left:34px;position:relative;color:var(--ink-soft);font-size:1.04rem}
+  .problem li::before{content:"";position:absolute;left:0;top:4px;width:20px;height:20px;border-radius:5px;background:rgba(230,179,85,.16);
+     border:1px solid rgba(201,138,44,.4)}
+  .problem li::after{content:"";position:absolute;left:7px;top:10px;width:6px;height:6px;border-radius:50%;background:var(--gold-deep)}
+  .problem .punch{font-family:var(--serif);font-weight:600;font-size:clamp(1.4rem,2.6vw,1.9rem);margin-top:40px;color:var(--ink)}
+  .problem .punch em{font-style:normal;color:var(--gold-deep)}
+
+  /* cards */
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .card{position:relative;background:linear-gradient(180deg,var(--panel),var(--bg-2));border:1px solid var(--line-dk);border-radius:16px;padding:30px 28px;
+     transition:transform .18s,box-shadow .18s,border-color .18s;overflow:hidden}
+  .card::before{content:"";position:absolute;left:0;top:0;height:3px;width:100%;background:linear-gradient(90deg,var(--gold),var(--cyan))}
+  .card:hover{transform:translateY(-5px);box-shadow:0 22px 50px rgba(0,0,0,.4);border-color:rgba(255,255,255,.2)}
+  .card .ic{width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:18px;
+     background:radial-gradient(circle at 30% 30%,rgba(230,179,85,.28),rgba(230,179,85,.08));border:1px solid rgba(230,179,85,.35)}
+  .card:nth-child(2) .ic{background:radial-gradient(circle at 30% 30%,rgba(63,214,198,.28),rgba(63,214,198,.08));border-color:rgba(63,214,198,.4)}
+  .card .ic svg{width:24px;height:24px}
+  .card .n{font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;color:var(--text-dk-soft)}
+  .card h3{font-size:1.32rem;margin:6px 0 12px;color:var(--white)}
+  .card p{color:var(--text-dk-soft);font-size:.99rem}
+
+  /* why-now accent band */
+  .accent{background:
+     radial-gradient(700px 300px at 20% 0%, rgba(230,179,85,.14), transparent 60%),
+     radial-gradient(700px 300px at 90% 100%, rgba(63,214,198,.12), transparent 60%),
+     var(--bg-2)}
+  .accent .inner{display:grid;grid-template-columns:.9fr 1.1fr;gap:44px;align-items:center}
+  .accent h2{font-size:clamp(1.9rem,3.6vw,2.6rem)}
+  .accent p{color:var(--text-dk-soft);font-size:1.1rem;margin-top:14px}
+  .accent .big{font-family:var(--serif);font-size:clamp(3rem,7vw,4.6rem);font-weight:600;line-height:.95;
+     background:linear-gradient(120deg,var(--gold-soft),var(--cyan));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .accent .big small{display:block;font-family:var(--mono);font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;color:var(--text-dk-soft);margin-top:14px;-webkit-text-fill-color:var(--text-dk-soft)}
+
+  /* why sentari */
+  .why{background:linear-gradient(180deg,var(--bg-2),var(--bg));position:relative;overflow:hidden}
+  .why .orb{width:360px;height:360px;background:var(--gold);right:-80px;top:-60px;opacity:.16;animation:drift 15s ease-in-out infinite}
+  .why .inner{position:relative;z-index:2;max-width:760px}
+  .why h2{font-size:clamp(2rem,3.8vw,2.8rem);max-width:26ch;margin:16px 0 20px;color:var(--white)}
+  .why p{color:var(--text-dk-soft);max-width:62ch;font-size:1.1rem;margin-bottom:16px}
+  .why .sig{font-family:var(--serif);font-style:italic;color:var(--gold-soft);font-size:1.12rem;margin-top:10px}
+
+  /* proof before/after */
+  .ba{display:grid;grid-template-columns:1fr auto 1fr;gap:22px;align-items:stretch;max-width:900px}
+  .ba .col{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:26px}
+  .ba .col.after{border-color:rgba(63,214,198,.5);box-shadow:0 16px 40px rgba(31,179,166,.12)}
+  .ba .tag{font-family:var(--mono);font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;font-weight:500;margin-bottom:14px;display:inline-block;padding:5px 11px;border-radius:20px}
+  .ba .before .tag{background:rgba(201,138,44,.12);color:var(--gold-deep)}
+  .ba .after .tag{background:rgba(31,179,166,.14);color:var(--cyan-deep)}
+  .ba ul{list-style:none;display:grid;gap:10px}
+  .ba li{padding-left:26px;position:relative;color:var(--ink-soft);font-size:.98rem}
+  .ba .before li::before{content:"✕";position:absolute;left:0;color:#c98a2c;font-weight:700}
+  .ba .after li::before{content:"✓";position:absolute;left:0;color:var(--cyan-deep);font-weight:700}
+  .ba .arrow{align-self:center;font-size:1.6rem;color:var(--gold);font-weight:700}
+  .proof .cta-row{margin-top:26px}
+
+  /* demo video */
+  .demo .video-shell{border-radius:16px;overflow:hidden;position:relative}
+  .demo .video-shell .bar{display:flex;align-items:center;gap:7px;padding:12px 16px;background:var(--panel);border:1px solid var(--line-dk);border-bottom:none;border-radius:16px 16px 0 0}
+  .demo .video-shell .bar i{width:11px;height:11px;border-radius:50%}
+  .demo .video-shell .bar i:nth-child(1){background:#e0603f}.demo .video-shell .bar i:nth-child(2){background:var(--gold)}.demo .video-shell .bar i:nth-child(3){background:var(--cyan)}
+  .demo .video-shell .bar span{margin-left:10px;font-family:var(--mono);font-size:.72rem;color:var(--text-dk-soft)}
+  .demo .video-shell .pill{margin-left:auto;font-family:var(--mono);font-size:.62rem;letter-spacing:.12em;color:var(--cyan);border:1px solid rgba(63,214,198,.4);padding:3px 9px;border-radius:20px}
+  .demo video{display:block;width:100%;aspect-ratio:16/9;background:#000;box-shadow:0 30px 70px rgba(0,0,0,.5)}
+  .demo .video-note{margin-top:18px;color:var(--text-dk-soft);font-size:.99rem}
+  .demo .video-note a{color:var(--cyan);text-decoration:none;border-bottom:1px solid rgba(63,214,198,.4)}
+
+  /* steps */
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .step{padding:28px 26px;border:1px solid var(--line);border-radius:14px;background:var(--white);position:relative;display:flex;flex-direction:column}
+  .step .num{font-family:var(--serif);font-size:1.2rem;font-weight:600;color:#241503;background:linear-gradient(135deg,var(--gold-soft),var(--gold-deep));
+     width:44px;height:44px;display:flex;align-items:center;justify-content:center;border-radius:12px;margin-bottom:16px;box-shadow:0 8px 20px rgba(230,179,85,.3)}
+  .step h3{font-size:1.16rem;margin-bottom:8px;color:var(--ink)}
+  .step p{color:var(--ink-soft);font-size:.96rem}
+  .step .step-list{list-style:none;display:grid;gap:10px;margin:15px 0 0}
+  .step .step-list li{position:relative;padding-left:25px;font-size:.93rem;color:var(--ink-soft);line-height:1.4}
+  .step .step-list li::before{content:"";position:absolute;left:0;top:6px;width:15px;height:15px;border-radius:50%;background:rgba(31,179,166,.14);border:1px solid rgba(31,179,166,.5)}
+  .step .step-list li::after{content:"";position:absolute;left:5px;top:9px;width:4px;height:7px;border:solid var(--cyan-deep);border-width:0 2px 2px 0;transform:rotate(45deg)}
+  .step .price{margin-top:auto;padding-top:18px;color:var(--gold-deep);font-weight:700;font-size:1.06rem}
+
+  /* verticals */
+  .who-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .vcard{display:flex;gap:16px;align-items:flex-start;padding:24px;border:1px solid var(--line-dk);border-radius:14px;background:rgba(255,255,255,.02);transition:border-color .16s,background .16s,transform .16s}
+  .vcard:hover{border-color:rgba(63,214,198,.4);background:rgba(63,214,198,.05);transform:translateY(-3px)}
+  .vcard .vic{flex:none;width:46px;height:46px;border-radius:12px;display:flex;align-items:center;justify-content:center;color:var(--gold);
+     background:radial-gradient(circle at 30% 30%,rgba(230,179,85,.24),rgba(230,179,85,.06));border:1px solid rgba(230,179,85,.34)}
+  .vcard:nth-child(even) .vic{color:var(--cyan);background:radial-gradient(circle at 30% 30%,rgba(63,214,198,.24),rgba(63,214,198,.06));border-color:rgba(63,214,198,.38)}
+  .vcard .vic svg{width:23px;height:23px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+  .vcard h3{font-size:1.08rem;color:var(--white);margin-bottom:4px;line-height:1.16}
+  .vcard p{font-size:.9rem;color:var(--text-dk-soft);line-height:1.42}
+  .vcard.cta{border-style:dashed;border-color:rgba(230,179,85,.4)}
+  .vcard.cta h3{color:var(--gold-soft)}
+  .vcard.cta a{color:var(--gold-soft);font-weight:600;text-decoration:none;border-bottom:1px solid rgba(230,179,85,.4)}
+
+  /* final */
+  .final{text-align:center;background:
+     radial-gradient(700px 340px at 50% -10%, rgba(230,179,85,.18), transparent 60%),
+     linear-gradient(180deg,var(--bg),var(--bg-2));position:relative;overflow:hidden}
+  .final h2{font-size:clamp(2.1rem,4.3vw,3rem);max-width:26ch;margin:16px auto 14px;color:var(--white)}
+  .final .lead{max-width:52ch;margin:0 auto 24px;color:var(--text-dk-soft);font-size:1.08rem}
+  .final .contact{margin-top:22px;color:var(--text-dk-soft);font-size:.95rem}
+  .final .contact a{color:var(--gold-soft);text-decoration:none}
+  .form-card{max-width:600px;margin:32px auto 0;text-align:left;position:relative;overflow:hidden;
+     background:linear-gradient(180deg,var(--panel),var(--bg-2));border:1px solid var(--line-dk);border-radius:18px;padding:30px 30px 26px;
+     box-shadow:0 30px 70px rgba(0,0,0,.45)}
+  .form-card::before{content:"";position:absolute;left:0;top:0;height:3px;width:100%;background:linear-gradient(90deg,var(--gold),var(--cyan))}
+  .form-card .fh{margin-bottom:22px}
+  .form-card .fh p{color:var(--text-dk-soft);font-size:.95rem;margin-top:8px}
+  form{display:grid;gap:16px;margin:0}
+  .frow{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .field{display:grid;gap:7px}
+  .field label{font-family:var(--mono);font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-dk-soft)}
+  .field label span{color:#6f819b;text-transform:none;letter-spacing:0}
+  form input,form textarea{padding:13px 15px;border:1px solid var(--line-dk);border-radius:10px;font:inherit;background:rgba(255,255,255,.04);color:var(--text-dk);width:100%;transition:border-color .15s,background .15s,box-shadow .15s}
+  form input::placeholder,form textarea::placeholder{color:#607089}
+  form input:focus,form textarea:focus{outline:none;border-color:var(--gold);background:rgba(255,255,255,.06);box-shadow:0 0 0 3px rgba(230,179,85,.14)}
+  form button{border:none;cursor:pointer;justify-content:center;width:100%;font-size:1.05rem;margin-top:4px}
+  .form-note{font-size:.82rem;color:#6f819b;text-align:center;margin-top:2px}
+
+  footer{padding:40px 0;border-top:1px solid var(--line-dk);color:var(--text-dk-soft);font-size:.9rem;background:var(--bg)}
+  footer .footer-origin{text-align:center;font-family:var(--serif);font-size:clamp(1.04rem,1.6vw,1.24rem);color:var(--text-dk);line-height:1.4;padding-bottom:26px;margin-bottom:24px;border-bottom:1px solid var(--line-dk)}
+  footer .footer-origin em{font-style:italic;color:var(--gold-soft);font-weight:500}
+  footer .footer-row{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;align-items:center}
+  footer .logo .word{font-size:1.12rem}
+  @media (min-width:1000px){footer .footer-origin{white-space:nowrap}}
+
+  @media (max-width:820px){
+    .hero{padding:64px 0 40px}
+    .hero .grid,.cards,.steps,.accent .inner{grid-template-columns:1fr}
+    .who-grid{grid-template-columns:1fr}
+    .accent .inner{gap:22px}
+    .stats{grid-template-columns:1fr 1fr}
+    .problem ul{grid-template-columns:1fr}
+    .ba{grid-template-columns:1fr}
+    .ba .arrow{transform:rotate(90deg);justify-self:center}
+    .frow{grid-template-columns:1fr}
   }
-
-  /* Typography */
-  h1,h2,h3{
-    font-family:'Space Grotesk',sans-serif;
-    font-weight:700;
-    line-height:1.1;
-    letter-spacing:-0.03em;
-  }
-
-  h1{font-size:clamp(3rem,8vw,6rem)}
-  h2{font-size:clamp(2rem,5vw,3.5rem)}
-  h3{font-size:1.75rem}
-
-  /* Layout */
-  .wrap{max-width:1200px;margin:0 auto;padding:0 40px}
-
-  /* Navigation */
-  nav{
-    padding:24px 0;
-    border-bottom:1px solid var(--border);
-    position:sticky;
-    top:0;
-    background:rgba(14,14,14,0.95);
-    backdrop-filter:blur(10px);
-    z-index:100;
-  }
-
-  nav .wrap{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-  }
-
-  .logo{
-    font-family:'Space Grotesk',sans-serif;
-    font-size:1.75rem;
-    font-weight:700;
-    color:var(--text);
-    text-decoration:none;
-  }
-
-  .logo span{color:var(--accent)}
-
-  nav a.cta{
-    font-size:0.875rem;
-    font-weight:600;
-    text-decoration:none;
-    color:var(--accent);
-    border:2px solid var(--accent);
-    padding:8px 24px;
-    border-radius:4px;
-    transition:all 0.2s;
-  }
-
-  nav a.cta:hover{
-    background:var(--accent);
-    color:var(--bg);
-  }
-
-  /* Hero */
-  .hero{
-    padding:160px 0 120px;
-    position:relative;
-    overflow:hidden;
-  }
-
-  .hero::before{
-    content:'';
-    position:absolute;
-    top:-50%;
-    right:-20%;
-    width:800px;
-    height:800px;
-    background:radial-gradient(circle,var(--accent) 0%,transparent 70%);
-    opacity:0.05;
-    pointer-events:none;
-  }
-
-  .hero .grid{
-    display:grid;
-    grid-template-columns:1.2fr 0.8fr;
-    gap:80px;
-    align-items:center;
-  }
-
-  .hero h1{
-    margin-bottom:32px;
-    max-width:18ch;
-    line-height:0.95;
-  }
-
-  .hero p.lede{
-    font-size:1.25rem;
-    color:var(--text-muted);
-    max-width:480px;
-    margin-bottom:40px;
-    line-height:1.7;
-  }
-
-  .hero .actions{
-    display:flex;
-    gap:20px;
-  }
-
-  .btn{
-    display:inline-block;
-    padding:16px 32px;
-    font-weight:600;
-    font-size:1rem;
-    border-radius:4px;
-    text-decoration:none;
-    transition:all 0.2s;
-    cursor:pointer;
-    border:none;
-    font-family:'Inter',sans-serif;
-  }
-
-  .btn-primary{
-    background:var(--accent);
-    color:var(--bg);
-  }
-
-  .btn-primary:hover{
-    background:var(--accent-dim);
-    transform:translateY(-2px);
-  }
-
-  .btn-outline{
-    background:transparent;
-    color:var(--text);
-    border:2px solid var(--border);
-  }
-
-  .btn-outline:hover{
-    border-color:var(--accent);
-    color:var(--accent);
-  }
-
-  /* Visual element - document stream */
-  .doc-stream{
-    position:relative;
-    height:400px;
-    background:var(--surface);
-    border:1px solid var(--border);
-    border-radius:8px;
-    padding:32px;
-    overflow:hidden;
-  }
-
-  .doc-stream::before{
-    content:'INCOMING';
-    position:absolute;
-    top:12px;
-    left:16px;
-    font-family:'Space Grotesk',monospace;
-    font-size:0.75rem;
-    color:var(--text-muted);
-    letter-spacing:0.1em;
-  }
-
-  .doc{
-    background:var(--surface-light);
-    border-left:3px solid var(--accent);
-    padding:16px;
-    margin-bottom:12px;
-    border-radius:4px;
-    font-family:monospace;
-    font-size:0.875rem;
-    color:var(--text-muted);
-    opacity:0;
-    transform:translateX(20px);
-    animation:slideIn 0.5s ease forwards;
-  }
-
-  .doc:nth-child(2){animation-delay:0.3s}
-  .doc:nth-child(3){animation-delay:0.6s}
-  .doc:nth-child(4){animation-delay:0.9s}
-
-  .doc .field{
-    color:var(--accent);
-    font-weight:600;
-  }
-
-  @keyframes slideIn{
-    to{opacity:1;transform:translateX(0)}
-  }
-
-  /* Sections */
-  .section{
-    padding:120px 0;
-    border-top:1px solid var(--border);
-  }
-
-  .section-dark{
-    background:var(--surface);
-  }
-
-  .kicker{
-    font-size:0.75rem;
-    letter-spacing:0.2em;
-    text-transform:uppercase;
-    color:var(--accent);
-    font-weight:600;
-    margin-bottom:16px;
-  }
-
-  .section h2{
-    margin-bottom:24px;
-    max-width:16ch;
-  }
-
-  .section p{
-    color:var(--text-muted);
-    font-size:1.125rem;
-    line-height:1.8;
-    max-width:600px;
-  }
-
-  /* Cards */
-  .cards{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:40px;
-    margin-top:64px;
-  }
-
-  .card{
-    background:var(--surface);
-    border:1px solid var(--border);
-    padding:40px;
-    border-radius:8px;
-    transition:all 0.2s;
-  }
-
-  .card:hover{
-    border-color:var(--accent);
-    transform:translateY(-4px);
-  }
-
-  .card .n{
-    font-family:'Space Grotesk',sans-serif;
-    font-size:3rem;
-    font-weight:700;
-    color:var(--accent);
-    margin-bottom:16px;
-  }
-
-  .card h3{
-    color:var(--text);
-    margin-bottom:12px;
-  }
-
-  .card p{
-    color:var(--text-muted);
-    font-size:1rem;
-    line-height:1.7;
-  }
-
-  /* Problem section */
-  ul.problems{
-    list-style:none;
-    margin-top:48px;
-  }
-
-  ul.problems li{
-    padding:24px 0;
-    border-bottom:1px solid var(--border);
-    color:var(--text-muted);
-    font-size:1.125rem;
-    padding-left:40px;
-    position:relative;
-  }
-
-  ul.problems li::before{
-    content:'→';
-    position:absolute;
-    left:0;
-    color:var(--accent);
-    font-family:'Space Grotesk',sans-serif;
-    font-weight:700;
-    font-size:1.5rem;
-  }
-
-  /* Why section */
-  .why-content{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:80px;
-    align-items:start;
-    margin-top:64px;
-  }
-
-  .why p{
-    margin-bottom:24px;
-  }
-
-  /* Footer */
-  footer{
-    padding:60px 0;
-    border-top:1px solid var(--border);
-    text-align:center;
-    color:var(--text-muted);
-    font-size:0.875rem;
-  }
-
-  /* Responsive */
-  @media (max-width:1024px){
-    .hero .grid{
-      grid-template-columns:1fr;
-    }
-
-    .cards{
-      grid-template-columns:1fr;
-    }
-
-    .why-content{
-      grid-template-columns:1fr;
-    }
-  }
-
-  @media (max-width:768px){
-    .wrap{
-      padding:0 24px;
-    }
-
-    .hero{
-      padding:80px 0;
-    }
-
-    h1{
-      font-size:3rem;
-    }
-
-    .doc-stream{
-      display:none;
-    }
+  @media (prefers-reduced-motion: reduce){
+    .doc{animation:none;opacity:1}.doc.d2{top:96px}.doc.d3{display:none}
+    .row{animation:none;opacity:1;transform:none}
+    .orb{animation:none}
   }
 </style>
 </head>
 <body>
 
-<nav>
-  <div class="wrap">
-    <a class="logo" href="/">Sent<span>.</span></a>
-    <a class="cta" href="https://cal.com/cartrel-james-dwefpy/free-20-minute-call" target="_blank" rel="noopener">Book a call</a>
-  </div>
-</nav>
+<nav><div class="wrap">
+  <a class="logo" href="/" aria-label="Sentari Software home">
+    <svg width="38" height="38" viewBox="20 20 160 160" aria-hidden="true"><circle cx="100" cy="100" r="72" fill="#122036"/><circle cx="100" cy="100" r="62" fill="none" stroke="#e6b355" stroke-width="2" opacity="0.55"/><rect x="62" y="74" width="46" height="8" rx="4" fill="#e6b355"/><rect x="62" y="96" width="34" height="8" rx="4" fill="#e6b355" opacity="0.85"/><rect x="62" y="118" width="22" height="8" rx="4" fill="#e6b355" opacity="0.7"/><path d="M108 100 H140" stroke="#3fd6c6" stroke-width="8" stroke-linecap="round"/><path d="M132 88 L146 100 L132 112" fill="none" stroke="#3fd6c6" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <span><span class="word">Sentari<span style="color:var(--gold)">.</span></span><small class="mark-tag">Latin: to sense</small></span>
+  </a>
+  <a class="navcta" href="https://cal.com/cartrel-james-dwefpy/free-20-minute-call" target="_blank" rel="noopener">Book a free call →</a>
+</div></nav>
 
 <header class="hero">
+  <span class="orb a"></span><span class="orb b"></span>
   <div class="wrap">
     <div class="grid">
       <div>
-        <h1>Stop retyping. Stop chasing paper.</h1>
-        <p class="lede">We build document workflows that extract data, track status, and route everything into one clean queue. Then we run it for you — so you don't need IT staff.</p>
+        <span class="kicker">Document &amp; workflow automation</span>
+        <h1>Stop retyping.<br>Stop <span class="hl">chasing paper.</span></h1>
+        <p class="lede">Sentari builds the automations that read your incoming documents, pull the data, and route everything into one clean, tracked workflow.</p>
         <div class="actions">
-          <a class="btn btn-primary" href="https://demo.sentarisoftware.com">See the demo</a>
-          <a class="btn btn-outline" href="https://cal.com/cartrel-james-dwefpy/free-20-minute-call">Book a call</a>
+          <a class="btn" href="https://cal.com/cartrel-james-dwefpy/free-20-minute-call" target="_blank" rel="noopener">Book a free 20-minute call</a>
+          <a class="btn btn-ghost" href="https://demo.sentarisoftware.com">See it working →</a>
         </div>
       </div>
-      <div class="doc-stream">
-        <div class="doc">
-          Marriage License<br>
-          Party 1: <span class="field">SARAH MITCHELL</span><br>
-          Party 2: <span class="field">JAMES RODRIGUEZ</span><br>
-          Date: <span class="field">2024-07-15</span>
-        </div>
-        <div class="doc">
-          Title Commitment<br>
-          Property: <span class="field">1425 MAPLE ST</span><br>
-          Buyer: <span class="field">THOMPSON LLC</span><br>
-          Status: <span class="field">CLEARED</span>
-        </div>
-        <div class="doc">
-          Receipt Invoice<br>
-          Amount: <span class="field">$1,247.50</span><br>
-          Vendor: <span class="field">ACME SUPPLY</span><br>
-          GL: <span class="field">5020-OFFICE</span>
-        </div>
-        <div class="doc">
-          Claim Document<br>
-          Claim #: <span class="field">CL-2024-8832</span><br>
-          Insured: <span class="field">PETERSON AUTO</span><br>
-          Status: <span class="field">PENDING REVIEW</span>
+      <div class="window" aria-hidden="true">
+        <div class="bar"><i></i><i></i><i></i><span>sentari — intake pipeline</span></div>
+        <div class="stage">
+          <span class="lab l">Paper in</span><span class="lab r">Tracked, done</span>
+          <div class="doc d1"></div><div class="doc d2"></div><div class="doc d3"></div>
+          <div class="queue">
+            <div class="row r1"><span class="tick"></span><span class="bar2"></span></div>
+            <div class="row r2"><span class="tick"></span><span class="bar2"></span></div>
+            <div class="row r3"><span class="tick"></span><span class="bar2"></span></div>
+          </div>
         </div>
       </div>
+    </div>
+    <div class="stats">
+      <div><span class="fig">1&ndash;2<em>weeks</em></span><span class="lab">Typical build time</span></div>
+      <div><span class="fig">$2,000</span><span class="lab">Fixed starting scope</span></div>
+      <div><span class="fig">100<em>%</em></span><span class="lab">Tracked &amp; searchable</span></div>
+      <div><span class="fig">1<em>specialist</em></span><span class="lab">Builds &amp; manages it</span></div>
     </div>
   </div>
 </header>
 
-<section class="section">
-  <div class="wrap">
-    <span class="kicker">What we build</span>
-    <h2>Document systems that read themselves.</h2>
-    <p>Instead of staff manually opening PDFs, extracting data, and retyping it into your system, we build automations that do it all — and route everything into one tracked workflow.</p>
-
-    <ul class="problems">
-      <li>Shared inboxes where requests get buried</li>
-      <li>Manual data entry from PDFs and scans</li>
-      <li>No visibility into who's working on what</li>
-      <li>Documents falling through the cracks</li>
-      <li>No audit trail for compliance</li>
-    </ul>
+<section class="demo band" id="demo-video"><div class="wrap">
+  <div class="sec-head">
+    <span class="kicker cy">See it in action</span>
+    <h2>One pipeline, two views — technician and supervisor.</h2>
+    <p>A narrated walkthrough of the working demo: the technician's queue where each document gets processed, and the supervisor's overview that keeps the whole operation on track. Fake sample documents only.</p>
   </div>
-</section>
+  <div class="video-shell">
+    <div class="bar"><i></i><i></i><i></i><span>demo.sentarisoftware.com</span><span class="pill">● LIVE DEMO</span></div>
+    <video controls preload="metadata" poster="media/sentari-demo-preview.png?v=relief-visible">
+      <source src="media/sentari-demo-narrated.mp4?v=relief-visible" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+  <p class="video-note">Want to try the live version? <a href="https://demo.sentarisoftware.com">Open the hosted demo →</a></p>
+</div></section>
 
-<section class="section section-dark">
-  <div class="wrap">
-    <span class="kicker">What makes us different</span>
-    <h2>We run it. You just use it.</h2>
-    <p class="lede">Most automation shops hand you code and wish you luck. We build the system and keep it running — monitoring, updating, and growing it with your business.</p>
+<section class="problem band-light"><div class="wrap">
+  <div class="sec-head">
+    <span class="kicker">If this is your day</span>
+    <h2>You don't need a bigger system. You need the busywork to run itself.</h2>
+  </div>
+  <ul>
+    <li>A shared inbox no one can keep up with</li>
+    <li>Staff retyping data off PDFs and scans</li>
+    <li>Documents lost between people and steps</li>
+    <li>Software older than some of your staff</li>
+  </ul>
+  <p class="punch">The big vendors won't build for an office your size. <em>I will!</em></p>
+</div></section>
 
-    <div class="cards">
-      <div class="card">
-        <div class="n">01</div>
-        <h3>Production-grade</h3>
-        <p>Built and tested in compliance-grade environments. Zero tolerance for failure. Your system inherits that same rigor.</p>
-      </div>
-      <div class="card">
-        <div class="n">02</div>
-        <h3>Real AI extraction</h3>
-        <p>Not chatbots. Not keyword matching. Actual data pulled from documents: names, dates, amounts, case numbers. Gemini-powered with human review.</p>
-      </div>
-      <div class="card">
-        <div class="n">03</div>
-        <h3>Managed forever</h3>
-        <p>We don't disappear after launch. We keep it running, updated, and growing with your business — so you don't need IT staff.</p>
-      </div>
+<section><div class="wrap">
+  <div class="sec-head center"><span class="kicker">What I build</span>
+    <h2>Three things that give your team their hours back.</h2></div>
+  <div class="cards">
+    <div class="card">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#e6b355" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3v4a1 1 0 0 0 1 1h4"/><path d="M17 21H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7l5 5v11a2 2 0 0 1-2 2z"/><path d="M9 13h6M9 17h4"/></svg></div>
+      <div class="n">01</div><h3>Documents that read themselves</h3>
+      <p>Each incoming document is read automatically and its key fields pulled into a clean, searchable record. No more manual data entry.</p></div>
+    <div class="card">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#3fd6c6" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M4 12h16M4 17h10"/><circle cx="19" cy="17" r="2"/></svg></div>
+      <div class="n">02</div><h3>Inbox &amp; workflow automation</h3>
+      <p>Incoming documents sorted, routed, logged, and tracked end to end. The shared inbox stops being a black hole.</p></div>
+    <div class="card">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#e6b355" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.4-3 8.3-7 10-4-1.7-7-5.6-7-10V6l7-3z"/><path d="M9.5 12l1.8 1.8L15 10"/></svg></div>
+      <div class="n">03</div><h3>Secure, managed, not abandoned</h3>
+      <p>I run it, maintain it, and grow it with you — kept secure, monitored, and up to date. Your sensitive documents are handled with the same compliance-grade discretion a records office demands.</p></div>
+  </div>
+</div></section>
+
+<section class="accent"><div class="wrap"><div class="inner">
+  <div>
+    <span class="big">$2k<small>one-time build · pays for itself fast</small></span>
+  </div>
+  <div>
+    <span class="kicker cy">Why now</span>
+    <h2>Do more without hiring.</h2>
+    <p>When budgets are tight, the paperwork doesn't stop — but you can't always add staff. Automating your document work gives your team hours back every week, cuts costly re-keying errors, and costs a fraction of what enterprise vendors charge. A one-time build starts at $2,000 — less than a month of a part-time hire, and it pays for itself fast.</p>
+  </div>
+</div></div></section>
+
+<section class="why"><span class="orb"></span><div class="wrap"><div class="inner">
+  <span class="kicker">Why Sentari</span>
+  <h2>Built by someone who's done this inside a real records office.</h2>
+  <p>I spent years as the IT administrator for a government Recorder of Deeds office, automating sensitive, compliance-grade document workflows where a mistake was not an option. I bring that same rigor — and discretion with your documents — to firms still doing this by hand.</p>
+  <p>You're not hiring a faceless agency that resells the same template to everyone. You're hiring a specialist who understands document work from the inside.</p>
+  <p class="sig">— Cartrel James, Founder, Sentari Software</p>
+</div></div></section>
+
+<section class="proof band-light"><div class="wrap">
+  <div class="sec-head"><span class="kicker">Proof</span>
+    <h2>From shared inbox and sticky notes to an automated pipeline.</h2>
+    <p>A records office, before &amp; after.</p></div>
+  <div class="ba">
+    <div class="col before">
+      <span class="tag">Before</span>
+      <ul>
+        <li>Shared inbox with manual sticky-note tracking</li>
+        <li>Items got lost; status was unclear</li>
+        <li>Hours spent retyping data by hand</li>
+      </ul>
+    </div>
+    <div class="arrow">→</div>
+    <div class="col after">
+      <span class="tag">After</span>
+      <ul>
+        <li>Faster processing and turnaround</li>
+        <li>Records instantly searchable</li>
+        <li>Nothing falls through the cracks</li>
+        <li>Staff freed from manual entry</li>
+      </ul>
     </div>
   </div>
-</section>
+  <div class="cta-row"><a class="btn btn-ink" href="https://demo.sentarisoftware.com">See a live demo →</a></div>
+</div></section>
 
-<section class="section">
-  <div class="wrap">
-    <span class="kicker">Who we help</span>
-    <h2>Document-heavy firms without IT departments.</h2>
-    <p>10-100 person offices drowning in paperwork but too small for enterprise software. Title companies, law firms, accounting, property management, insurance agencies.</p>
+<section><div class="wrap">
+  <div class="sec-head"><span class="kicker cy">How it works</span>
+    <h2>Simple, fixed-scope, no surprises.</h2></div>
+  <div class="steps">
+    <div class="step"><div class="num">1</div><h3>Free 20-minute call</h3>
+      <p>A quick, no-pressure conversation to find the fit:</p>
+      <ul class="step-list">
+        <li>We map your most painful document workflow</li>
+        <li>I flag the quickest win worth automating</li>
+        <li>An honest read on fit — no obligation</li>
+        <li>A ballpark scope and price to decide on</li>
+      </ul>
+      <div class="price">Free</div></div>
+    <div class="step"><div class="num">2</div><h3>Fixed-scope build</h3>
+      <p>One document workflow, automated end to end and handed to you:</p>
+      <ul class="step-list">
+        <li>Built, tested, and delivered in 1–2 weeks</li>
+        <li>A fixed price agreed up front — no surprises</li>
+        <li>Handover and training for your team</li>
+        <li>Yours to keep and run</li>
+      </ul>
+      <div class="price">From $2,000</div></div>
+    <div class="step"><div class="num">3</div><h3>Optional managed service</h3>
+      <p>I don't hand it over and disappear. For a flat monthly fee, I keep it running, secure, and getting better:</p>
+      <ul class="step-list">
+        <li>Secure hosting &amp; 24/7 monitoring</li>
+        <li>Security patches &amp; updates</li>
+        <li>Maintenance &amp; fixes as things change</li>
+        <li>New document types &amp; improvements as you grow</li>
+        <li>Monthly reporting — and a direct line to me</li>
+      </ul>
+      <div class="price">From $500/mo</div></div>
   </div>
-</section>
+</div></section>
 
-<section class="section section-dark">
-  <div class="wrap">
-    <span class="kicker">See it working</span>
-    <h2>Watch the demo.</h2>
-    <p>See how document intake, extraction, and tracking works in real-time. Uses fake data — no production records needed.</p>
+<section><div class="wrap">
+  <div class="sec-head"><span class="kicker">Who it's for</span>
+    <h2>Small, document-heavy firms.</h2>
+    <p>If your team's day disappears into paperwork, you're who I build for.</p></div>
+  <div class="who-grid">
+    <div class="vcard"><span class="vic"><svg viewBox="0 0 24 24"><path d="M3 10.5L12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/><path d="M10 21v-6h4v6"/></svg></span>
+      <div><h3>Title &amp; escrow</h3><p>Closings, title commitments, and settlement statements.</p></div></div>
+    <div class="vcard"><span class="vic"><svg viewBox="0 0 24 24"><circle cx="12" cy="4.5" r="1.1"/><path d="M12 5.5v15"/><path d="M8 20.5h8"/><path d="M4 8h16"/><path d="M6.5 8L4 14h5L6.5 8z"/><path d="M17.5 8L15 14h5l-2.5-6z"/></svg></span>
+      <div><h3>Real-estate &amp; probate law</h3><p>Deeds, court filings, and probate paperwork.</p></div></div>
+    <div class="vcard"><span class="vic"><svg viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8 7h8"/><path d="M8 12h.01M12 12h.01M16 12h.01M8 16h.01M12 16h.01M16 16h.01"/></svg></span>
+      <div><h3>Bookkeeping &amp; accounting</h3><p>Invoices, receipts, and monthly statements.</p></div></div>
+    <div class="vcard"><span class="vic"><svg viewBox="0 0 24 24"><path d="M3 21V6a1 1 0 0 1 1-1h9a1 1 0 0 1 1 1v15"/><path d="M14 10h5a1 1 0 0 1 1 1v10"/><path d="M7 9h3M7 13h3M7 17h3"/><path d="M2 21h20"/></svg></span>
+      <div><h3>Property management</h3><p>Leases, applications, and maintenance requests.</p></div></div>
+    <div class="vcard"><span class="vic"><svg viewBox="0 0 24 24"><path d="M12 3v1.5"/><path d="M3.5 12a8.5 8.5 0 0 1 17 0z"/><path d="M12 12v6.5a2.5 2.5 0 0 1-5 0"/></svg></span>
+      <div><h3>Insurance agencies</h3><p>Policies, ACORD forms, and claims documents.</p></div></div>
+    <div class="vcard cta"><span class="vic"><svg viewBox="0 0 24 24"><path d="M5 12h13"/><path d="M13 6l6 6-6 6"/></svg></span>
+      <div><h3>Your firm?</h3><p><a href="#contact">If you run on documents, let's talk →</a></p></div></div>
   </div>
-</section>
+</div></section>
 
-<footer>
-  <div class="wrap">
-    <p>Sentari Software — We build document workflows that actually stay running.</p>
-    <p>contact@sentarisoftware.com | (314) 403-6685</p>
+<section class="final" id="contact"><div class="wrap">
+  <span class="kicker">Let's talk</span>
+  <h2>Find out what your firm could automate.</h2>
+  <p class="lead">Book a free 20-minute call, or send a message below — I'll get back to you within a day.</p>
+  <a class="btn" href="https://cal.com/cartrel-james-dwefpy/free-20-minute-call" target="_blank" rel="noopener">Book a free 20-minute call</a>
+  <div class="form-card">
+    <div class="fh"><span class="kicker cy">Send a message</span>
+      <p>Tell me what's eating your team's time, and I'll come back with how I'd automate it.</p></div>
+    <form action="https://formsubmit.co/info@sentarisoftware.com" method="POST">
+      <input type="hidden" name="_subject" value="New inquiry — sentarisoftware.com">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_template" value="table">
+      <div class="frow">
+        <div class="field"><label for="f-name">Your name</label><input id="f-name" name="name" required placeholder="Jane Doe"></div>
+        <div class="field"><label for="f-email">Email</label><input id="f-email" name="email" type="email" required placeholder="jane@yourfirm.com"></div>
+      </div>
+      <div class="field"><label for="f-firm">Firm <span>(optional)</span></label><input id="f-firm" name="firm" placeholder="Your firm's name"></div>
+      <div class="field"><label for="f-msg">What's eating your team's time?</label><textarea id="f-msg" name="message" required rows="4" placeholder="e.g. We retype data off 40+ PDFs a day and things get lost in a shared inbox…"></textarea></div>
+      <button type="submit" class="btn">Send message →</button>
+      <p class="form-note">No spam, ever — your message goes straight to my inbox.</p>
+    </form>
   </div>
-</footer>
+  <p class="contact">Prefer to talk? Call <a href="tel:+13144036685">(314) 403-6685</a> &nbsp;·&nbsp; email <a href="mailto:info@sentarisoftware.com">info@sentarisoftware.com</a></p>
+</div></section>
+
+<footer><div class="wrap" style="width:100%">
+  <div class="footer-row">
+    <div class="logo"><span class="word">Sentari<span style="color:var(--gold)">.</span> Software</span></div>
+    <div>Document &amp; workflow automation · Secure, fully managed, built to last</div>
+  </div>
+</div></footer>
 
 </body>
 </html>
