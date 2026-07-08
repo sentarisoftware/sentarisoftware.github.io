@@ -278,10 +278,17 @@
   .proof-system .proof-point span{display:block;color:var(--ink-soft);font-size:.94rem}
   .proof-system .proof-callout{margin-top:22px;padding:20px 22px;border-left:4px solid var(--cyan-deep);background:rgba(31,179,166,.08);border-radius:0 12px 12px 0;color:var(--ink-soft)}
   .proof-system .proof-callout strong{color:var(--ink)}
+  .closing-band{background:var(--paper);color:var(--ink);padding:74px 0}
+  .closing-band .closing-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:34px;align-items:center}
+  .closing-band h2{color:var(--ink);font-size:clamp(1.8rem,3.4vw,2.5rem);margin:14px 0 12px}
+  .closing-band p{color:var(--ink-soft);font-size:1.06rem;max-width:52ch}
+  .closing-band .closing-list{display:grid;gap:12px}
+  .closing-band .closing-item{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:18px 20px;color:var(--ink-soft)}
+  .closing-band .closing-item strong{display:block;color:var(--ink);margin-bottom:4px}
 
   @media (max-width:820px){
     .hero{padding:64px 0 40px}
-    .hero .grid,.cards,.steps,.accent .inner,.work-cards,.work-cards.triple,.proof-system .proof-grid{grid-template-columns:1fr}
+    .hero .grid,.cards,.steps,.accent .inner,.work-cards,.work-cards.triple,.proof-system .proof-grid,.closing-band .closing-grid{grid-template-columns:1fr}
     .who-grid{grid-template-columns:1fr}
     .accent .inner{gap:22px}
     .stats{grid-template-columns:1fr 1fr}
@@ -412,6 +419,22 @@
       <h3>A website is the front door, not the whole house.</h3>
       <p>For service businesses, Sentari can build the public site, contact pipeline, monitoring, reporting, and monthly care loop so leads do not disappear after the form submit.</p>
       <a href="#contact">Talk through a site →</a>
+    </div>
+  </div>
+</div></section>
+
+
+<section class="closing-band"><div class="wrap">
+  <div class="closing-grid">
+    <div>
+      <span class="kicker">What that means</span>
+      <h2>You get the public site and the private system behind it.</h2>
+      <p>The website brings people in. The dashboard, forms, reports, and workflows make sure the work does not get lost after they arrive.</p>
+    </div>
+    <div class="closing-list">
+      <div class="closing-item"><strong>One front door</strong>Clear public pages, calls to action, and intake paths for visitors, members, or customers.</div>
+      <div class="closing-item"><strong>One operating view</strong>Private dashboards for the people who run the organization, with the right access for each role.</div>
+      <div class="closing-item"><strong>One person accountable</strong>Designed, shipped, hosted, watched, and improved without handing you a pile of tools to manage.</div>
     </div>
   </div>
 </div></section>
