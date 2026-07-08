@@ -90,7 +90,7 @@ Expected: HTTP 200.
 
 Use the existing machine/browser tooling to capture desktop and mobile screenshots of the local homepage. Verify no overlap, clipping, or broken first-screen CTA layout.
 
-- [ ] **Step 3: Commit and push**
+- [x] **Step 3: Commit and push**
 
 Commit exact files:
 
@@ -100,7 +100,7 @@ git commit -m "Sharpen homepage team voice and CTA"
 git push
 ```
 
-- [ ] **Step 4: Public smoke**
+- [x] **Step 4: Public smoke**
 
 After GitHub Pages updates, verify `https://sentarisoftware.com/` returns HTTP 200 and includes:
 
