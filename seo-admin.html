@@ -109,12 +109,23 @@
       <div class="grade" id="grade-box"><div class="g" id="grade-letter">—</div><div class="s" id="grade-score"></div></div>
       <div class="cats" id="cats"></div>
     </div>
+    <div class="row" style="margin-top:16px">
+      <button class="btn ghost" id="pdf-btn" type="button">Download branded PDF</button>
+      <button class="btn ghost" id="crawl-btn" type="button">Run full-site crawl</button>
+    </div>
+    <div class="msg err hidden" id="tools-msg"></div>
   </div>
 
   <!-- Findings + schema -->
   <div class="card hidden" id="findings-card">
     <h3 style="margin-bottom:4px">Full findings</h3>
     <div id="findings"></div>
+  </div>
+
+  <!-- Full-site crawl audit -->
+  <div class="card hidden" id="crawl-card">
+    <h3 style="margin-bottom:4px">Full-site crawl</h3>
+    <div id="crawl-summary"></div>
   </div>
 </div>
 

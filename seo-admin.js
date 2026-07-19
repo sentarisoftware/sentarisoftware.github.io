@@ -106,6 +106,61 @@
     show($('findings-card'));
   }
 
+  function renderCrawl(d) {
+    var box = $('crawl-summary'); box.innerHTML = '';
+    var s = d.summary || {};
+    function line(label, val) {
+      var row = document.createElement('div'); row.className = 'finding';
+      var t = document.createElement('div'); t.className = 'issue'; t.textContent = label;
+      var v = document.createElement('div'); v.className = 'impact'; v.style.whiteSpace = 'pre-wrap'; v.textContent = val;
+      row.appendChild(t); row.appendChild(v); box.appendChild(row);
+    }
+    line('Pages crawled', String(d.pagesCrawled) + (d.timedOut ? ' (stopped on time budget)' : ''));
+    line('Broken pages', (s.broken || []).map(function (b) { return b.url + ' (' + b.status + ')'; }).join('\n') || 'none');
+    line('Missing title', (s.missingTitle || []).join('\n') || 'none');
+    line('Missing description', (s.missingDescription || []).join('\n') || 'none');
+    line('Thin pages (<250 words)', (s.thin || []).map(function (x) { return x.url + ' (' + x.words + 'w)'; }).join('\n') || 'none');
+    line('Duplicate titles', (s.duplicateTitles || []).map(function (x) { return x.value + ' ×' + x.count; }).join('\n') || 'none');
+    line('Duplicate descriptions', (s.duplicateDescriptions || []).map(function (x) { return '×' + x.count; }).join('\n') || 'none');
+    show($('crawl-card'));
+    $('crawl-card').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  // Download branded PDF (blob fetch with the token header — keeps token out of the URL).
+  var pdfBtn = $('pdf-btn'); pdfBtn.dataset.label = pdfBtn.textContent;
+  pdfBtn.addEventListener('click', function () {
+    if (!state.resultId) { setMsg($('tools-msg'), 'Run an audit first.'); return; }
+    if (!token()) { setMsg($('tools-msg'), 'Enter the admin token.'); return; }
+    setMsg($('tools-msg'), '');
+    loading(pdfBtn, true, 'Building PDF…');
+    fetch(BACKEND + '/seo-report.pdf?site=' + encodeURIComponent(SITE) + '&resultId=' + encodeURIComponent(state.resultId), { headers: { 'x-admin-token': token() } })
+      .then(function (r) { if (!r.ok) throw new Error('pdf ' + r.status); return r.blob(); })
+      .then(function (blob) {
+        loading(pdfBtn, false);
+        var a = document.createElement('a');
+        a.href = URL.createObjectURL(blob);
+        a.download = 'seo-report.pdf';
+        document.body.appendChild(a); a.click(); a.remove();
+        setTimeout(function () { URL.revokeObjectURL(a.href); }, 4000);
+      })
+      .catch(function () { loading(pdfBtn, false); setMsg($('tools-msg'), 'PDF failed — check the token.'); });
+  });
+
+  // Full-site crawl audit.
+  var crawlBtn = $('crawl-btn'); crawlBtn.dataset.label = crawlBtn.textContent;
+  crawlBtn.addEventListener('click', function () {
+    var url = $('url').value.trim();
+    if (!url) { setMsg($('tools-msg'), 'Enter a URL first.'); return; }
+    if (!token()) { setMsg($('tools-msg'), 'Enter the admin token.'); return; }
+    setMsg($('tools-msg'), '');
+    loading(crawlBtn, true, 'Crawling… (up to 60s)');
+    post('/seo-audit', { url: url }).then(function (res) {
+      loading(crawlBtn, false);
+      if (res.status !== 200 || !res.data.ok) { setMsg($('tools-msg'), res.data.error || 'Crawl failed — check the token.'); return; }
+      renderCrawl(res.data);
+    }).catch(function () { loading(crawlBtn, false); setMsg($('tools-msg'), 'Network error during crawl.'); });
+  });
+
   // Token persistence (this device only).
   try {
     var saved = localStorage.getItem(TOKEN_KEY);
