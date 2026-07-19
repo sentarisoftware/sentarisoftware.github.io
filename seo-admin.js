@@ -1,9 +1,12 @@
-/* Sentari — Free SEO Evaluation tool.
-   Two-phase: /seo-scan returns the grade; /seo-reveal unlocks findings after email. */
+/* Sentari — internal SEO admin. Runs the full evaluation on any URL in "generous
+   free" mode: /seo-scan then /seo-reveal with the x-admin-token header, so the
+   backend skips the email/lead gate and returns the full copy-paste schema block.
+   Token is stored in localStorage on this device only; never linked publicly. */
 (function () {
   'use strict';
   var BACKEND = 'https://lead-pipeline-hiue.onrender.com';
   var SITE = 'sentari-main';
+  var TOKEN_KEY = 'sentari_seo_admin_token';
 
   var $ = function (id) { return document.getElementById(id); };
   var catLabels = { onpage: 'On-page', technical: 'Technical', local: 'Local SEO', geo: 'AI Search', performance: 'Performance' };
@@ -13,15 +16,19 @@
 
   function show(el) { el.classList.remove('hidden'); }
   function hide(el) { el.classList.add('hidden'); }
-  function setErr(el, text) { if (!text) { hide(el); return; } el.textContent = text; show(el); }
+  function setMsg(el, text, cls) { if (!text) { hide(el); return; } el.textContent = text; el.className = 'msg ' + (cls || 'err'); show(el); }
   function loading(btn, on, label) {
     btn.disabled = on;
     btn.innerHTML = on ? '<span class="spin"></span>' + (label || 'Working…') : btn.dataset.label;
   }
+  function token() { return ($('token').value || '').trim(); }
 
   function post(path, body) {
+    var headers = { 'content-type': 'application/json' };
+    var t = token();
+    if (t) { headers['x-admin-token'] = t; }
     return fetch(BACKEND + path + '?site=' + encodeURIComponent(SITE), {
-      method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify(body)
+      method: 'POST', headers: headers, body: JSON.stringify(body)
     }).then(function (r) {
       return r.json().catch(function () { return { ok: false, error: 'Unexpected server response.' }; })
         .then(function (d) { return { status: r.status, data: d }; });
@@ -63,18 +70,18 @@
     var row = document.createElement('div');
     row.className = 'finding';
     var t = document.createElement('div'); t.className = 'issue';
-    var sev = document.createElement('span'); sev.className = 'sev medium'; sev.textContent = 'ready';
-    t.appendChild(sev); t.appendChild(document.createTextNode('Structured-data (schema) generated for you'));
-    var note = document.createElement('div'); note.className = 'impact';
+    var sev = document.createElement('span'); sev.className = 'sev ready'; sev.textContent = 'ready';
+    t.appendChild(sev); t.appendChild(document.createTextNode('Structured-data (schema) — copy-paste block'));
+    row.appendChild(t);
     if (schema.jsonld) {
-      note.textContent = 'Copy-paste block below — add it to your site’s <head>.';
-      var pre = document.createElement('pre');
-      pre.style.cssText = 'white-space:pre-wrap;word-break:break-word;background:var(--panel-2);border:1px solid var(--line-dk);border-radius:8px;padding:12px;font-size:.78rem;overflow:auto;margin-top:8px';
-      pre.textContent = schema.jsonld;
-      row.appendChild(t); row.appendChild(note); row.appendChild(pre);
+      var note = document.createElement('div'); note.className = 'impact';
+      note.textContent = 'Paste into the client site’s <head>. TODO placeholders need the owner’s details' + (schema.placeholders && schema.placeholders.length ? ' (' + schema.placeholders.join(', ') + ')' : '') + '.';
+      var pre = document.createElement('pre'); pre.className = 'schema'; pre.textContent = schema.jsonld;
+      row.appendChild(note); row.appendChild(pre);
     } else {
-      note.textContent = (schema.note || 'Schema generated.') + (schema.placeholders ? ' (' + schema.placeholders + ' details to fill in)' : '');
-      row.appendChild(t); row.appendChild(note);
+      var g = document.createElement('div'); g.className = 'impact';
+      g.textContent = 'Full block not returned — check the admin token is correct.';
+      row.appendChild(g);
     }
     box.appendChild(row);
   }
@@ -83,7 +90,7 @@
     var box = $('findings');
     box.innerHTML = '';
     if (!findings || !findings.length) {
-      box.textContent = 'No major issues found — nice work.';
+      box.textContent = 'No major issues found.';
     } else {
       findings.forEach(function (f) {
         var row = document.createElement('div'); row.className = 'finding';
@@ -99,55 +106,52 @@
     show($('findings-card'));
   }
 
-  // Step 1 — scan
-  var scanBtn = $('scan-btn'); scanBtn.dataset.label = scanBtn.textContent;
-  $('scan-form').addEventListener('submit', function (e) {
+  // Token persistence (this device only).
+  try {
+    var saved = localStorage.getItem(TOKEN_KEY);
+    if (saved) { $('token').value = saved; }
+  } catch (e) { /* localStorage may be blocked — token just won't persist */ }
+
+  $('save-token').addEventListener('click', function () {
+    try {
+      if (token()) { localStorage.setItem(TOKEN_KEY, token()); setMsg($('token-msg'), 'Saved on this device.', 'ok'); }
+      else { localStorage.removeItem(TOKEN_KEY); setMsg($('token-msg'), 'Cleared.', 'ok'); }
+    } catch (e) { setMsg($('token-msg'), 'Could not save — storage is blocked in this browser.', 'err'); }
+  });
+
+  // Run: scan → reveal (admin, no email) in one click.
+  var auditBtn = $('audit-btn'); auditBtn.dataset.label = auditBtn.textContent;
+  $('audit-form').addEventListener('submit', function (e) {
     e.preventDefault();
-    setErr($('scan-msg'), '');
+    setMsg($('audit-msg'), '');
     var url = $('url').value.trim();
     if (!url) { return; }
-    if ($('scan-form').company_website.value) { return; } // honeypot
-    loading(scanBtn, true, 'Analyzing… (up to 30s)');
-    hide($('findings-card'));
-    post('/seo-scan', { url: url, company_website: '' }).then(function (res) {
-      loading(scanBtn, false);
+    if (!token()) { setMsg($('audit-msg'), 'Enter the admin token first.'); return; }
+    loading(auditBtn, true, 'Analyzing… (up to 30s)');
+    hide($('grade-card')); hide($('findings-card'));
+    post('/seo-scan', { url: url }).then(function (res) {
       if (res.status !== 200 || !res.data.ok) {
-        setErr($('scan-msg'), res.data.error || 'Could not scan that URL. Check it and try again.');
+        loading(auditBtn, false);
+        setMsg($('audit-msg'), res.data.error || 'Could not scan that URL.');
         return;
       }
       state.resultId = res.data.resultId; state.url = res.data.url;
       renderGrade(res.data);
-      $('email').focus();
+      loading(auditBtn, true, 'Unlocking full report…');
+      return post('/seo-reveal', { resultId: state.resultId }).then(function (r2) {
+        loading(auditBtn, false);
+        if (r2.status === 410) { setMsg($('audit-msg'), 'Result expired — run it again.'); return; }
+        if (r2.status !== 200 || !r2.data.ok) {
+          setMsg($('audit-msg'), r2.data.error || 'Could not unlock the report — check the token.');
+          return;
+        }
+        renderFindings(r2.data.findings);
+        renderSchema(r2.data.schema);
+        $('findings-card').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
     }).catch(function () {
-      loading(scanBtn, false);
-      setErr($('scan-msg'), 'Network error — the scanner may be waking up. Try again in a moment.');
-    });
-  });
-
-  // Step 2 — reveal
-  var revealBtn = $('reveal-btn'); revealBtn.dataset.label = revealBtn.textContent;
-  $('reveal-form').addEventListener('submit', function (e) {
-    e.preventDefault();
-    setErr($('reveal-msg'), '');
-    var email = $('email').value.trim();
-    if (!email) { return; }
-    if ($('reveal-form').company_website.value) { return; } // honeypot
-    if (!state.resultId) { setErr($('reveal-msg'), 'Please run a scan first.'); return; }
-    loading(revealBtn, true, 'Unlocking…');
-    post('/seo-reveal', { resultId: state.resultId, email: email, company_website: '' }).then(function (res) {
-      loading(revealBtn, false);
-      if (res.status === 410) { setErr($('reveal-msg'), 'That result expired — please run the check again.'); return; }
-      if (res.status !== 200 || !res.data.ok) {
-        setErr($('reveal-msg'), res.data.error || 'Could not unlock the report. Try again.');
-        return;
-      }
-      hide($('email-gate'));
-      renderFindings(res.data.findings);
-      renderSchema(res.data.schema);
-      $('findings-card').scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }).catch(function () {
-      loading(revealBtn, false);
-      setErr($('reveal-msg'), 'Network error — please try again.');
+      loading(auditBtn, false);
+      setMsg($('audit-msg'), 'Network error — the scanner may be waking up. Try again in a moment.');
     });
   });
 })();
