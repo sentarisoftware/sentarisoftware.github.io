@@ -1,0 +1,118 @@
+{
+  "updated": "2026-11-05",
+  "services": [
+    {
+      "title": "Zoho Books and Zoho One implementation",
+      "summary": "Zoho Books set up, cleaned up or migrated so it matches how the organization actually runs, plus overflow tickets for Zoho partners who need US Central hours.",
+      "points": [
+        "Migration from QuickBooks Online and older ledgers",
+        "Card and ACH payments through a Stripe clearing account",
+        "Deluge scripting and REST API work",
+        "Reconciliation cleanups"
+      ],
+      "source": "CANDIDATE-FACTS.md (books carried Quicken to QuickBooks to Zoho Books; Stripe clearing); 2026-11-05 Part-Time Profile and Plan (partner subcontracting, skills list)"
+    },
+    {
+      "title": "Financial systems",
+      "summary": "Systems that run real money: payments, invoices, credits and giving, with the books of record kept right and access decided on the server by role.",
+      "points": [
+        "Payments recorded at gross, fees kept separate",
+        "Role based access matched to the organization's offices",
+        "Reports pulled from the books of record"
+      ],
+      "source": "CANDIDATE-FACTS.md (Stripe clearing, gross recording, role based access)"
+    },
+    {
+      "title": "AI automation and agents",
+      "summary": "AI put to work where it saves hours: document intake, assistants that answer from your own records, and agents that build and check work under a release process.",
+      "points": [
+        "Document classification and field extraction to JSON",
+        "Assistants that answer only from your documents, with citations",
+        "Claude Code and MCP servers with independent review before release"
+      ],
+      "source": "CANDIDATE-FACTS.md (document tool, Ask the Constitution, Claude Code and MCP release process)"
+    },
+    {
+      "title": "Data engineering",
+      "summary": "Data moved, converted and reconciled between systems without losing a record, from the batch job habits of mainframe operations to Postgres and APIs today.",
+      "points": [
+        "Data migration and conversion review",
+        "SQL and PostgreSQL",
+        "Reconciliation across systems of record"
+      ],
+      "source": "2026-11-05 Part-Time Profile and Plan (batch jobs, data conversion, reconciliation); CANDIDATE-FACTS.md (records system replacement, data conversion review)"
+    }
+  ],
+  "capabilities": [
+    {
+      "group": "Accounting and payments",
+      "items": ["Zoho Books", "Deluge", "QuickBooks Online", "Stripe and Stripe webhooks"],
+      "source": "CANDIDATE-FACTS.md; 2026-11-05 Part-Time Profile and Plan skills list"
+    },
+    {
+      "group": "Integration and data",
+      "items": ["REST APIs, JSON, OAuth", "Signed webhooks", "SQL and PostgreSQL", "Data migration and reconciliation", "Wix"],
+      "source": "2026-11-05 Part-Time Profile and Plan skills list"
+    },
+    {
+      "group": "Application stack",
+      "items": ["Node.js and Express", "React", "PostgreSQL on Neon", "Hosting on Render", "Git, staging and release checks"],
+      "source": "context/work.md (dashboard stack); PROJECTS.md (Render services); Profile and Plan skills list"
+    },
+    {
+      "group": "AI and agents",
+      "items": ["Claude Code", "MCP servers", "OpenAI Codex CLI", "Gemini document extraction", "Builder, reviewer, staging and proof release process"],
+      "source": "context/me.md (AI tools in use); context/sentari-software.md (Gemini extraction); CANDIDATE-FACTS.md (release process)"
+    },
+    {
+      "group": "Records and operations",
+      "items": ["Document intake, indexing, imaging and retrieval", "Azure document imaging and AD sync", "Access control across 100+ endpoints", "System replacement: requirements, testing, training"],
+      "source": "CANDIDATE-FACTS.md (Recorder of Deeds, 2020 to 2026)"
+    }
+  ],
+  "shipped": [
+    {
+      "title": "A member organization's production financial system",
+      "tag": "Production · Zoho Books, Stripe, Postgres",
+      "outcome": "Runs live payments, invoices, credits and Stripe clearing on Zoho Books, with about 330 API endpoints, 9 integrations and about 4,170 automated tests.",
+      "link": "https://dashboard.sentarisoftware.com",
+      "linkText": "See the sanitized demo",
+      "source": "CANDIDATE-FACTS.md; PROJECTS.md (RV Dashboard Demo, sanitized)"
+    },
+    {
+      "title": "File Extractor",
+      "tag": "AI document extraction · live demo",
+      "outcome": "Classifies documents, extracts fields to JSON, scores confidence and routes uncertain work to a person for review.",
+      "link": "https://demo.sentarisoftware.com",
+      "linkText": "Open File Extractor",
+      "source": "CANDIDATE-FACTS.md; PROJECTS.md (File Extractor, customer-demo)"
+    },
+    {
+      "title": "Ask the Constitution",
+      "tag": "Claude assistant",
+      "outcome": "Answers questions only from an organization's governing documents, and cites the section it used.",
+      "source": "CANDIDATE-FACTS.md"
+    },
+    {
+      "title": "Lead Pipeline",
+      "tag": "Hosted service",
+      "outcome": "Takes in leads, sends monthly client reports and handles update requests, running on Render.",
+      "source": "PROJECTS.md (Lead Pipeline, customer-ready)"
+    },
+    {
+      "title": "SEO check",
+      "tag": "Free tool · live",
+      "outcome": "Grades any website on on-page, technical, local and Core Web Vitals and lists the fixes that matter most.",
+      "link": "/seo-check.html",
+      "linkText": "Run a free check",
+      "source": "PROJECTS.md (SEO audit tool in Lead Pipeline); seo-check.html"
+    },
+    {
+      "title": "An agentic operating system",
+      "tag": "Skills, agents, overnight watches",
+      "outcome": "A working set of skills, agents and overnight watches that build, review and check software under a test first release process.",
+      "source": "PROJECTS.md (Global Skills System, operating-system); CANDIDATE-FACTS.md (release process)"
+    }
+  ],
+  "certifications": []
+}

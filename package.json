@@ -1,0 +1,13 @@
+{
+  "name": "sentarisoftware-site",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node tools/build-site.mjs",
+    "test": "vitest run"
+  },
+  "devDependencies": {
+    "playwright": "^1.65.0",
+    "vitest": "^5.1.0"
+  }
+}

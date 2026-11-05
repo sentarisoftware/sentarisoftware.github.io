@@ -1,0 +1,5 @@
+index.html text eol=lf
+site-data.json text eol=lf
+site-render.js text eol=lf
+tools/*.mjs text eol=lf
+tests/*.mjs text eol=lf

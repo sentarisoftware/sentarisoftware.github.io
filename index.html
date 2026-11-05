@@ -3,16 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; media-src 'self'; script-src 'none'; connect-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self' https://formsubmit.co; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; media-src 'self'; script-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self' https://formsubmit.co; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
-<title>Sentari Software — Operating software for small organizations</title>
-<meta name="description" content="Sentari turns messy operations into dashboards, portals, workflows, reporting, and websites small organizations can actually run on.">
+<title>Sentari Software | Zoho Books, financial systems and AI automation</title>
+<meta name="description" content="Cartrel James implements Zoho Books, builds financial systems and integrations, and puts AI automation and agents to work. 40 years in IT. St. Louis, remote, US Central.">
 <link rel="canonical" href="https://sentarisoftware.com/">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%230b1220'/%3E%3Ctext x='50' y='72' font-family='Georgia,serif' font-size='64' fill='%23e6b355' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://sentarisoftware.com/">
-<meta property="og:title" content="Sentari Software — Operating software for small organizations">
-<meta property="og:description" content="We turn messy operations into dashboards, portals, workflows, reporting, and websites small organizations can actually use.">
+<meta property="og:title" content="Sentari Software | Zoho Books, financial systems and AI automation">
+<meta property="og:description" content="Zoho Books implementation, financial systems and AI automation from someone with 40 years in IT.">
 <meta property="og:image" content="https://sentarisoftware.com/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
 <script type="application/ld+json">
@@ -23,565 +23,317 @@
   "url": "https://sentarisoftware.com/",
   "logo": "https://sentarisoftware.com/og-image.png",
   "image": "https://sentarisoftware.com/og-image.png",
-  "description": "Sentari turns messy operations into dashboards, portals, workflows, reporting, and websites small organizations can actually run on.",
+  "description": "Zoho Books implementation, financial systems and integrations, AI automation and agents, and data engineering.",
   "email": "info@sentarisoftware.com",
-  "areaServed": {
-    "@type": "City",
-    "name": "St. Louis",
-    "containedInPlace": { "@type": "State", "name": "Missouri" }
-  },
-  "contactPoint": {
-    "@type": "ContactPoint",
-    "contactType": "sales",
-    "email": "info@sentarisoftware.com",
-    "areaServed": "US",
-    "availableLanguage": "English"
-  }
+  "telephone": "+1-314-403-6685",
+  "founder": { "@type": "Person", "name": "Cartrel James" },
+  "areaServed": "US",
+  "address": { "@type": "PostalAddress", "addressLocality": "St. Louis", "addressRegion": "MO", "addressCountry": "US" }
 }
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg:#0b1220; --bg-2:#0e1a2b; --panel:#122036; --panel-2:#16263f;
-    --paper:#f6f2e9; --paper-2:#efe9db; --white:#fffdf8;
-    --ink:#0b1220; --ink-soft:#4a5464;
-    --text-dk:#e9eef6; --text-dk-soft:#9db0c8; --line-dk:rgba(255,255,255,.10);
-    --line:#e2dccd;
-    --gold:#e6b355; --gold-deep:#c98a2c; --gold-soft:#f0c877;
-    --cyan:#3fd6c6; --cyan-deep:#1fb3a6;
-    --serif:'Fraunces',Georgia,'Times New Roman',serif;
-    --sans:'Inter',-apple-system,Segoe UI,Roboto,sans-serif;
-    --mono:'IBM Plex Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
+    --bg:#0b1220; --bg-2:#0e1a2b; --panel:#122036;
+    --paper:#f6f2e9; --white:#fffdf8; --ink:#0b1220; --ink-soft:#4a5464; --line:#e2dccd;
+    --text-dk:#e9eef6; --text-dk-soft:#a7b8cd; --line-dk:rgba(255,255,255,.10);
+    --gold:#e6b355; --gold-deep:#9a6616; --gold-soft:#f0c877; --cyan:#3fd6c6; --cyan-deep:#137a71;
+    --serif:'Fraunces',Georgia,serif; --sans:'Inter',-apple-system,Segoe UI,Roboto,sans-serif; --mono:'IBM Plex Mono',ui-monospace,Menlo,monospace;
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
   body{font-family:var(--sans);color:var(--text-dk);background:var(--bg);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
-  .wrap{max-width:1140px;margin:0 auto;padding:0 28px}
-  h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.06;letter-spacing:-.015em;text-wrap:balance}
+  .wrap{max-width:1140px;margin:0 auto;padding:0 24px}
+  h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.1;letter-spacing:-.015em;text-wrap:balance}
   a{color:inherit}
+  a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid var(--cyan);outline-offset:3px}
+  .skip{position:absolute;left:-999px;top:8px;background:var(--gold);color:#241503;padding:8px 14px;border-radius:6px;z-index:99}
+  .skip:focus{left:8px}
+  .kicker{display:inline-flex;align-items:center;gap:9px;font-family:var(--mono);font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-weight:500}
+  .kicker::before{content:"";width:26px;height:1px;background:currentColor;opacity:.7}
+  .kicker.cy{color:var(--cyan)}
+  .band-light .kicker{color:var(--gold-deep)}
+  .btn{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,var(--gold-soft),#c98a2c);color:#241503;padding:14px 26px;border-radius:8px;text-decoration:none;font-weight:700;font-size:1rem;border:none;cursor:pointer;font-family:inherit}
+  .btn:hover{filter:brightness(1.06)}
+  .btn-ghost{background:transparent;color:var(--text-dk);border:1px solid rgba(255,255,255,.22)}
 
-  .kicker{display:inline-flex;align-items:center;gap:9px;font-family:var(--mono);font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);font-weight:500}
-  .kicker::before{content:"";width:26px;height:1px;background:linear-gradient(90deg,var(--gold),transparent)}
-  .kicker.cy{color:var(--cyan)}.kicker.cy::before{background:linear-gradient(90deg,var(--cyan),transparent)}
+  nav{position:sticky;top:0;z-index:40;background:rgba(11,18,32,.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--line-dk)}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:68px;gap:16px}
+  .logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+  .logo .word{font-family:var(--serif);font-size:1.35rem;font-weight:700}
+  .links{display:flex;align-items:center;gap:20px;font-size:.92rem}
+  .links a{text-decoration:none;color:var(--text-dk-soft)}
+  .links a:hover{color:var(--white)}
+  .links .navcta{color:var(--gold-soft);border:1px solid rgba(230,179,85,.45);padding:8px 16px;border-radius:7px;font-weight:600}
+  @media (max-width:700px){.links a:not(.navcta){display:none}}
 
-  .btn{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,var(--gold-soft),var(--gold-deep));color:#241503;padding:15px 28px;border-radius:8px;text-decoration:none;font-weight:700;font-size:1rem;box-shadow:0 8px 26px rgba(230,179,85,.28);transition:transform .16s,box-shadow .16s}
-  .btn:hover{transform:translateY(-2px);box-shadow:0 14px 36px rgba(230,179,85,.42)}
-  .btn-ghost{background:transparent;color:var(--text-dk);border:1px solid var(--line-dk);box-shadow:none;padding:14px 24px}
-  .btn-ghost:hover{background:rgba(255,255,255,.05);border-color:rgba(255,255,255,.24)}
-  .btn-ink{background:var(--ink);color:var(--white);box-shadow:0 8px 24px rgba(11,18,32,.25)}
-  .btn-ink:hover{box-shadow:0 14px 34px rgba(11,18,32,.35)}
-
-  /* ---- nav ---- */
-  nav{position:sticky;top:0;z-index:40;background:rgba(11,18,32,.72);backdrop-filter:blur(14px);border-bottom:1px solid var(--line-dk)}
-  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:72px}
-  .logo{display:flex;align-items:center;gap:11px;text-decoration:none}
-  .logo .word{font-family:var(--serif);font-size:1.42rem;font-weight:700;letter-spacing:-.02em;line-height:1}
-  .logo .mark-tag{font-family:var(--mono);font-size:.56rem;font-weight:500;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);display:block;margin-top:3px}
-  @media (max-width:520px){.logo .mark-tag{display:none}}
-  nav .navcta{display:inline-flex;align-items:center;gap:8px;font-size:.92rem;font-weight:600;text-decoration:none;padding:9px 18px;border:1px solid rgba(230,179,85,.4);border-radius:7px;color:var(--gold-soft);transition:background .15s,border-color .15s}
-  nav .navcta:hover{background:rgba(230,179,85,.12);border-color:var(--gold)}
-
-  /* ---- glow helpers ---- */
-  .orb{position:absolute;border-radius:50%;filter:blur(70px);opacity:.55;pointer-events:none}
-  @keyframes drift{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(30px,-24px) scale(1.12)}}
-  @keyframes drift2{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(-34px,26px) scale(1.08)}}
-
-  /* ---- hero ---- */
-  .hero{position:relative;padding:92px 0 60px;overflow:hidden;
-    background:
-      radial-gradient(1100px 520px at 78% -6%, rgba(63,214,198,.14), transparent 60%),
-      radial-gradient(900px 480px at 8% 8%, rgba(230,179,85,.16), transparent 62%),
-      linear-gradient(180deg,var(--bg),var(--bg-2))}
-  .hero::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:.5;
-    background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);
-    background-size:52px 52px;mask-image:radial-gradient(circle at 50% 30%,#000,transparent 78%)}
-  .hero .orb.a{width:340px;height:340px;background:var(--gold);left:-60px;top:-40px;animation:drift 12s ease-in-out infinite}
-  .hero .orb.b{width:300px;height:300px;background:var(--cyan);right:2%;top:20%;opacity:.4;animation:drift2 14s ease-in-out infinite}
-  .hero .grid{position:relative;z-index:2;display:grid;grid-template-columns:1.08fr .92fr;gap:52px;align-items:center}
-  .hero h1{font-size:clamp(2.6rem,5.4vw,4.15rem);margin:20px 0 22px;letter-spacing:-.025em}
+  .hero{padding:84px 0 56px;background:radial-gradient(900px 480px at 85% -10%,rgba(63,214,198,.13),transparent 60%),radial-gradient(900px 480px at 5% 5%,rgba(230,179,85,.14),transparent 62%),linear-gradient(180deg,var(--bg),var(--bg-2))}
+  .hero h1{font-size:clamp(2.3rem,5.2vw,3.9rem);margin:18px 0 20px;max-width:20ch}
   .hero h1 .hl{background:linear-gradient(120deg,var(--gold-soft),var(--cyan));-webkit-background-clip:text;background-clip:text;color:transparent}
-  .hero p.lede{font-size:1.2rem;color:var(--text-dk-soft);max-width:34ch;margin-bottom:30px}
-  .hero .actions{display:flex;flex-wrap:wrap;align-items:center;gap:12px}
+  .hero .lede{font-size:1.18rem;color:var(--text-dk-soft);max-width:60ch;margin-bottom:28px}
+  .actions{display:flex;flex-wrap:wrap;gap:12px}
+  .stats{margin-top:52px;display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line-dk);border:1px solid var(--line-dk);border-radius:14px;overflow:hidden}
+  .stats div{background:var(--bg-2);padding:22px 14px;text-align:center}
+  .stats .fig{display:block;font-family:var(--serif);font-size:1.8rem;font-weight:600;color:var(--white);line-height:1.1}
+  .stats .lab{display:block;margin-top:8px;font-family:var(--mono);font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:var(--text-dk-soft)}
 
-  /* stat strip */
-  .stats{position:relative;z-index:2;margin-top:56px;display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line-dk);border:1px solid var(--line-dk);border-radius:14px;overflow:hidden}
-  .stats div{background:rgba(255,255,255,.02);padding:24px 16px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:10px}
-  .stats .fig{font-family:var(--serif);font-size:1.75rem;font-weight:600;color:var(--white);line-height:1;white-space:nowrap;display:inline-flex;align-items:baseline;gap:6px}
-  .stats .fig em{font-style:normal;font-family:var(--sans);font-size:.92rem;font-weight:600;color:var(--gold);letter-spacing:0}
-  .stats .lab{font-family:var(--mono);font-size:.64rem;letter-spacing:.13em;text-transform:uppercase;color:var(--text-dk-soft);line-height:1.3}
-
-  /* ---- app-window pipeline ---- */
-  .window{position:relative;border-radius:16px;background:linear-gradient(180deg,var(--panel),var(--bg-2));border:1px solid var(--line-dk);
-     box-shadow:0 30px 80px rgba(0,0,0,.5),inset 0 1px 0 rgba(255,255,255,.06);overflow:hidden}
-  .window::before{content:"";position:absolute;inset:-1px;border-radius:16px;padding:1px;pointer-events:none;
-     background:linear-gradient(135deg,rgba(230,179,85,.6),rgba(63,214,198,.5),transparent 60%);
-     -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude}
-  .window .bar{display:flex;align-items:center;gap:7px;padding:12px 16px;border-bottom:1px solid var(--line-dk);background:rgba(255,255,255,.02)}
-  .window .bar i{width:11px;height:11px;border-radius:50%;background:#33405a;display:block}
-  .window .bar i:nth-child(1){background:#e0603f}.window .bar i:nth-child(2){background:var(--gold)}.window .bar i:nth-child(3){background:var(--cyan)}
-  .window .bar span{margin-left:10px;font-family:var(--mono);font-size:.72rem;color:var(--text-dk-soft)}
-  .stage{position:relative;height:320px}
-  .stage .lab{position:absolute;top:14px;font-family:var(--mono);font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;color:#6f819b}
-  .stage .lab.l{left:18px}.stage .lab.r{right:18px;color:var(--cyan)}
-  .doc{position:absolute;left:20px;width:104px;height:130px;background:linear-gradient(180deg,#f4f0e6,#e6dece);border-radius:6px;
-     box-shadow:0 10px 26px rgba(0,0,0,.4);padding:13px}
-  .doc::before,.doc::after{content:"";display:block;height:6px;background:#c9bfa6;border-radius:3px;margin-bottom:8px}
-  .doc::before{width:66%}.doc::after{width:88%;box-shadow:0 13px 0 #d3cab2,0 26px 0 #d3cab2,0 39px 0 #d3cab2}
-  .queue{position:absolute;right:22px;top:58px;width:168px}
-  .row{display:flex;align-items:center;gap:9px;background:rgba(63,214,198,.08);border:1px solid rgba(63,214,198,.28);border-left:3px solid var(--cyan);
-     border-radius:7px;padding:10px 11px;margin-bottom:10px;opacity:0;transform:translateX(14px)}
-  .row .tick{width:16px;height:16px;border-radius:50%;background:var(--cyan);flex:none;position:relative;box-shadow:0 0 12px rgba(63,214,198,.6)}
-  .row .tick::after{content:"";position:absolute;left:5px;top:3px;width:4px;height:8px;border:solid #06231f;border-width:0 2px 2px 0;transform:rotate(45deg)}
-  .row .bar2{height:6px;background:rgba(233,238,246,.5);border-radius:3px;width:74%}
-  @keyframes fly{0%{left:20px;top:96px;opacity:0;transform:rotate(-6deg)}12%{opacity:1}
-     68%{left:calc(100% - 150px);top:62px;opacity:1;transform:rotate(0)}84%{opacity:0}100%{opacity:0}}
-  @keyframes settle{to{opacity:1;transform:translateX(0)}}
-  .doc.d1{animation:fly 6s ease-in-out infinite}
-  .doc.d2{animation:fly 6s ease-in-out 2s infinite}
-  .doc.d3{animation:fly 6s ease-in-out 4s infinite}
-  .row.r1{animation:settle .5s ease 1.6s forwards}
-  .row.r2{animation:settle .5s ease 3.6s forwards}
-  .row.r3{animation:settle .5s ease 5.6s forwards}
-
-  .product-preview{height:360px;padding:16px;background:
-    radial-gradient(420px 220px at 85% 10%, rgba(63,214,198,.14), transparent 62%),
-    linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,.01))}
-  .product-preview .app-top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px}
-  .product-preview .app-title{display:grid;gap:3px}
-  .product-preview .app-title strong{font-size:.92rem;color:var(--white)}
-  .product-preview .app-title span{font-family:var(--mono);font-size:.56rem;letter-spacing:.13em;text-transform:uppercase;color:var(--text-dk-soft)}
-  .product-preview .live-pill{font-family:var(--mono);font-size:.56rem;letter-spacing:.12em;text-transform:uppercase;color:var(--cyan);border:1px solid rgba(63,214,198,.35);background:rgba(63,214,198,.08);padding:5px 9px;border-radius:999px;white-space:nowrap}
-  .product-tabs{display:flex;gap:7px;margin-bottom:14px;overflow:hidden}
-  .product-tabs span{font-family:var(--mono);font-size:.55rem;letter-spacing:.09em;text-transform:uppercase;color:#73849d;border:1px solid rgba(255,255,255,.08);border-radius:999px;padding:5px 8px;white-space:nowrap;background:rgba(255,255,255,.025)}
-  .product-tabs span.active{color:#071f1d;background:var(--cyan);border-color:var(--cyan);box-shadow:0 0 18px rgba(63,214,198,.25)}
-  .dash-grid{display:grid;grid-template-columns:1fr 1.05fr;gap:12px}
-  .metric-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-bottom:12px}
-  .mini-metric{border:1px solid rgba(255,255,255,.09);border-radius:10px;padding:11px 10px;background:rgba(255,255,255,.035)}
-  .mini-metric b{display:block;font-family:var(--serif);font-size:1.35rem;line-height:1;color:var(--white);margin-bottom:4px}
-  .mini-metric span{display:block;font-family:var(--mono);font-size:.52rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-dk-soft);line-height:1.25}
-  .role-card,.activity-card{border:1px solid rgba(255,255,255,.09);border-radius:12px;background:rgba(255,255,255,.035);padding:12px}
-  .role-card h4,.activity-card h4{font-family:var(--sans);font-size:.78rem;color:var(--white);margin-bottom:10px}
-  .role-line{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:8px;margin-bottom:8px}
-  .role-dot{width:8px;height:8px;border-radius:50%;background:var(--gold);box-shadow:0 0 10px rgba(230,179,85,.55)}
-  .role-line:nth-child(3) .role-dot{background:var(--cyan);box-shadow:0 0 10px rgba(63,214,198,.55)}
-  .role-line span{font-size:.72rem;color:var(--text-dk-soft)}
-  .role-line em{font-style:normal;font-family:var(--mono);font-size:.56rem;color:#71829b}
-  .hero-panel{border:1px solid rgba(63,214,198,.22);border-radius:13px;background:linear-gradient(180deg,rgba(63,214,198,.08),rgba(255,255,255,.025));padding:13px;box-shadow:inset 0 1px 0 rgba(255,255,255,.05)}
-  .hero-panel .panel-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
-  .hero-panel h4{font-family:var(--sans);font-size:.82rem;color:var(--white)}
-  .hero-panel .tag{font-family:var(--mono);font-size:.52rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold)}
-  .bar-chart{display:flex;align-items:end;gap:7px;height:74px;margin:8px 0 14px;padding:0 2px}
-  .bar-chart i{display:block;flex:1;border-radius:5px 5px 2px 2px;background:linear-gradient(180deg,var(--cyan),rgba(63,214,198,.18));box-shadow:0 0 12px rgba(63,214,198,.18)}
-  .bar-chart i:nth-child(1){height:38%}.bar-chart i:nth-child(2){height:62%;background:linear-gradient(180deg,var(--gold),rgba(230,179,85,.2))}.bar-chart i:nth-child(3){height:48%}.bar-chart i:nth-child(4){height:84%}.bar-chart i:nth-child(5){height:58%;background:linear-gradient(180deg,var(--gold),rgba(230,179,85,.2))}.bar-chart i:nth-child(6){height:72%}
-  .system-list{display:grid;gap:8px}
-  .system-list div{display:flex;align-items:center;gap:8px;color:var(--text-dk-soft);font-size:.72rem}
-  .system-list div::before{content:"";width:13px;height:13px;border-radius:50%;background:rgba(63,214,198,.18);border:1px solid rgba(63,214,198,.42);flex:none}
-  .activity-card{margin-top:12px}
-  .activity-row{display:grid;grid-template-columns:auto 1fr;gap:8px;margin-top:8px;color:var(--text-dk-soft);font-size:.7rem}
-  .activity-row time{font-family:var(--mono);font-size:.55rem;color:#72839b}
-
-  /* ---- section scaffolding ---- */
-  section{padding:84px 0;position:relative}
+  section{padding:80px 0}
   .band-light{background:var(--paper);color:var(--ink)}
-  .band-light h2{color:var(--ink)}
+  .band-light h2,.band-light h3{color:var(--ink)}
+  .sec-head{margin-bottom:38px}
+  .sec-head h2{font-size:clamp(1.8rem,3.6vw,2.6rem);margin:14px 0 10px;max-width:30ch}
+  .sec-head p{color:var(--text-dk-soft);font-size:1.08rem;max-width:62ch}
   .band-light .sec-head p{color:var(--ink-soft)}
-  .sec-head{max-width:none;margin-bottom:44px}
-  .sec-head h2{font-size:clamp(1.9rem,3.7vw,2.7rem);margin:16px 0 12px}
-  .sec-head p{color:var(--text-dk-soft);font-size:1.1rem;max-width:60ch}
-  .sec-head.center{text-align:center}
-  .sec-head.center .kicker{justify-content:center}
-  .sec-head.center p{margin-left:auto;margin-right:auto}
 
-  /* problem */
-  .problem ul{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:16px 40px;max-width:820px}
-  .problem li{padding-left:34px;position:relative;color:var(--ink-soft);font-size:1.04rem}
-  .problem li::before{content:"";position:absolute;left:0;top:4px;width:20px;height:20px;border-radius:5px;background:rgba(230,179,85,.16);
-     border:1px solid rgba(201,138,44,.4)}
-  .problem li::after{content:"";position:absolute;left:7px;top:10px;width:6px;height:6px;border-radius:50%;background:var(--gold-deep)}
-  .problem .punch{font-family:var(--serif);font-weight:600;font-size:clamp(1.4rem,2.6vw,1.9rem);margin-top:40px;color:var(--ink)}
-  .problem .punch em{font-style:normal;color:var(--gold-deep)}
-
-  /* cards */
-  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
-  .card{position:relative;background:linear-gradient(180deg,var(--panel),var(--bg-2));border:1px solid var(--line-dk);border-radius:16px;padding:30px 28px;
-     transition:transform .18s,box-shadow .18s,border-color .18s;overflow:hidden}
-  .card::before{content:"";position:absolute;left:0;top:0;height:3px;width:100%;background:linear-gradient(90deg,var(--gold),var(--cyan))}
-  .card:hover{transform:translateY(-5px);box-shadow:0 22px 50px rgba(0,0,0,.4);border-color:rgba(255,255,255,.2)}
-  .card .ic{width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:18px;
-     background:radial-gradient(circle at 30% 30%,rgba(230,179,85,.28),rgba(230,179,85,.08));border:1px solid rgba(230,179,85,.35)}
-  .card:nth-child(2) .ic{background:radial-gradient(circle at 30% 30%,rgba(63,214,198,.28),rgba(63,214,198,.08));border-color:rgba(63,214,198,.4)}
-  .card .ic svg{width:24px;height:24px}
+  .cards{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+  .card{background:linear-gradient(180deg,var(--panel),var(--bg-2));border:1px solid var(--line-dk);border-radius:16px;padding:28px;border-top:3px solid var(--gold)}
+  .card:nth-child(even){border-top-color:var(--cyan)}
   .card .n{font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;color:var(--text-dk-soft)}
-  .card h3{font-size:1.32rem;margin:6px 0 12px;color:var(--white)}
-  .card p{color:var(--text-dk-soft);font-size:.99rem}
+  .card h3{font-size:1.35rem;margin:6px 0 10px;color:var(--white)}
+  .card p{color:var(--text-dk-soft)}
+  .ticks{list-style:none;display:grid;gap:8px;margin-top:16px}
+  .ticks li{position:relative;padding-left:24px;color:var(--text-dk);font-size:.95rem}
+  .ticks li::before{content:"";position:absolute;left:2px;top:.5em;width:10px;height:10px;border-radius:50%;background:var(--cyan);opacity:.85}
 
-  /* why-now accent band */
-  .accent{background:
-     radial-gradient(700px 300px at 20% 0%, rgba(230,179,85,.14), transparent 60%),
-     radial-gradient(700px 300px at 90% 100%, rgba(63,214,198,.12), transparent 60%),
-     var(--bg-2)}
-  .accent .inner{display:grid;grid-template-columns:.9fr 1.1fr;gap:44px;align-items:center}
-  .accent h2{font-size:clamp(1.9rem,3.6vw,2.6rem)}
-  .accent p{color:var(--text-dk-soft);font-size:1.1rem;margin-top:14px}
-  .accent .big{font-family:var(--serif);font-size:clamp(3rem,7vw,4.6rem);font-weight:600;line-height:.95;
-     background:linear-gradient(120deg,var(--gold-soft),var(--cyan));-webkit-background-clip:text;background-clip:text;color:transparent}
-  .accent .big small{display:block;font-family:var(--mono);font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;color:var(--text-dk-soft);margin-top:14px;-webkit-text-fill-color:var(--text-dk-soft)}
+  .caps{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:18px}
+  .cap{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:22px}
+  .cap h3{font-size:1.08rem;margin-bottom:10px}
+  .cap ul{list-style:none;display:grid;gap:6px}
+  .cap li{color:var(--ink-soft);font-size:.94rem}
 
-  /* why sentari */
-  .why{background:linear-gradient(180deg,var(--bg-2),var(--bg));position:relative;overflow:hidden}
-  .why .orb{width:360px;height:360px;background:var(--gold);right:-80px;top:-60px;opacity:.16;animation:drift 15s ease-in-out infinite}
-  .why .inner{position:relative;z-index:2;max-width:760px}
-  .why h2{font-size:clamp(2rem,3.8vw,2.8rem);max-width:26ch;margin:16px 0 20px;color:var(--white)}
-  .why p{color:var(--text-dk-soft);max-width:62ch;font-size:1.1rem;margin-bottom:16px}
-  .why .sig{font-family:var(--serif);font-style:italic;color:var(--gold-soft);font-size:1.12rem;margin-top:10px}
+  .work-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .proj{background:linear-gradient(180deg,var(--panel),var(--bg-2));border:1px solid var(--line-dk);border-radius:16px;padding:26px;display:flex;flex-direction:column}
+  .proj .tag{font-family:var(--mono);font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:var(--cyan);margin-bottom:10px}
+  .proj h3{font-size:1.2rem;color:var(--white);margin-bottom:10px}
+  .proj p{color:var(--text-dk-soft);font-size:.96rem;margin-bottom:14px}
+  .proj a{margin-top:auto;color:var(--gold-soft);font-weight:600;text-decoration:none;border-bottom:1px solid rgba(230,179,85,.45);align-self:flex-start}
+  .certs{list-style:none;display:grid;gap:10px}
 
-  /* proof before/after */
-  .ba{display:grid;grid-template-columns:1fr auto 1fr;gap:22px;align-items:stretch;max-width:900px}
-  .ba .col{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:26px}
-  .ba .col.after{border-color:rgba(63,214,198,.5);box-shadow:0 16px 40px rgba(31,179,166,.12)}
-  .ba .tag{font-family:var(--mono);font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;font-weight:500;margin-bottom:14px;display:inline-block;padding:5px 11px;border-radius:20px}
-  .ba .before .tag{background:rgba(201,138,44,.12);color:var(--gold-deep)}
-  .ba .after .tag{background:rgba(31,179,166,.14);color:var(--cyan-deep)}
-  .ba ul{list-style:none;display:grid;gap:10px}
-  .ba li{padding-left:26px;position:relative;color:var(--ink-soft);font-size:.98rem}
-  .ba .before li::before{content:"✕";position:absolute;left:0;color:#c98a2c;font-weight:700}
-  .ba .after li::before{content:"✓";position:absolute;left:0;color:var(--cyan-deep);font-weight:700}
-  .ba .arrow{align-self:center;font-size:1.6rem;color:var(--gold);font-weight:700}
-  .proof .cta-row{margin-top:26px}
+  .demo video{display:block;width:100%;aspect-ratio:16/9;background:#000;border-radius:14px;border:1px solid var(--line-dk)}
+  .demo .note{margin-top:14px;color:var(--text-dk-soft)}
 
-  /* demo video */
-  .demo .video-shell{border-radius:16px;overflow:hidden;position:relative}
-  .demo .video-shell .bar{display:flex;align-items:center;gap:7px;padding:12px 16px;background:var(--panel);border:1px solid var(--line-dk);border-bottom:none;border-radius:16px 16px 0 0}
-  .demo .video-shell .bar i{width:11px;height:11px;border-radius:50%}
-  .demo .video-shell .bar i:nth-child(1){background:#e0603f}.demo .video-shell .bar i:nth-child(2){background:var(--gold)}.demo .video-shell .bar i:nth-child(3){background:var(--cyan)}
-  .demo .video-shell .bar span{margin-left:10px;font-family:var(--mono);font-size:.72rem;color:var(--text-dk-soft)}
-  .demo .video-shell .pill{margin-left:auto;font-family:var(--mono);font-size:.62rem;letter-spacing:.12em;color:var(--cyan);border:1px solid rgba(63,214,198,.4);padding:3px 9px;border-radius:20px}
-  .demo video{display:block;width:100%;aspect-ratio:16/9;background:#000;box-shadow:0 30px 70px rgba(0,0,0,.5)}
-  .demo .video-note{margin-top:18px;color:var(--text-dk-soft);font-size:.99rem}
-  .demo .video-note a{color:var(--cyan);text-decoration:none;border-bottom:1px solid rgba(63,214,198,.4)}
+  .history{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+  .era{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:22px}
+  .era .yrs{font-family:var(--mono);font-size:.74rem;letter-spacing:.1em;color:var(--gold-deep);font-weight:500}
+  .era h3{font-size:1.1rem;margin:6px 0 8px}
+  .era p{color:var(--ink-soft);font-size:.94rem}
+  .own{margin-top:34px;padding:22px 24px;border-left:4px solid var(--cyan-deep);background:rgba(31,179,166,.08);border-radius:0 12px 12px 0;color:var(--ink-soft);max-width:80ch}
+  .own strong{color:var(--ink)}
 
-  /* steps */
-  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
-  .step{padding:28px 26px;border:1px solid var(--line);border-radius:14px;background:var(--white);position:relative;display:flex;flex-direction:column}
-  .step .num{font-family:var(--serif);font-size:1.2rem;font-weight:600;color:#241503;background:linear-gradient(135deg,var(--gold-soft),var(--gold-deep));
-     width:44px;height:44px;display:flex;align-items:center;justify-content:center;border-radius:12px;margin-bottom:16px;box-shadow:0 8px 20px rgba(230,179,85,.3)}
-  .step h3{font-size:1.16rem;margin-bottom:8px;color:var(--ink)}
-  .step p{color:var(--ink-soft);font-size:.96rem}
-  .step .step-list{list-style:none;display:grid;gap:10px;margin:15px 0 0}
-  .step .step-list li{position:relative;padding-left:25px;font-size:.93rem;color:var(--ink-soft);line-height:1.4}
-  .step .step-list li::before{content:"";position:absolute;left:0;top:6px;width:15px;height:15px;border-radius:50%;background:rgba(31,179,166,.14);border:1px solid rgba(31,179,166,.5)}
-  .step .step-list li::after{content:"";position:absolute;left:5px;top:9px;width:4px;height:7px;border:solid var(--cyan-deep);border-width:0 2px 2px 0;transform:rotate(45deg)}
-  .step .price{margin-top:auto;padding-top:18px;color:var(--gold-deep);font-weight:700;font-size:1.06rem}
+  .final{text-align:center;background:radial-gradient(700px 340px at 50% -10%,rgba(230,179,85,.16),transparent 60%),linear-gradient(180deg,var(--bg),var(--bg-2))}
+  .final h2{font-size:clamp(2rem,4.2vw,2.9rem);max-width:24ch;margin:14px auto}
+  .final .lead{max-width:56ch;margin:0 auto 24px;color:var(--text-dk-soft);font-size:1.08rem}
+  .form-card{max-width:600px;margin:34px auto 0;text-align:left;background:linear-gradient(180deg,var(--panel),var(--bg-2));border:1px solid var(--line-dk);border-radius:18px;padding:28px}
+  form{display:grid;gap:14px}
+  .frow{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .field{display:grid;gap:6px}
+  .field label{font-family:var(--mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-dk-soft)}
+  form input,form textarea{padding:12px 14px;border:1px solid rgba(255,255,255,.18);border-radius:10px;font:inherit;background:rgba(255,255,255,.04);color:var(--text-dk);width:100%}
+  form button{justify-content:center;width:100%}
+  .contact{margin-top:22px;color:var(--text-dk-soft)}
+  .contact a{color:var(--gold-soft)}
+  footer{padding:34px 0;border-top:1px solid var(--line-dk);color:var(--text-dk-soft);font-size:.9rem}
+  footer .row{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+  footer a{color:var(--text-dk-soft)}
 
-  /* verticals */
-  .who-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-  .vcard{display:flex;gap:16px;align-items:flex-start;padding:24px;border:1px solid var(--line-dk);border-radius:14px;background:rgba(255,255,255,.02);transition:border-color .16s,background .16s,transform .16s}
-  .vcard:hover{border-color:rgba(63,214,198,.4);background:rgba(63,214,198,.05);transform:translateY(-3px)}
-  .vcard .vic{flex:none;width:46px;height:46px;border-radius:12px;display:flex;align-items:center;justify-content:center;color:var(--gold);
-     background:radial-gradient(circle at 30% 30%,rgba(230,179,85,.24),rgba(230,179,85,.06));border:1px solid rgba(230,179,85,.34)}
-  .vcard:nth-child(even) .vic{color:var(--cyan);background:radial-gradient(circle at 30% 30%,rgba(63,214,198,.24),rgba(63,214,198,.06));border-color:rgba(63,214,198,.38)}
-  .vcard .vic svg{width:23px;height:23px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
-  .vcard h3{font-size:1.08rem;color:var(--white);margin-bottom:4px;line-height:1.16}
-  .vcard p{font-size:.9rem;color:var(--text-dk-soft);line-height:1.42}
-  .vcard.cta{border-style:dashed;border-color:rgba(230,179,85,.4)}
-  .vcard.cta h3{color:var(--gold-soft)}
-  .vcard.cta a{color:var(--gold-soft);font-weight:600;text-decoration:none;border-bottom:1px solid rgba(230,179,85,.4)}
-
-  /* final */
-  .final{text-align:center;background:
-     radial-gradient(700px 340px at 50% -10%, rgba(230,179,85,.18), transparent 60%),
-     linear-gradient(180deg,var(--bg),var(--bg-2));position:relative;overflow:hidden}
-  .final h2{font-size:clamp(2.1rem,4.3vw,3rem);max-width:26ch;margin:16px auto 14px;color:var(--white)}
-  .final .lead{max-width:52ch;margin:0 auto 24px;color:var(--text-dk-soft);font-size:1.08rem}
-  .final .contact{margin-top:22px;color:var(--text-dk-soft);font-size:.95rem}
-  .final .contact a{color:var(--gold-soft);text-decoration:none}
-  .form-card{max-width:600px;margin:32px auto 0;text-align:left;position:relative;overflow:hidden;
-     background:linear-gradient(180deg,var(--panel),var(--bg-2));border:1px solid var(--line-dk);border-radius:18px;padding:30px 30px 26px;
-     box-shadow:0 30px 70px rgba(0,0,0,.45)}
-  .form-card::before{content:"";position:absolute;left:0;top:0;height:3px;width:100%;background:linear-gradient(90deg,var(--gold),var(--cyan))}
-  .form-card .fh{margin-bottom:22px}
-  .form-card .fh p{color:var(--text-dk-soft);font-size:.95rem;margin-top:8px}
-  form{display:grid;gap:16px;margin:0}
-  .frow{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-  .field{display:grid;gap:7px}
-  .field label{font-family:var(--mono);font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-dk-soft)}
-  .field label span{color:#6f819b;text-transform:none;letter-spacing:0}
-  form input,form textarea{padding:13px 15px;border:1px solid var(--line-dk);border-radius:10px;font:inherit;background:rgba(255,255,255,.04);color:var(--text-dk);width:100%;transition:border-color .15s,background .15s,box-shadow .15s}
-  form input::placeholder,form textarea::placeholder{color:#607089}
-  form input:focus,form textarea:focus{outline:none;border-color:var(--gold);background:rgba(255,255,255,.06);box-shadow:0 0 0 3px rgba(230,179,85,.14)}
-  form button{border:none;cursor:pointer;justify-content:center;width:100%;font-size:1.05rem;margin-top:4px}
-  .form-note{font-size:.82rem;color:#6f819b;text-align:center;margin-top:2px}
-
-  footer{padding:40px 0;border-top:1px solid var(--line-dk);color:var(--text-dk-soft);font-size:.9rem;background:var(--bg)}
-  footer .footer-origin{text-align:center;font-family:var(--serif);font-size:clamp(1.04rem,1.6vw,1.24rem);color:var(--text-dk);line-height:1.4;padding-bottom:26px;margin-bottom:24px;border-bottom:1px solid var(--line-dk)}
-  footer .footer-origin em{font-style:italic;color:var(--gold-soft);font-weight:500}
-  footer .footer-row{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;align-items:center}
-  footer .logo .word{font-size:1.12rem}
-  @media (min-width:1000px){footer .footer-origin{white-space:nowrap}}
-
-  .work-cards{display:grid;grid-template-columns:1fr 1fr;gap:22px}
-  .work-cards.triple{grid-template-columns:1.2fr 1fr 1fr}
-  .proj{position:relative;background:linear-gradient(180deg,var(--panel),var(--bg-2));border:1px solid var(--line-dk);border-radius:16px;padding:28px;transition:transform .18s,border-color .18s}
-  .proj::before{content:"";position:absolute;left:0;top:0;height:3px;width:100%;background:linear-gradient(90deg,var(--gold),var(--cyan))}
-  .proj:hover{transform:translateY(-4px);border-color:rgba(255,255,255,.2)}
-  .proj .tag{font-family:var(--mono);font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--cyan);margin-bottom:10px;display:block}
-  .proj h3{font-size:1.26rem;color:var(--white);margin-bottom:10px}
-  .proj p{color:var(--text-dk-soft);font-size:.98rem;margin-bottom:14px}
-  .proj a{color:var(--gold-soft);font-weight:600;text-decoration:none;font-size:.94rem;border-bottom:1px solid rgba(230,179,85,.4)}
-  .proof-system{background:var(--paper);color:var(--ink)}
-  .proof-system .proof-grid{display:grid;grid-template-columns:1fr 1fr;gap:34px;align-items:start}
-  .proof-system h2{color:var(--ink)}
-  .proof-system .proof-copy p{color:var(--ink-soft);font-size:1.08rem;margin-top:14px}
-  .proof-system .proof-points{display:grid;gap:14px}
-  .proof-system .proof-point{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:20px 22px}
-  .proof-system .proof-point strong{display:block;color:var(--ink);font-size:1.02rem;margin-bottom:5px}
-  .proof-system .proof-point span{display:block;color:var(--ink-soft);font-size:.94rem}
-  .proof-system .proof-callout{margin-top:22px;padding:20px 22px;border-left:4px solid var(--cyan-deep);background:rgba(31,179,166,.08);border-radius:0 12px 12px 0;color:var(--ink-soft)}
-  .proof-system .proof-callout strong{color:var(--ink)}
-  .closing-band{background:var(--paper);color:var(--ink);padding:74px 0}
-  .closing-band .closing-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:34px;align-items:center}
-  .closing-band h2{color:var(--ink);font-size:clamp(1.8rem,3.4vw,2.5rem);margin:14px 0 12px}
-  .closing-band p{color:var(--ink-soft);font-size:1.06rem;max-width:52ch}
-  .closing-band .closing-list{display:grid;gap:12px}
-  .closing-band .closing-item{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:18px 20px;color:var(--ink-soft)}
-  .closing-band .closing-item strong{display:block;color:var(--ink);margin-bottom:4px}
-
-  @media (max-width:820px){
-    .hero{padding:64px 0 40px}
-    .hero .grid,.cards,.steps,.accent .inner,.work-cards,.work-cards.triple,.proof-system .proof-grid,.closing-band .closing-grid{grid-template-columns:1fr}
-    .hero .grid{gap:28px}
-    .hero h1{font-size:clamp(2.18rem,11vw,3rem);margin:16px 0 18px}
-    .hero p.lede{font-size:1.05rem;margin-bottom:24px}
-    .product-preview{height:auto;min-height:315px;padding:13px}
-    .product-tabs{gap:5px;margin-bottom:11px}
-    .product-tabs span{font-size:.48rem;padding:4px 7px}
-    .dash-grid{gap:10px}
-    .metric-grid{gap:7px;margin-bottom:10px}
-    .mini-metric{padding:9px 8px}
-    .mini-metric b{font-size:1.08rem}
-    .hero-panel{padding:11px}
-    .bar-chart{height:56px;margin-bottom:11px}
-    .activity-card{display:none}
-    .who-grid{grid-template-columns:1fr}
-    .accent .inner{gap:22px}
+  @media (max-width:900px){.work-cards{grid-template-columns:1fr 1fr}.history{grid-template-columns:1fr 1fr}}
+  @media (max-width:640px){
+    .hero{padding:56px 0 40px}
+    .cards,.work-cards,.history,.frow{grid-template-columns:1fr}
     .stats{grid-template-columns:1fr 1fr}
-    .problem ul{grid-template-columns:1fr}
-    .ba{grid-template-columns:1fr}
-    .ba .arrow{transform:rotate(90deg);justify-self:center}
-    .frow{grid-template-columns:1fr}
+    section{padding:60px 0}
   }
-  @media (prefers-reduced-motion: reduce){
-    .doc{animation:none;opacity:1}.doc.d2{top:96px}.doc.d3{display:none}
-    .row{animation:none;opacity:1;transform:none}
-    .orb{animation:none}
-  }
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 </style>
 </head>
 <body>
+<a class="skip" href="#main">Skip to content</a>
 
-<nav><div class="wrap">
+<nav aria-label="Main"><div class="wrap">
   <a class="logo" href="/" aria-label="Sentari Software home">
-    <svg width="38" height="38" viewBox="20 20 160 160" aria-hidden="true"><circle cx="100" cy="100" r="72" fill="#122036"/><circle cx="100" cy="100" r="62" fill="none" stroke="#e6b355" stroke-width="2" opacity="0.55"/><rect x="62" y="74" width="46" height="8" rx="4" fill="#e6b355"/><rect x="62" y="96" width="34" height="8" rx="4" fill="#e6b355" opacity="0.85"/><rect x="62" y="118" width="22" height="8" rx="4" fill="#e6b355" opacity="0.7"/><path d="M108 100 H140" stroke="#3fd6c6" stroke-width="8" stroke-linecap="round"/><path d="M132 88 L146 100 L132 112" fill="none" stroke="#3fd6c6" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    <span><span class="word">Sentari<span style="color:var(--gold)">.</span></span><small class="mark-tag">Latin: to sense</small></span>
+    <svg width="34" height="34" viewBox="20 20 160 160" aria-hidden="true"><circle cx="100" cy="100" r="72" fill="#122036"/><circle cx="100" cy="100" r="62" fill="none" stroke="#e6b355" stroke-width="2" opacity="0.55"/><rect x="62" y="74" width="46" height="8" rx="4" fill="#e6b355"/><rect x="62" y="96" width="34" height="8" rx="4" fill="#e6b355" opacity="0.85"/><rect x="62" y="118" width="22" height="8" rx="4" fill="#e6b355" opacity="0.7"/><path d="M108 100 H140" stroke="#3fd6c6" stroke-width="8" stroke-linecap="round"/><path d="M132 88 L146 100 L132 112" fill="none" stroke="#3fd6c6" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <span class="word">Sentari<span style="color:var(--gold)">.</span></span>
   </a>
-  <a class="navcta" href="https://cal.com/cartrel-james-dwefpy/free-20-minute-call" target="_blank" rel="noopener">Talk through your system →</a>
+  <div class="links">
+    <a href="#services">Services</a>
+    <a href="#work">Work</a>
+    <a href="/blog/">Blog</a>
+    <a class="navcta" href="https://cal.com/cartrel-james-dwefpy/free-20-minute-call" target="_blank" rel="noopener">Book a call</a>
+  </div>
 </div></nav>
 
-<header class="hero">
-  <span class="orb a"></span><span class="orb b"></span>
-  <div class="wrap">
-    <div class="grid">
-      <div>
-        <span class="kicker">Operating software for small organizations</span>
-        <h1>Your organization is already running on a system. <span class="hl">It may just be trapped in email, spreadsheets, and memory.</span></h1>
-        <p class="lede">Sentari turns messy operations into dashboards, portals, workflows, reports, and websites your people can actually use.</p>
-        <div class="actions">
-          <a class="btn" href="#contact">Show us your messy process</a>
-          <a class="btn btn-ghost" href="https://dashboard.sentarisoftware.com">See live proof →</a>
-          <a class="btn btn-ghost" href="/seo-check.html">Free SEO check →</a>
-        </div>
+<main id="main">
+<header class="hero"><div class="wrap">
+  <span class="kicker">Zoho Books · financial systems · AI automation</span>
+  <h1>Accounting systems that hold up when <span class="hl">real money moves through them.</span></h1>
+  <p class="lede">I'm Cartrel James. I implement Zoho Books, build the financial systems and integrations around it, and put AI automation and agents to work where they save real hours. I build and run a production financial system on Zoho Books and Stripe, so what I bring has already been tested by live money. St. Louis, remote, US Central.</p>
+  <div class="actions">
+    <a class="btn" href="https://cal.com/cartrel-james-dwefpy/free-20-minute-call" target="_blank" rel="noopener">Book a free 20 minute call</a>
+    <a class="btn btn-ghost" href="#work">See shipped work</a>
+    <a class="btn btn-ghost" href="/seo-check.html">Free SEO check</a>
+  </div>
+  <div class="stats">
+    <div><span class="fig">330</span><span class="lab">API endpoints in production (about)</span></div>
+    <div><span class="fig">9</span><span class="lab">Integrations, Zoho Books and Stripe included</span></div>
+    <div><span class="fig">4,170</span><span class="lab">Automated tests (about)</span></div>
+    <div><span class="fig">40 yrs</span><span class="lab">In IT, since mainframe operations</span></div>
+  </div>
+</div></header>
+
+<div id="site-data">
+<!-- site-data:start -->
+<section id="services"><div class="wrap">
+    <div class="sec-head"><span class="kicker">What I do</span>
+      <h2>Accounting systems first, then the automation around them.</h2></div>
+    <div class="cards">
+      <article class="card">
+        <div class="n">01</div>
+        <h3>Zoho Books and Zoho One implementation</h3>
+        <p>Zoho Books set up, cleaned up or migrated so it matches how the organization actually runs, plus overflow tickets for Zoho partners who need US Central hours.</p>
+        <ul class="ticks"><li>Migration from QuickBooks Online and older ledgers</li><li>Card and ACH payments through a Stripe clearing account</li><li>Deluge scripting and REST API work</li><li>Reconciliation cleanups</li></ul>
+      </article>
+      <article class="card">
+        <div class="n">02</div>
+        <h3>Financial systems</h3>
+        <p>Systems that run real money: payments, invoices, credits and giving, with the books of record kept right and access decided on the server by role.</p>
+        <ul class="ticks"><li>Payments recorded at gross, fees kept separate</li><li>Role based access matched to the organization's offices</li><li>Reports pulled from the books of record</li></ul>
+      </article>
+      <article class="card">
+        <div class="n">03</div>
+        <h3>AI automation and agents</h3>
+        <p>AI put to work where it saves hours: document intake, assistants that answer from your own records, and agents that build and check work under a release process.</p>
+        <ul class="ticks"><li>Document classification and field extraction to JSON</li><li>Assistants that answer only from your documents, with citations</li><li>Claude Code and MCP servers with independent review before release</li></ul>
+      </article>
+      <article class="card">
+        <div class="n">04</div>
+        <h3>Data engineering</h3>
+        <p>Data moved, converted and reconciled between systems without losing a record, from the batch job habits of mainframe operations to Postgres and APIs today.</p>
+        <ul class="ticks"><li>Data migration and conversion review</li><li>SQL and PostgreSQL</li><li>Reconciliation across systems of record</li></ul>
+      </article>
+    </div>
+  </div></section>
+<section id="capabilities" class="band-light"><div class="wrap">
+    <div class="sec-head"><span class="kicker">Working tools</span>
+      <h2>What I use day to day.</h2></div>
+    <div class="caps">
+      <div class="cap">
+        <h3>Accounting and payments</h3>
+        <ul><li>Zoho Books</li><li>Deluge</li><li>QuickBooks Online</li><li>Stripe and Stripe webhooks</li></ul>
       </div>
-      <div class="window" aria-hidden="true">
-        <div class="bar"><i></i><i></i><i></i><span>sentari — operations dashboard</span></div>
-        <div class="product-preview">
-          <div class="app-top">
-            <div class="app-title"><strong>Organization OS</strong><span>Members · events · payments · reports</span></div>
-            <span class="live-pill">Live demo</span>
-          </div>
-          <div class="product-tabs">
-            <span class="active">Dashboard</span><span>Board</span><span>Members</span><span>Events</span><span>Payments</span>
-          </div>
-          <div class="dash-grid">
-            <div>
-              <div class="metric-grid">
-                <div class="mini-metric"><b>418</b><span>Member records</span></div>
-                <div class="mini-metric"><b>27</b><span>Open tasks</span></div>
-                <div class="mini-metric"><b>$12k</b><span>Event income</span></div>
-                <div class="mini-metric"><b>9</b><span>Board items</span></div>
-              </div>
-              <div class="role-card">
-                <h4>Role-based access</h4>
-                <div class="role-line"><i class="role-dot"></i><span>Officer dashboard</span><em>active</em></div>
-                <div class="role-line"><i class="role-dot"></i><span>Member portal</span><em>self-serve</em></div>
-                <div class="role-line"><i class="role-dot"></i><span>Committee reports</span><em>scoped</em></div>
-              </div>
-            </div>
-            <div>
-              <div class="hero-panel">
-                <div class="panel-head"><h4>Event financials</h4><span class="tag">from source systems</span></div>
-                <div class="bar-chart"><i></i><i></i><i></i><i></i><i></i><i></i></div>
-                <div class="system-list">
-                  <div>Payment starts route to hosted checkout</div>
-                  <div>Reports separate board, officer, and member views</div>
-                  <div>Operational changes ship without a tool pile</div>
-                </div>
-              </div>
-              <div class="activity-card">
-                <h4>Today in the system</h4>
-                <div class="activity-row"><time>09:12</time><span>Member balance report refreshed</span></div>
-                <div class="activity-row"><time>09:18</time><span>Event report shared with officers</span></div>
-              </div>
-            </div>
-          </div>
-        </div>
+      <div class="cap">
+        <h3>Integration and data</h3>
+        <ul><li>REST APIs, JSON, OAuth</li><li>Signed webhooks</li><li>SQL and PostgreSQL</li><li>Data migration and reconciliation</li><li>Wix</li></ul>
+      </div>
+      <div class="cap">
+        <h3>Application stack</h3>
+        <ul><li>Node.js and Express</li><li>React</li><li>PostgreSQL on Neon</li><li>Hosting on Render</li><li>Git, staging and release checks</li></ul>
+      </div>
+      <div class="cap">
+        <h3>AI and agents</h3>
+        <ul><li>Claude Code</li><li>MCP servers</li><li>OpenAI Codex CLI</li><li>Gemini document extraction</li><li>Builder, reviewer, staging and proof release process</li></ul>
+      </div>
+      <div class="cap">
+        <h3>Records and operations</h3>
+        <ul><li>Document intake, indexing, imaging and retrieval</li><li>Azure document imaging and AD sync</li><li>Access control across 100+ endpoints</li><li>System replacement: requirements, testing, training</li></ul>
       </div>
     </div>
-    <div class="stats">
-      <div><span class="fig">24/7</span><span class="lab">Live &amp; hosted</span></div>
-      <div><span class="fig">100<em>%</em></span><span class="lab">Custom-built for you</span></div>
-      <div><span class="fig">1<em>partner</em></span><span class="lab">Designs, secures &amp; runs it</span></div>
-      <div><span class="fig">Real</span><span class="lab">Working software, not mockups</span></div>
-    </div>
-  </div>
-</header>
-
-
-<section class="proof-system"><div class="wrap">
-  <div class="proof-grid">
-    <div class="proof-copy">
-      <span class="kicker">Proof you can inspect</span>
-      <h2>A dashboard is a better case study than a slogan.</h2>
-      <p>Before: officers chasing spreadsheets, member balances, event numbers, permissions, and follow-up through scattered tools.</p>
-      <p>After: role-based dashboards, member self-service, event reporting, payment starts, and operational visibility in one hosted system.</p>
-      <div class="proof-callout"><strong>Public-safe demo:</strong> the live demo uses sanitized data and fictional branding, so prospects can see the shape of the system without exposing private operations.</div>
-      <p style="margin-top:22px"><a class="btn btn-ink" href="https://dashboard.sentarisoftware.com">Open the dashboard demo →</a></p>
-    </div>
-    <div class="proof-points" aria-label="Dashboard proof points">
-      <div class="proof-point"><strong>Roles that match the organization</strong><span>Admin, officer, board, committee chair, and member experiences each see what they need.</span></div>
-      <div class="proof-point"><strong>Financial visibility without spreadsheet hunting</strong><span>Event reporting, member balances, payment starts, and trends are surfaced from the source systems.</span></div>
-      <div class="proof-point"><strong>Member-facing self-service</strong><span>Members can see their own profile and start a hosted payment flow without exposing card handling to the dashboard.</span></div>
-      <div class="proof-point"><strong>Hosted and maintained</strong><span>Domain, deployment, health checks, access control, and future changes are handled as part of the operating system.</span></div>
-    </div>
-  </div>
-</div></section>
-
-
-<section><div class="wrap">
-  <div class="sec-head center"><span class="kicker">What we build</span>
-    <h2>The tools your operation actually runs on.</h2></div>
-  <div class="cards">
-    <div class="card">
-      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#e6b355" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
-      <div class="n">01</div><h3>Operations software &amp; dashboards</h3>
-      <p>Secure systems your team runs on — member records, dues, events, reporting — wired to the accounting and tools you already use.</p></div>
-    <div class="card">
-      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#3fd6c6" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 8h20M6 6h.01M9 6h.01"/></svg></div>
-      <div class="n">02</div><h3>Websites that convert</h3>
-      <p>A fast, professional site built to turn visitors into calls and customers — not just a pretty brochure page.</p></div>
-    <div class="card">
-      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#e6b355" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3v4a1 1 0 0 0 1 1h4"/><path d="M17 21H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7l5 5v11a2 2 0 0 1-2 2z"/><path d="M9 13h6M9 17h4"/></svg></div>
-      <div class="n">03</div><h3>Automation &amp; document work</h3>
-      <p>Intake, extraction, and busywork automated — the records-office specialty, brought in wherever it saves you hours.</p></div>
-  </div>
-</div></section>
-
-
-<section class="why"><span class="orb"></span><div class="wrap"><div class="inner">
-  <span class="kicker">Why Sentari</span>
-  <h2>A focused software partner, not a template shop.</h2>
-  <p>Sentari maps the messy process, designs the right system, ships it, hosts it, watches it, and keeps improving it with you.</p>
-  <p>Founded by Cartrel James, Sentari brings records-office discipline to small-organization software: secure systems, careful workflows, and practical operations thinking where mistakes are expensive.</p>
-  <p><strong>You own what we build for you.</strong> The code, the configuration, the domain, the data — registered in your name, handed over, yours to keep. Sentari keeps rights only to the general-purpose tooling it brings to every project. No lock-in, no black box, and no reason you would ever need our permission to keep running your own operation.</p>
-  <p class="sig">— Cartrel James, Founder, Sentari Software</p>
-</div></div></section>
-
+  </div></section>
 <section id="work"><div class="wrap">
-  <div class="sec-head"><span class="kicker cy">Selected work</span>
-    <h2>Real systems, shipped and running.</h2>
-    <p>Not concepts — live software and sales assets doing their job right now.</p></div>
-  <div class="work-cards triple">
-    <div class="proj">
-      <span class="tag">Operations dashboard · live demo</span>
-      <h3>The system a whole organization runs on.</h3>
-      <p>A sanitized version of the member-organization dashboard: roles, events, reports, member portal, payments, and live operational visibility in one hosted system.</p>
-      <a href="https://dashboard.sentarisoftware.com">See a live demo →</a>
+    <div class="sec-head"><span class="kicker cy">Shipped work</span>
+      <h2>Proof that runs, not a portfolio of mockups.</h2></div>
+    <div class="work-cards">
+      <article class="proj">
+        <span class="tag">Production · Zoho Books, Stripe, Postgres</span>
+        <h3>A member organization's production financial system</h3>
+        <p>Runs live payments, invoices, credits and Stripe clearing on Zoho Books, with about 330 API endpoints, 9 integrations and about 4,170 automated tests.</p>
+        <a href="https://dashboard.sentarisoftware.com">See the sanitized demo</a>
+      </article>
+      <article class="proj">
+        <span class="tag">AI document extraction · live demo</span>
+        <h3>File Extractor</h3>
+        <p>Classifies documents, extracts fields to JSON, scores confidence and routes uncertain work to a person for review.</p>
+        <a href="https://demo.sentarisoftware.com">Open File Extractor</a>
+      </article>
+      <article class="proj">
+        <span class="tag">Claude assistant</span>
+        <h3>Ask the Constitution</h3>
+        <p>Answers questions only from an organization's governing documents, and cites the section it used.</p>
+      </article>
+      <article class="proj">
+        <span class="tag">Hosted service</span>
+        <h3>Lead Pipeline</h3>
+        <p>Takes in leads, sends monthly client reports and handles update requests, running on Render.</p>
+      </article>
+      <article class="proj">
+        <span class="tag">Free tool · live</span>
+        <h3>SEO check</h3>
+        <p>Grades any website on on-page, technical, local and Core Web Vitals and lists the fixes that matter most.</p>
+        <a href="/seo-check.html">Run a free check</a>
+      </article>
+      <article class="proj">
+        <span class="tag">Skills, agents, overnight watches</span>
+        <h3>An agentic operating system</h3>
+        <p>A working set of skills, agents and overnight watches that build, review and check software under a test first release process.</p>
+      </article>
     </div>
-    <div class="proj">
-      <span class="tag">Document automation · live demo</span>
-      <h3>The document-work specialty underneath.</h3>
-      <p>File Extractor shows the intake, review, quarantine, and supervisor oversight patterns that power document-heavy workflows when the work starts in email, PDFs, and scans.</p>
-      <a href="https://demo.sentarisoftware.com">Open File Extractor →</a>
-    </div>
-    <div class="proj">
-      <span class="tag">Website + care plan · proposal lane</span>
-      <h3>A website is the front door, not the whole house.</h3>
-      <p>For service businesses, Sentari can build the public site, contact pipeline, monitoring, reporting, and monthly care loop so leads do not disappear after the form submit.</p>
-      <a href="#contact">Show us the process →</a>
-    </div>
-  </div>
+  </div></section>
+<!-- site-data:end -->
+</div>
+
+<section class="demo"><div class="wrap">
+  <div class="sec-head"><span class="kicker cy">Watch it work</span>
+    <h2>A narrated tour of the demo.</h2>
+    <p>The live demo runs on sanitized data and fictional branding, so you can see the shape of the system without anyone's private records.</p></div>
+  <video controls preload="metadata" poster="/media/sentari-demo-preview.png">
+    <source src="/media/sentari-demo-narrated.mp4" type="video/mp4">
+    Your browser does not play this video. <a href="/media/sentari-demo-narrated.mp4">Download the walkthrough</a>.
+  </video>
+  <p class="note">Try it yourself: <a href="https://dashboard.sentarisoftware.com">dashboard.sentarisoftware.com</a> and <a href="https://demo.sentarisoftware.com">demo.sentarisoftware.com</a>.</p>
 </div></section>
 
-
-<section class="closing-band"><div class="wrap">
-  <div class="closing-grid">
-    <div>
-      <span class="kicker">What that means</span>
-      <h2>You get the public site and the private system behind it.</h2>
-      <p>The website brings people in. The dashboard, forms, reports, and workflows make sure the work does not get lost after they arrive.</p>
-    </div>
-    <div class="closing-list">
-      <div class="closing-item"><strong>One front door</strong>Clear public pages, calls to action, and intake paths for visitors, members, or customers.</div>
-      <div class="closing-item"><strong>One operating view</strong>Private dashboards for the people who run the organization, with the right access for each role.</div>
-      <div class="closing-item"><strong>One partner accountable</strong>Designed, shipped, hosted, watched, and improved without handing you a pile of tools to manage.</div>
-    </div>
+<section id="background" class="band-light"><div class="wrap">
+  <div class="sec-head"><span class="kicker">The background</span>
+    <h2>Forty years of IT behind the code.</h2>
+    <p>Batch jobs, data conversion and reconciliation were the job long before they were features. That habit is why the books balance.</p></div>
+  <div class="history">
+    <div class="era"><span class="yrs">1986 to 1998</span><h3>Mainframe operations</h3><p>Sherwood Medical and Unigroup.</p></div>
+    <div class="era"><span class="yrs">2001 to 2018</span><h3>Metro St. Louis transit</h3><p>Seventeen years at Bi-State Development: computer room, then planning and scheduling, then operations.</p></div>
+    <div class="era"><span class="yrs">2020 to 2026</span><h3>St. Louis City Recorder of Deeds</h3><p>IT Administrator: document systems from intake to retrieval, Azure imaging, AD sync, and the customer side of a records system replacement.</p></div>
+    <div class="era"><span class="yrs">2024 to now</span><h3>Sentari Software</h3><p>Founder and developer. Carried one organization's books from Quicken to QuickBooks Desktop to QuickBooks Online to Zoho Books.</p></div>
   </div>
+  <p class="own"><strong>You own what I build for you.</strong> The code, the configuration, the domain and the data are registered in your name, handed over, and yours to keep. Sentari keeps rights only to the general purpose tooling it brings to every project. No lock in, no black box, and no reason you would ever need my permission to keep running your own operation.</p>
 </div></section>
-
-
 
 <section class="final" id="contact"><div class="wrap">
-  <span class="kicker">Let's talk</span>
-  <h2>Send us the part of your operation that keeps slipping through the cracks.</h2>
-  <p class="lead">Book a free 20-minute call to talk through your system, or send the messy process below.</p>
-  <a class="btn" href="https://cal.com/cartrel-james-dwefpy/free-20-minute-call" target="_blank" rel="noopener">Talk through your system</a>
+  <span class="kicker">Book a call</span>
+  <h2>Bring the ledger, the integration or the process that keeps slipping.</h2>
+  <p class="lead">A free 20 minute call to talk through it. Part time and project work, 10 to 15 hours a week, US Central.</p>
+  <a class="btn" href="https://cal.com/cartrel-james-dwefpy/free-20-minute-call" target="_blank" rel="noopener">Book a free 20 minute call</a>
   <div class="form-card">
-    <div class="fh"><span class="kicker cy">Send a message</span>
-      <p>Show us the workflow, spreadsheet, inbox, report, payment problem, or handoff that keeps slowing your team down.</p></div>
     <form action="https://formsubmit.co/info@sentarisoftware.com" method="POST">
-      <input type="hidden" name="_subject" value="New inquiry — sentarisoftware.com">
+      <input type="hidden" name="_subject" value="New inquiry from sentarisoftware.com">
       <input type="hidden" name="_captcha" value="false">
       <input type="hidden" name="_template" value="table">
       <div class="frow">
-        <div class="field"><label for="f-name">Your name</label><input id="f-name" name="name" required placeholder="Jane Doe"></div>
-        <div class="field"><label for="f-email">Email</label><input id="f-email" name="email" type="email" required placeholder="jane@yourfirm.com"></div>
+        <div class="field"><label for="f-name">Your name</label><input id="f-name" name="name" required autocomplete="name"></div>
+        <div class="field"><label for="f-email">Email</label><input id="f-email" name="email" type="email" required autocomplete="email"></div>
       </div>
-      <div class="field"><label for="f-firm">Firm <span>(optional)</span></label><input id="f-firm" name="firm" placeholder="Your firm's name"></div>
-      <div class="field"><label for="f-msg">Show us your messy process</label><textarea id="f-msg" name="message" required rows="4" placeholder="e.g. Our board runs the organization off spreadsheets and email — we need a real system our officers can log into…"></textarea></div>
-      <button type="submit" class="btn">Send message →</button>
-      <p class="form-note">No spam, ever — your message goes straight to Sentari.</p>
+      <div class="field"><label for="f-firm">Organization (optional)</label><input id="f-firm" name="firm" autocomplete="organization"></div>
+      <div class="field"><label for="f-msg">What needs fixing</label><textarea id="f-msg" name="message" required rows="4"></textarea></div>
+      <button type="submit" class="btn">Send message</button>
     </form>
   </div>
-  <p class="contact">Prefer to talk? Call <a href="tel:+13144036685">(314) 403-6685</a> &nbsp;·&nbsp; email <a href="mailto:info@sentarisoftware.com">info@sentarisoftware.com</a></p>
+  <p class="contact">Call <a href="tel:+13144036685">(314) 403-6685</a> or email <a href="mailto:info@sentarisoftware.com">info@sentarisoftware.com</a></p>
 </div></section>
+</main>
 
-<footer><div class="wrap" style="width:100%">
-  <div class="footer-row">
-    <div class="logo"><span class="word">Sentari<span style="color:var(--gold)">.</span> Software</span></div>
-    <div>Custom software, dashboards &amp; websites · Secure, hosted, built to last</div>
-  </div>
+<footer><div class="wrap row">
+  <span>Sentari Software · St. Louis · Cartrel James</span>
+  <span><a href="/blog/">Blog</a> · <a href="/seo-check.html">SEO check</a></span>
 </div></footer>
 
+<script type="module" src="/site-render.js"></script>
 </body>
 </html>
