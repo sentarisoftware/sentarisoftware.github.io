@@ -1,44 +1,45 @@
 // Renders the data-driven sections of the home page from site-data.json.
 // Shared by tools/build-site.mjs (static fallback baked into index.html) and the browser (refresh at load).
-// Design (2026-11-05 rework): no cards, no labels above headings, no chips. Plain headings, sentences,
-// and real screenshots shown large beside the words they prove.
+// Round 3 (2026-11-05): one piece of proof shown large with plain sentences, the rest as short lines,
+// services as plain lines. No cards, labels above headings, chips, numbering or tags.
 
 const esc = (s) => String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
-
-function services(list) {
-  const items = list.map((s) => `      <div class="svc">
-        <h3>${esc(s.title)}</h3>
-        <p>${esc(s.summary)}</p>
-      </div>`).join('\n');
-  return `<section id="services" class="col">
-    <h2>What I can take off your plate</h2>
-${items}
-  </section>`;
-}
+const link = (w) => (w.link ? ` <a href="${esc(w.link)}">${esc(w.linkText || 'Open it')}</a>` : '');
 
 function shipped(list) {
-  const withPic = list.filter((w) => w.image);
-  const rest = list.filter((w) => !w.image);
-  const link = (w) => (w.link ? ` <a href="${esc(w.link)}">${esc(w.linkText || 'Open it')}</a>` : '');
-  const shown = withPic.map((w) => `    <figure class="shot">
-      <img src="${esc(w.image.src)}" alt="${esc(w.image.alt)}" width="${Number(w.image.width)}" height="${Number(w.image.height)}" loading="lazy" decoding="async">
-      <figcaption><h3>${esc(w.title)}</h3><p>${esc(w.outcome)}${link(w)}</p></figcaption>
-    </figure>`).join('\n');
-  const others = rest.length ? `
-    <ul class="also col">
-${rest.map((w) => `      <li><h3>${esc(w.title)}</h3> ${esc(w.outcome)}${link(w)}</li>`).join('\n')}
-    </ul>` : '';
-  return `<section id="work">
-    <h2 class="col">Things I've built that are running now</h2>
-${shown}${others}
-  </section>`;
+  const lead = list.find((w) => w.image);
+  const rest = list.filter((w) => w !== lead);
+  const feature = lead ? `
+  <div class="proof">
+    <div class="text">
+      <h2>${esc(lead.title)}</h2>
+      <p>${esc(lead.outcome)}${link(lead)}</p>
+    </div>
+    <figure>
+      <img src="${esc(lead.image.src)}" alt="${esc(lead.image.alt)}" width="${Number(lead.image.width)}" height="${Number(lead.image.height)}" loading="lazy" decoding="async">
+    </figure>
+  </div>` : '';
+  const more = rest.length ? `
+  <div class="more text">
+    <h2>Other work you can look at</h2>
+${rest.map((w) => `    <p><strong>${esc(w.title)}.</strong> ${esc(w.outcome)}${link(w)}</p>`).join('\n')}
+  </div>` : '';
+  return `<section id="work"><div class="wrap">${feature}${more}
+</div></section>`;
+}
+
+function services(list) {
+  return `<section id="services"><div class="wrap"><div class="text">
+  <h2>What I do</h2>
+${list.map((s) => `  <div class="svc"><h3>${esc(s.title)}</h3><p>${esc(s.summary)}</p></div>`).join('\n')}
+</div></div></section>`;
 }
 
 function certifications(list) {
   if (!list.length) return '';
   const items = list.map((c) => `<li>${esc(c.name)}, ${esc(c.issuer)}${c.year ? `, ${esc(c.year)}` : ''}</li>`).join('');
   return `
-<section id="certifications" class="col"><h2>Certifications</h2><ul>${items}</ul></section>`;
+<section id="certifications"><div class="wrap text"><h2>Certifications</h2><ul>${items}</ul></div></section>`;
 }
 
 export function renderSiteData(data) {

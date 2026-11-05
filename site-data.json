@@ -98,11 +98,11 @@
   ],
   "shipped": [
     {
-      "title": "A member organization's production financial system",
+      "title": "The financial system I built and run every day",
       "tag": "Production · Zoho Books, Stripe, Postgres",
-      "outcome": "Payments, invoices, credits and Stripe clearing on Zoho Books for a member organization. About 330 API endpoints and 4,170 automated tests. The demo runs on made-up data.",
+      "outcome": "A member organization runs its money on it: dues, invoices, credits and card payments through Zoho Books and Stripe, recorded the way an auditor expects. About 330 API endpoints and 4,170 automated tests stand behind it. The demo uses made-up data.",
       "link": "https://dashboard.sentarisoftware.com",
-      "linkText": "See the sanitized demo",
+      "linkText": "Try the demo",
       "source": "CANDIDATE-FACTS.md; PROJECTS.md (RV Dashboard Demo, sanitized)",
       "image": {
         "src": "/media/demo-financials.webp",
