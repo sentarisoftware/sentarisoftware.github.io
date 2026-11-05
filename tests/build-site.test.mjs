@@ -18,12 +18,9 @@ const sample = {
 };
 
 describe('renderSiteData', () => {
-  it('renders every service, capability group and shipped item, with links only where given', () => {
+  it('renders every service and shipped item, with links only where given', () => {
     const html = renderSiteData(sample);
     expect(html).toContain('Zoho Books setup');
-    expect(html).toContain('Chart of accounts');
-    expect(html).toContain('Accounting');
-    expect(html).toContain('Stripe');
     expect(html).toContain('href="https://demo.sentarisoftware.com"');
     expect(html).toContain('Private system');
     expect((html.match(/<a /g) || []).length).toBe(1);
@@ -37,8 +34,9 @@ describe('renderSiteData', () => {
     expect((html.match(/<img /g) || []).length).toBe(1);
   });
 
-  it('renders capability items as chips', () => {
-    expect(renderSiteData(sample)).toContain('<ul class="chips"><li>Zoho Books</li><li>Stripe</li></ul>');
+  it('uses none of the generic page tells: no chips, cards, numbering or labels above headings', () => {
+    const html = renderSiteData(sample);
+    for (const tell of ['class="chips"', 'class="card"', 'class="kicker"', 'class="n"', 'class="tag"']) expect(html).not.toContain(tell);
   });
 
   it('escapes HTML in data', () => {

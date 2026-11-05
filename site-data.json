@@ -3,7 +3,7 @@
   "services": [
     {
       "title": "Zoho Books and Zoho One implementation",
-      "summary": "Zoho Books set up, cleaned up or migrated, plus overflow tickets for Zoho partners.",
+      "summary": "Set up, cleaned up or moved over from QuickBooks, plus overflow work for Zoho partners.",
       "points": [
         "Migration from QuickBooks Online",
         "Stripe card and ACH clearing",
@@ -13,7 +13,7 @@
     },
     {
       "title": "Financial systems",
-      "summary": "Systems that run real money with the books of record kept right.",
+      "summary": "Payments, invoices and credits that land in the books the right way.",
       "points": [
         "Payments recorded at gross",
         "Role based access on the server",
@@ -23,7 +23,7 @@
     },
     {
       "title": "AI automation and agents",
-      "summary": "AI put to work where it saves hours.",
+      "summary": "Software that reads your documents and drafts the routine work, checked before it ships.",
       "points": [
         "Document extraction to JSON",
         "Assistants that cite your own documents",
@@ -33,7 +33,7 @@
     },
     {
       "title": "Data engineering",
-      "summary": "Data moved, converted and reconciled without losing a record.",
+      "summary": "Data moved between systems and reconciled, without losing a record.",
       "points": [
         "Migration and conversion review",
         "SQL and PostgreSQL",
@@ -100,16 +100,16 @@
     {
       "title": "A member organization's production financial system",
       "tag": "Production · Zoho Books, Stripe, Postgres",
-      "outcome": "Live payments, invoices, credits and Stripe clearing on Zoho Books: about 330 API endpoints, 9 integrations, about 4,170 tests.",
+      "outcome": "Payments, invoices, credits and Stripe clearing on Zoho Books for a member organization. About 330 API endpoints and 4,170 automated tests. The demo runs on made-up data.",
       "link": "https://dashboard.sentarisoftware.com",
       "linkText": "See the sanitized demo",
       "source": "CANDIDATE-FACTS.md; PROJECTS.md (RV Dashboard Demo, sanitized)",
       "image": {
-        "src": "/media/demo-member-account.webp",
-        "alt": "Member account page in the sanitized demo: balance, status and a pay balance button",
+        "src": "/media/demo-financials.webp",
+        "alt": "Financial snapshot in the sanitized demo: cash, clearing, reserves and open balances for a fictional club",
         "width": 1200,
         "height": 750,
-        "source": "Screenshot 2026-11-05 of https://dashboard.sentarisoftware.com signed in as Standard Member (synthetic Rivertown Club data)"
+        "source": "Screenshot 2026-11-05 of https://dashboard.sentarisoftware.com/financials signed in as Club Officer (synthetic Rivertown Club data)"
       }
     },
     {
@@ -121,10 +121,10 @@
       "source": "CANDIDATE-FACTS.md; PROJECTS.md (File Extractor, customer-demo)",
       "image": {
         "src": "/media/extractor-queue.webp",
-        "alt": "File Extractor review queue: documents with extraction accuracy, status and missing fields",
-        "width": 888,
-        "height": 551,
-        "source": "Screenshot 2026-11-05 of https://demo.sentarisoftware.com review queue (#cases)"
+        "alt": "File Extractor review queue: sample invoices with extraction accuracy, reference and status",
+        "width": 1200,
+        "height": 520,
+        "source": "Screenshot 2026-11-05 of https://demo.sentarisoftware.com case grid (sample documents), cropped"
       }
     },
     {
