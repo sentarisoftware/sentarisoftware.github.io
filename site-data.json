@@ -3,42 +3,41 @@
   "services": [
     {
       "title": "Zoho Books and Zoho One implementation",
-      "summary": "Zoho Books set up, cleaned up or migrated so it matches how the organization actually runs, plus overflow tickets for Zoho partners who need US Central hours.",
+      "summary": "Zoho Books set up, cleaned up or migrated, plus overflow tickets for Zoho partners.",
       "points": [
-        "Migration from QuickBooks Online and older ledgers",
-        "Card and ACH payments through a Stripe clearing account",
-        "Deluge scripting and REST API work",
-        "Reconciliation cleanups"
+        "Migration from QuickBooks Online",
+        "Stripe card and ACH clearing",
+        "Deluge and REST API work"
       ],
       "source": "CANDIDATE-FACTS.md (books carried Quicken to QuickBooks to Zoho Books; Stripe clearing); 2026-11-05 Part-Time Profile and Plan (partner subcontracting, skills list)"
     },
     {
       "title": "Financial systems",
-      "summary": "Systems that run real money: payments, invoices, credits and giving, with the books of record kept right and access decided on the server by role.",
+      "summary": "Systems that run real money with the books of record kept right.",
       "points": [
-        "Payments recorded at gross, fees kept separate",
-        "Role based access matched to the organization's offices",
-        "Reports pulled from the books of record"
+        "Payments recorded at gross",
+        "Role based access on the server",
+        "Reports from the books of record"
       ],
       "source": "CANDIDATE-FACTS.md (Stripe clearing, gross recording, role based access)"
     },
     {
       "title": "AI automation and agents",
-      "summary": "AI put to work where it saves hours: document intake, assistants that answer from your own records, and agents that build and check work under a release process.",
+      "summary": "AI put to work where it saves hours.",
       "points": [
-        "Document classification and field extraction to JSON",
-        "Assistants that answer only from your documents, with citations",
-        "Claude Code and MCP servers with independent review before release"
+        "Document extraction to JSON",
+        "Assistants that cite your own documents",
+        "Agents with independent review before release"
       ],
       "source": "CANDIDATE-FACTS.md (document tool, Ask the Constitution, Claude Code and MCP release process)"
     },
     {
       "title": "Data engineering",
-      "summary": "Data moved, converted and reconciled between systems without losing a record, from the batch job habits of mainframe operations to Postgres and APIs today.",
+      "summary": "Data moved, converted and reconciled without losing a record.",
       "points": [
-        "Data migration and conversion review",
+        "Migration and conversion review",
         "SQL and PostgreSQL",
-        "Reconciliation across systems of record"
+        "Reconciliation across systems"
       ],
       "source": "2026-11-05 Part-Time Profile and Plan (batch jobs, data conversion, reconciliation); CANDIDATE-FACTS.md (records system replacement, data conversion review)"
     }
@@ -46,27 +45,54 @@
   "capabilities": [
     {
       "group": "Accounting and payments",
-      "items": ["Zoho Books", "Deluge", "QuickBooks Online", "Stripe and Stripe webhooks"],
+      "items": [
+        "Zoho Books",
+        "Deluge",
+        "QuickBooks Online",
+        "Stripe"
+      ],
       "source": "CANDIDATE-FACTS.md; 2026-11-05 Part-Time Profile and Plan skills list"
     },
     {
       "group": "Integration and data",
-      "items": ["REST APIs, JSON, OAuth", "Signed webhooks", "SQL and PostgreSQL", "Data migration and reconciliation", "Wix"],
+      "items": [
+        "REST APIs",
+        "OAuth",
+        "Webhooks",
+        "PostgreSQL",
+        "Wix"
+      ],
       "source": "2026-11-05 Part-Time Profile and Plan skills list"
     },
     {
       "group": "Application stack",
-      "items": ["Node.js and Express", "React", "PostgreSQL on Neon", "Hosting on Render", "Git, staging and release checks"],
+      "items": [
+        "Node.js",
+        "Express",
+        "React",
+        "Neon",
+        "Render"
+      ],
       "source": "context/work.md (dashboard stack); PROJECTS.md (Render services); Profile and Plan skills list"
     },
     {
       "group": "AI and agents",
-      "items": ["Claude Code", "MCP servers", "OpenAI Codex CLI", "Gemini document extraction", "Builder, reviewer, staging and proof release process"],
+      "items": [
+        "Claude Code",
+        "MCP servers",
+        "Codex CLI",
+        "Gemini"
+      ],
       "source": "context/me.md (AI tools in use); context/sentari-software.md (Gemini extraction); CANDIDATE-FACTS.md (release process)"
     },
     {
       "group": "Records and operations",
-      "items": ["Document intake, indexing, imaging and retrieval", "Azure document imaging and AD sync", "Access control across 100+ endpoints", "System replacement: requirements, testing, training"],
+      "items": [
+        "Document imaging",
+        "Azure",
+        "Active Directory",
+        "System replacement"
+      ],
       "source": "CANDIDATE-FACTS.md (Recorder of Deeds, 2020 to 2026)"
     }
   ],
@@ -74,10 +100,17 @@
     {
       "title": "A member organization's production financial system",
       "tag": "Production · Zoho Books, Stripe, Postgres",
-      "outcome": "Runs live payments, invoices, credits and Stripe clearing on Zoho Books, with about 330 API endpoints, 9 integrations and about 4,170 automated tests.",
+      "outcome": "Live payments, invoices, credits and Stripe clearing on Zoho Books: about 330 API endpoints, 9 integrations, about 4,170 tests.",
       "link": "https://dashboard.sentarisoftware.com",
       "linkText": "See the sanitized demo",
-      "source": "CANDIDATE-FACTS.md; PROJECTS.md (RV Dashboard Demo, sanitized)"
+      "source": "CANDIDATE-FACTS.md; PROJECTS.md (RV Dashboard Demo, sanitized)",
+      "image": {
+        "src": "/media/demo-member-account.webp",
+        "alt": "Member account page in the sanitized demo: balance, status and a pay balance button",
+        "width": 1200,
+        "height": 750,
+        "source": "Screenshot 2026-11-05 of https://dashboard.sentarisoftware.com signed in as Standard Member (synthetic Rivertown Club data)"
+      }
     },
     {
       "title": "File Extractor",
@@ -85,7 +118,14 @@
       "outcome": "Classifies documents, extracts fields to JSON, scores confidence and routes uncertain work to a person for review.",
       "link": "https://demo.sentarisoftware.com",
       "linkText": "Open File Extractor",
-      "source": "CANDIDATE-FACTS.md; PROJECTS.md (File Extractor, customer-demo)"
+      "source": "CANDIDATE-FACTS.md; PROJECTS.md (File Extractor, customer-demo)",
+      "image": {
+        "src": "/media/extractor-queue.webp",
+        "alt": "File Extractor review queue: documents with extraction accuracy, status and missing fields",
+        "width": 888,
+        "height": 551,
+        "source": "Screenshot 2026-11-05 of https://demo.sentarisoftware.com review queue (#cases)"
+      }
     },
     {
       "title": "Ask the Constitution",
@@ -105,7 +145,14 @@
       "outcome": "Grades any website on on-page, technical, local and Core Web Vitals and lists the fixes that matter most.",
       "link": "/seo-check.html",
       "linkText": "Run a free check",
-      "source": "PROJECTS.md (SEO audit tool in Lead Pipeline); seo-check.html"
+      "source": "PROJECTS.md (SEO audit tool in Lead Pipeline); seo-check.html",
+      "image": {
+        "src": "/media/seo-check-result.webp",
+        "alt": "SEO check result for sentarisoftware.com: grade A, 90 of 100, with category scores",
+        "width": 772,
+        "height": 260,
+        "source": "Screenshot 2026-11-05 of https://sentarisoftware.com/seo-check.html after scanning sentarisoftware.com"
+      }
     },
     {
       "title": "An agentic operating system",

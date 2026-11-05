@@ -110,11 +110,19 @@
   .proj p{color:var(--text-dk-soft);font-size:.96rem;margin-bottom:14px}
   .proj a{margin-top:auto;color:var(--gold-soft);font-weight:600;text-decoration:none;border-bottom:1px solid rgba(230,179,85,.45);align-self:flex-start}
   .certs{list-style:none;display:grid;gap:10px}
+  .proj.pic{padding:0;overflow:hidden}
+  .proj.pic img{display:block;width:100%;height:190px;object-fit:cover;object-position:top left;border-bottom:1px solid var(--line-dk);background:#fff}
+  .proj.pic .tag,.proj.pic h3,.proj.pic p,.proj.pic a{margin-left:22px;margin-right:22px}
+  .proj.pic .tag{margin-top:18px}.proj.pic a{margin-bottom:22px}
+  .chips{list-style:none;display:flex;flex-wrap:wrap;gap:8px}
+  .chips li{font-size:.85rem;color:var(--ink);background:var(--paper);border:1px solid var(--line);border-radius:999px;padding:4px 12px}
+  .hero .grid{display:grid;grid-template-columns:1fr 1.05fr;gap:44px;align-items:center}
+  .shot{display:block;width:100%;height:auto;border-radius:14px;border:1px solid var(--line-dk);box-shadow:0 30px 70px rgba(0,0,0,.45)}
 
   .demo video{display:block;width:100%;aspect-ratio:16/9;background:#000;border-radius:14px;border:1px solid var(--line-dk)}
   .demo .note{margin-top:14px;color:var(--text-dk-soft)}
 
-  .history{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+  .history{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;list-style:none}
   .era{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:22px}
   .era .yrs{font-family:var(--mono);font-size:.74rem;letter-spacing:.1em;color:var(--gold-deep);font-weight:500}
   .era h3{font-size:1.1rem;margin:6px 0 8px}
@@ -138,10 +146,10 @@
   footer .row{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
   footer a{color:var(--text-dk-soft)}
 
-  @media (max-width:900px){.work-cards{grid-template-columns:1fr 1fr}.history{grid-template-columns:1fr 1fr}}
+  @media (max-width:900px){.work-cards{grid-template-columns:1fr 1fr}.history{grid-template-columns:1fr 1fr}.hero .grid{grid-template-columns:1fr}}
   @media (max-width:640px){
     .hero{padding:56px 0 40px}
-    .cards,.work-cards,.history,.frow{grid-template-columns:1fr}
+    .cards,.work-cards,.history,.frow,.hero .grid{grid-template-columns:1fr}
     .stats{grid-template-columns:1fr 1fr}
     section{padding:60px 0}
   }
@@ -166,13 +174,17 @@
 
 <main id="main">
 <header class="hero"><div class="wrap">
-  <span class="kicker">Zoho Books · financial systems · AI automation</span>
-  <h1>Accounting systems that hold up when <span class="hl">real money moves through them.</span></h1>
-  <p class="lede">I'm Cartrel James. I implement Zoho Books, build the financial systems and integrations around it, and put AI automation and agents to work where they save real hours. I build and run a production financial system on Zoho Books and Stripe, so what I bring has already been tested by live money. St. Louis, remote, US Central.</p>
-  <div class="actions">
-    <a class="btn" href="https://cal.com/cartrel-james-dwefpy/free-20-minute-call" target="_blank" rel="noopener">Book a free 20 minute call</a>
-    <a class="btn btn-ghost" href="#work">See shipped work</a>
-    <a class="btn btn-ghost" href="/seo-check.html">Free SEO check</a>
+  <div class="grid">
+    <div>
+      <span class="kicker">Zoho Books · financial systems · AI automation</span>
+      <h1>Accounting systems that hold up when <span class="hl">real money moves through them.</span></h1>
+      <p class="lede">I'm Cartrel James, and I build and run one on Zoho Books and Stripe today.</p>
+      <div class="actions">
+        <a class="btn" href="https://cal.com/cartrel-james-dwefpy/free-20-minute-call" target="_blank" rel="noopener">Book a free 20 minute call</a>
+        <a class="btn btn-ghost" href="#work">See shipped work</a>
+      </div>
+    </div>
+    <img class="shot" src="/media/demo-financials.webp" alt="Financial snapshot in the sanitized dashboard demo: cash position, clearing, reserves, open receivables and fund summary" width="1200" height="750" fetchpriority="high">
   </div>
   <div class="stats">
     <div><span class="fig">330</span><span class="lab">API endpoints in production (about)</span></div>
@@ -185,72 +197,74 @@
 <div id="site-data">
 <!-- site-data:start -->
 <section id="services"><div class="wrap">
-    <div class="sec-head"><span class="kicker">What I do</span>
-      <h2>Accounting systems first, then the automation around them.</h2></div>
+    <div class="sec-head"><span class="kicker">Services</span>
+      <h2>What I do</h2></div>
     <div class="cards">
       <article class="card">
         <div class="n">01</div>
         <h3>Zoho Books and Zoho One implementation</h3>
-        <p>Zoho Books set up, cleaned up or migrated so it matches how the organization actually runs, plus overflow tickets for Zoho partners who need US Central hours.</p>
-        <ul class="ticks"><li>Migration from QuickBooks Online and older ledgers</li><li>Card and ACH payments through a Stripe clearing account</li><li>Deluge scripting and REST API work</li><li>Reconciliation cleanups</li></ul>
+        <p>Zoho Books set up, cleaned up or migrated, plus overflow tickets for Zoho partners.</p>
+        <ul class="ticks"><li>Migration from QuickBooks Online</li><li>Stripe card and ACH clearing</li><li>Deluge and REST API work</li></ul>
       </article>
       <article class="card">
         <div class="n">02</div>
         <h3>Financial systems</h3>
-        <p>Systems that run real money: payments, invoices, credits and giving, with the books of record kept right and access decided on the server by role.</p>
-        <ul class="ticks"><li>Payments recorded at gross, fees kept separate</li><li>Role based access matched to the organization's offices</li><li>Reports pulled from the books of record</li></ul>
+        <p>Systems that run real money with the books of record kept right.</p>
+        <ul class="ticks"><li>Payments recorded at gross</li><li>Role based access on the server</li><li>Reports from the books of record</li></ul>
       </article>
       <article class="card">
         <div class="n">03</div>
         <h3>AI automation and agents</h3>
-        <p>AI put to work where it saves hours: document intake, assistants that answer from your own records, and agents that build and check work under a release process.</p>
-        <ul class="ticks"><li>Document classification and field extraction to JSON</li><li>Assistants that answer only from your documents, with citations</li><li>Claude Code and MCP servers with independent review before release</li></ul>
+        <p>AI put to work where it saves hours.</p>
+        <ul class="ticks"><li>Document extraction to JSON</li><li>Assistants that cite your own documents</li><li>Agents with independent review before release</li></ul>
       </article>
       <article class="card">
         <div class="n">04</div>
         <h3>Data engineering</h3>
-        <p>Data moved, converted and reconciled between systems without losing a record, from the batch job habits of mainframe operations to Postgres and APIs today.</p>
-        <ul class="ticks"><li>Data migration and conversion review</li><li>SQL and PostgreSQL</li><li>Reconciliation across systems of record</li></ul>
+        <p>Data moved, converted and reconciled without losing a record.</p>
+        <ul class="ticks"><li>Migration and conversion review</li><li>SQL and PostgreSQL</li><li>Reconciliation across systems</li></ul>
       </article>
     </div>
   </div></section>
 <section id="capabilities" class="band-light"><div class="wrap">
-    <div class="sec-head"><span class="kicker">Working tools</span>
-      <h2>What I use day to day.</h2></div>
+    <div class="sec-head"><span class="kicker">Tools</span>
+      <h2>Working tools</h2></div>
     <div class="caps">
       <div class="cap">
         <h3>Accounting and payments</h3>
-        <ul><li>Zoho Books</li><li>Deluge</li><li>QuickBooks Online</li><li>Stripe and Stripe webhooks</li></ul>
+        <ul class="chips"><li>Zoho Books</li><li>Deluge</li><li>QuickBooks Online</li><li>Stripe</li></ul>
       </div>
       <div class="cap">
         <h3>Integration and data</h3>
-        <ul><li>REST APIs, JSON, OAuth</li><li>Signed webhooks</li><li>SQL and PostgreSQL</li><li>Data migration and reconciliation</li><li>Wix</li></ul>
+        <ul class="chips"><li>REST APIs</li><li>OAuth</li><li>Webhooks</li><li>PostgreSQL</li><li>Wix</li></ul>
       </div>
       <div class="cap">
         <h3>Application stack</h3>
-        <ul><li>Node.js and Express</li><li>React</li><li>PostgreSQL on Neon</li><li>Hosting on Render</li><li>Git, staging and release checks</li></ul>
+        <ul class="chips"><li>Node.js</li><li>Express</li><li>React</li><li>Neon</li><li>Render</li></ul>
       </div>
       <div class="cap">
         <h3>AI and agents</h3>
-        <ul><li>Claude Code</li><li>MCP servers</li><li>OpenAI Codex CLI</li><li>Gemini document extraction</li><li>Builder, reviewer, staging and proof release process</li></ul>
+        <ul class="chips"><li>Claude Code</li><li>MCP servers</li><li>Codex CLI</li><li>Gemini</li></ul>
       </div>
       <div class="cap">
         <h3>Records and operations</h3>
-        <ul><li>Document intake, indexing, imaging and retrieval</li><li>Azure document imaging and AD sync</li><li>Access control across 100+ endpoints</li><li>System replacement: requirements, testing, training</li></ul>
+        <ul class="chips"><li>Document imaging</li><li>Azure</li><li>Active Directory</li><li>System replacement</li></ul>
       </div>
     </div>
   </div></section>
 <section id="work"><div class="wrap">
-    <div class="sec-head"><span class="kicker cy">Shipped work</span>
-      <h2>Proof that runs, not a portfolio of mockups.</h2></div>
+    <div class="sec-head"><span class="kicker cy">Proof</span>
+      <h2>Shipped and running</h2></div>
     <div class="work-cards">
-      <article class="proj">
+      <article class="proj pic">
+        <img src="/media/demo-member-account.webp" alt="Member account page in the sanitized demo: balance, status and a pay balance button" width="1200" height="750" loading="lazy" decoding="async">
         <span class="tag">Production · Zoho Books, Stripe, Postgres</span>
         <h3>A member organization's production financial system</h3>
-        <p>Runs live payments, invoices, credits and Stripe clearing on Zoho Books, with about 330 API endpoints, 9 integrations and about 4,170 automated tests.</p>
+        <p>Live payments, invoices, credits and Stripe clearing on Zoho Books: about 330 API endpoints, 9 integrations, about 4,170 tests.</p>
         <a href="https://dashboard.sentarisoftware.com">See the sanitized demo</a>
       </article>
-      <article class="proj">
+      <article class="proj pic">
+        <img src="/media/extractor-queue.webp" alt="File Extractor review queue: documents with extraction accuracy, status and missing fields" width="888" height="551" loading="lazy" decoding="async">
         <span class="tag">AI document extraction · live demo</span>
         <h3>File Extractor</h3>
         <p>Classifies documents, extracts fields to JSON, scores confidence and routes uncertain work to a person for review.</p>
@@ -266,7 +280,8 @@
         <h3>Lead Pipeline</h3>
         <p>Takes in leads, sends monthly client reports and handles update requests, running on Render.</p>
       </article>
-      <article class="proj">
+      <article class="proj pic">
+        <img src="/media/seo-check-result.webp" alt="SEO check result for sentarisoftware.com: grade A, 90 of 100, with category scores" width="772" height="260" loading="lazy" decoding="async">
         <span class="tag">Free tool · live</span>
         <h3>SEO check</h3>
         <p>Grades any website on on-page, technical, local and Core Web Vitals and lists the fixes that matter most.</p>
@@ -284,32 +299,30 @@
 
 <section class="demo"><div class="wrap">
   <div class="sec-head"><span class="kicker cy">Watch it work</span>
-    <h2>A narrated tour of the demo.</h2>
-    <p>The live demo runs on sanitized data and fictional branding, so you can see the shape of the system without anyone's private records.</p></div>
-  <video controls preload="metadata" poster="/media/sentari-demo-preview.png">
+    <h2>A narrated tour of the demo</h2>
+    <p>Sanitized data and fictional branding.</p></div>
+  <video controls preload="none" poster="/media/sentari-demo-preview.png">
     <source src="/media/sentari-demo-narrated.mp4" type="video/mp4">
-    Your browser does not play this video. <a href="/media/sentari-demo-narrated.mp4">Download the walkthrough</a>.
+    <a href="/media/sentari-demo-narrated.mp4">Download the walkthrough</a>
   </video>
-  <p class="note">Try it yourself: <a href="https://dashboard.sentarisoftware.com">dashboard.sentarisoftware.com</a> and <a href="https://demo.sentarisoftware.com">demo.sentarisoftware.com</a>.</p>
 </div></section>
 
 <section id="background" class="band-light"><div class="wrap">
-  <div class="sec-head"><span class="kicker">The background</span>
-    <h2>Forty years of IT behind the code.</h2>
-    <p>Batch jobs, data conversion and reconciliation were the job long before they were features. That habit is why the books balance.</p></div>
-  <div class="history">
-    <div class="era"><span class="yrs">1986 to 1998</span><h3>Mainframe operations</h3><p>Sherwood Medical and Unigroup.</p></div>
-    <div class="era"><span class="yrs">2001 to 2018</span><h3>Metro St. Louis transit</h3><p>Seventeen years at Bi-State Development: computer room, then planning and scheduling, then operations.</p></div>
-    <div class="era"><span class="yrs">2020 to 2026</span><h3>St. Louis City Recorder of Deeds</h3><p>IT Administrator: document systems from intake to retrieval, Azure imaging, AD sync, and the customer side of a records system replacement.</p></div>
-    <div class="era"><span class="yrs">2024 to now</span><h3>Sentari Software</h3><p>Founder and developer. Carried one organization's books from Quicken to QuickBooks Desktop to QuickBooks Online to Zoho Books.</p></div>
-  </div>
-  <p class="own"><strong>You own what I build for you.</strong> The code, the configuration, the domain and the data are registered in your name, handed over, and yours to keep. Sentari keeps rights only to the general purpose tooling it brings to every project. No lock in, no black box, and no reason you would ever need my permission to keep running your own operation.</p>
+  <div class="sec-head"><span class="kicker">Background</span>
+    <h2>Forty years of IT behind the code</h2></div>
+  <ul class="history">
+    <li class="era"><span class="yrs">1986 to 1998</span><h3>Mainframe operations</h3><p>Sherwood Medical and Unigroup.</p></li>
+    <li class="era"><span class="yrs">2001 to 2018</span><h3>Bi-State Development</h3><p>Seventeen years in Metro St. Louis transit operations.</p></li>
+    <li class="era"><span class="yrs">2020 to 2026</span><h3>St. Louis City Recorder of Deeds</h3><p>IT Administrator for the document systems.</p></li>
+    <li class="era"><span class="yrs">2024 to now</span><h3>Sentari Software</h3><p>Founder and developer.</p></li>
+  </ul>
+  <p class="own"><strong>You own what I build for you.</strong> Code, configuration, domain and data are in your name and yours to keep. No lock in.</p>
 </div></section>
 
 <section class="final" id="contact"><div class="wrap">
   <span class="kicker">Book a call</span>
-  <h2>Bring the ledger, the integration or the process that keeps slipping.</h2>
-  <p class="lead">A free 20 minute call to talk through it. Part time and project work, 10 to 15 hours a week, US Central.</p>
+  <h2>Bring the ledger or process that keeps slipping.</h2>
+  <p class="lead">Free 20 minute call. US Central, remote.</p>
   <a class="btn" href="https://cal.com/cartrel-james-dwefpy/free-20-minute-call" target="_blank" rel="noopener">Book a free 20 minute call</a>
   <div class="form-card">
     <form action="https://formsubmit.co/info@sentarisoftware.com" method="POST">

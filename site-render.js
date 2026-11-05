@@ -11,8 +11,8 @@ function services(list) {
         <ul class="ticks">${(s.points || []).map((p) => `<li>${esc(p)}</li>`).join('')}</ul>
       </article>`).join('\n');
   return `<section id="services"><div class="wrap">
-    <div class="sec-head"><span class="kicker">What I do</span>
-      <h2>Accounting systems first, then the automation around them.</h2></div>
+    <div class="sec-head"><span class="kicker">Services</span>
+      <h2>What I do</h2></div>
     <div class="cards">
 ${cards}
     </div>
@@ -22,11 +22,11 @@ ${cards}
 function capabilities(list) {
   const groups = list.map((g) => `      <div class="cap">
         <h3>${esc(g.group)}</h3>
-        <ul>${(g.items || []).map((it) => `<li>${esc(it)}</li>`).join('')}</ul>
+        <ul class="chips">${(g.items || []).map((it) => `<li>${esc(it)}</li>`).join('')}</ul>
       </div>`).join('\n');
   return `<section id="capabilities" class="band-light"><div class="wrap">
-    <div class="sec-head"><span class="kicker">Working tools</span>
-      <h2>What I use day to day.</h2></div>
+    <div class="sec-head"><span class="kicker">Tools</span>
+      <h2>Working tools</h2></div>
     <div class="caps">
 ${groups}
     </div>
@@ -34,15 +34,17 @@ ${groups}
 }
 
 function shipped(list) {
-  const items = list.map((w) => `      <article class="proj">
+  const img = (i) => (i ? `
+        <img src="${esc(i.src)}" alt="${esc(i.alt)}" width="${Number(i.width)}" height="${Number(i.height)}" loading="lazy" decoding="async">` : '');
+  const items = list.map((w) => `      <article class="proj${w.image ? ' pic' : ''}">${img(w.image)}
         <span class="tag">${esc(w.tag)}</span>
         <h3>${esc(w.title)}</h3>
         <p>${esc(w.outcome)}</p>${w.link ? `
         <a href="${esc(w.link)}">${esc(w.linkText || 'Open it')}</a>` : ''}
       </article>`).join('\n');
   return `<section id="work"><div class="wrap">
-    <div class="sec-head"><span class="kicker cy">Shipped work</span>
-      <h2>Proof that runs, not a portfolio of mockups.</h2></div>
+    <div class="sec-head"><span class="kicker cy">Proof</span>
+      <h2>Shipped and running</h2></div>
     <div class="work-cards">
 ${items}
     </div>
