@@ -29,6 +29,18 @@ describe('renderSiteData', () => {
     expect((html.match(/<a /g) || []).length).toBe(1);
   });
 
+  it('leads a shipped card with its picture, sized and lazy loaded, when one is given', () => {
+    const withImg = { ...sample, shipped: [{ ...sample.shipped[0], image: { src: '/media/x.webp', alt: 'Queue "view"', width: 888, height: 551 } }, sample.shipped[1]] };
+    const html = renderSiteData(withImg);
+    expect(html).toContain('<img src="/media/x.webp" alt="Queue &quot;view&quot;" width="888" height="551" loading="lazy" decoding="async">');
+    expect(html.indexOf('<img')).toBeLessThan(html.indexOf('File Extractor</h3>'));
+    expect((html.match(/<img /g) || []).length).toBe(1);
+  });
+
+  it('renders capability items as chips', () => {
+    expect(renderSiteData(sample)).toContain('<ul class="chips"><li>Zoho Books</li><li>Stripe</li></ul>');
+  });
+
   it('escapes HTML in data', () => {
     expect(renderSiteData(sample)).toContain('match &lt;how&gt; you work');
   });
