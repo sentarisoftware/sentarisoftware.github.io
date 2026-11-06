@@ -74,7 +74,7 @@
 </div></header>
 
 <main>
-<section class="hero" aria-label="A club's members, events, tickets and bar coming together in one system">
+<section class="hero" aria-label="A club's members, events, tickets, food and drink coming together in one system">
   <canvas id="flow"></canvas>
   <div class="container"><div class="grid"><div class="center say" id="say">
     <h1>I build the system your club runs on.</h1>
@@ -84,7 +84,7 @@
 
 <section class="band close"><div class="container"><div class="grid"><div class="center">
   <h2>One place for the whole club.</h2>
-  <p class="sub">Members, events, tickets, seating, the bar and the books. Built for clubs and organizations. Building systems since 1986.</p>
+  <p class="sub">Members, events, tickets, seating, food and drink, and the books. Built for clubs and organizations. Building systems since 1986.</p>
   <div class="act">
     <a class="btn" href="tel:+13144036685">Call (314) 403-6685</a>
     <a class="more" href="https://dashboard.sentarisoftware.com">See a club run on it</a>
@@ -102,7 +102,7 @@
     const g = c.getContext('2d');
     const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
     let W, H, dpr, nodes, paths, pulses = [];
-    const label = { font: '600 14px "Atkinson Hyperlegible", sans-serif' };
+    const label = { font: '700 16px "Atkinson Hyperlegible", sans-serif' };
     let taken = [];
     const hit = (b) => taken.some((o) => b.x < o.x + o.w && b.x + b.w > o.x && b.y < o.y + o.h && b.y + b.h > o.y);
     function occupy() {
@@ -113,7 +113,7 @@
       for (const k in nodes) {
         const n = nodes[k], big = k === 'books' || k === 'ledger', w = g.measureText(n.name).width;
         if (W > 760) { const right = n.x > W / 2, x0 = right ? n.x : n.x - (big ? 30 : 22) - w; taken.push({ x: x0 - 8, y: n.y - 24, w: w + (big ? 30 : 22) + 16, h: 40 }); }
-        else taken.push({ x: n.x - w / 2 - 8, y: n.y - 20, w: w + 16, h: (big ? 40 : 32) + 12 });
+        else taken.push({ x: n.x - w / 2 - 8, y: n.y - 20, w: w + 16, h: (big ? 40 : 32) + 30 });
         if (k === 'ledger') taken.push(W > 760 ? { x: n.x + 22, y: n.y + 14, w: 170, h: 64 } : { x: n.x - 90, y: n.y + 44, w: 180, h: 64 });
       }
     }
@@ -138,7 +138,7 @@
       nodes = wide ? {
         cards:    { x: x(.12), y: y(.20), name: 'Members' },
         invoices: { x: x(.12), y: y(.50), name: 'Events' },
-        deposits: { x: x(.12), y: y(.80), name: 'The bar' },
+        deposits: { x: x(.12), y: y(.80), name: 'Food and drink' },
         stripe:   { x: x(.30), y: y(.24), name: 'Tickets' },
         bank:     { x: x(.30), y: y(.76), name: 'Dues' },
         books:    { x: x(.70), y: y(.24), name: 'Your club' },
@@ -147,9 +147,9 @@
         ledger:   { x: x(.88), y: y(.50), name: 'Board' },
         audit:    { x: x(.88), y: y(.80), name: 'Member portal' },
       } : {
-        cards:    { x: x(.16), y: y(.13), name: 'Members' },
+        cards:    { x: x(.18), y: y(.13), name: 'Members' },
         invoices: { x: x(.50), y: y(.13), name: 'Events' },
-        deposits: { x: x(.84), y: y(.13), name: 'The bar' },
+        deposits: { x: x(.82), y: y(.13), name: 'Food and drink' },
         stripe:   { x: x(.30), y: y(.22), name: 'Tickets' },
         bank:     { x: x(.70), y: y(.22), name: 'Dues' },
         books:    { x: x(.30), y: y(.72), name: 'Your club' },
@@ -175,18 +175,22 @@
     function spawn() {
       const p = paths[Math.floor(rnd() * paths.length)];
       const amt = (rnd() * 900 + 20).toFixed(2);
-      pulses.push({ p, t: 0, v: 0.0035 + rnd() * 0.004, amt, item: items[Math.floor(rnd() * items.length)], gold: p.b === nodes.ledger || rnd() < .12, lab: rnd() < .33 });
+      pulses.push({ p, t: 0, v: 0.0016 + rnd() * 0.0012, amt, item: items[Math.floor(rnd() * items.length)], gold: p.b === nodes.ledger || rnd() < .12, lab: rnd() < .6 });
     }
 
     
     let T0 = performance.now(), strays = [], settled = false, shown = false, paid = false;
     const ease = (k) => k < .5 ? 4 * k * k * k : 1 - Math.pow(-2 * k + 2, 3) / 2;
     const phase = () => (performance.now() - T0) / 1000;
+    // one loop: red scraps hold 0 to 5s, resolve 5 to 7s, green runs 7 to 14s, unravel 14 to 16s, repeat
+    const CYCLE = 16; let cycle = 0;
+    const cph = () => reduce ? 9 : phase() % CYCLE;
+    const ramp = (ph) => ph < 5 ? 0 : ph < 7 ? (ph - 5) / 2 : ph < 14 ? 1 : 1 - (ph - 14) / 2;
     const money = (n) => '$' + Number(n).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
     function makeStrays() {
       strays = [];
       const wide = W > 760;
-      seed = 1986; let nw = 0;
+      seed = 1986 + cycle * 101; let nw = cycle * 5;
       for (let i = 0; i < (wide ? 38 : 22); i++) {
         const p = paths[i % paths.length], t = rnd() * .9 + .05;
         const st = { x: wide ? W * (.08 + rnd() * .84) : W * (.05 + rnd() * .9),
@@ -203,9 +207,9 @@
       const pool = g.createRadialGradient(W / 2, H / 2, 0, W / 2, H / 2, Math.min(W, H) * 0.62);
       pool.addColorStop(0, 'rgba(3,8,6,0.7)'); pool.addColorStop(1, 'rgba(3,8,6,0)');
       const drawPool = () => { g.fillStyle = pool; g.fillRect(0, 0, W, H); };
-      // paths draw themselves in between 2.0s and 3.6s, as soft luminous channels
-      const ph = reduce ? 9 : phase();
-      const prog = Math.max(0, Math.min(1, (ph - 2.0) / 1.6));
+      // paths draw in as the scraps resolve and pull back as they unravel
+      const ph = cph();
+      const prog = ramp(ph);
       g.globalCompositeOperation = 'lighter';
       for (const p of paths) {
         g.beginPath();
@@ -218,21 +222,23 @@
       g.globalCompositeOperation = 'source-over';
       // strays drift unmatched, then snap onto the paths
       if (!settled) {
-        const k = ease(Math.max(0, Math.min(1, (ph - 2.0) / 1.6)));
+        const k = ease(ramp(ph));
         for (const s of strays) {
-          if (k === 0) { s.x += s.vx + (rnd() - .5) * .8; s.y += s.vy + (rnd() - .5) * .8; }
+          if (k === 0) { s.x += s.vx * .25; s.y += s.vy * .25; }
           const q = pointOn(s.p, s.t);
           const x = s.x + (q.x - s.x) * k, y = s.y + (q.y - s.y) * k;
           const r = Math.round(240 - 153 * k), gr = Math.round(90 + 137 * k), b = Math.round(80 + 74 * k);
           const grd = g.createRadialGradient(x, y, 0, x, y, 14);
           grd.addColorStop(0, 'rgba(' + r + ',' + gr + ',' + b + ',0.95)'); grd.addColorStop(1, 'rgba(' + r + ',' + gr + ',' + b + ',0)');
           g.fillStyle = grd; g.beginPath(); g.arc(x, y, 14, 0, 7); g.fill();
-          if (k < .5 && s.lab) { g.fillStyle = 'rgba(' + r + ',' + gr + ',' + b + ',0.85)'; tag(mess[s.w % mess.length], x, y); }
+          if (k < .5 && s.lab) { g.fillStyle = 'rgba(' + r + ',' + gr + ',' + b + ',1)'; tag(mess[s.w % mess.length], x, y); }
         }
-        if (ph >= 3.6) {
-          for (const s of strays) pulses.push({ p: s.p, t: s.t, v: 0.0035 + rnd() * 0.004, amt: s.amt, gold: s.p.b === nodes.ledger });
-          strays = []; settled = true;
+        if (ph >= 7.0 && ph < 14) {
+          for (const s of strays) pulses.push({ p: s.p, t: s.t, v: 0.0016 + rnd() * 0.0012, amt: s.amt, gold: s.p.b === nodes.ledger });
+          strays = []; settled = true; document.getElementById('by').style.opacity = 1;
         }
+      } else if (ph >= 14 && !reduce) {
+        settled = false; pulses = []; cycle++; makeStrays(); document.getElementById('by').style.opacity = 0;
       }
       // pulses: each payment is a point of light with a fading trail
       g.globalCompositeOperation = 'lighter';
@@ -253,7 +259,7 @@
         const q = pointOn(s.p, s.t);
         const col = s.gold ? '255,200,92' : '96,236,160';
         g.fillStyle = 'rgba(' + col + ',0.85)'; g.font = label.font;
-        if (s.lab && s.t > .3 && s.t < .7) tag(s.item, q.x, q.y);
+        if (s.lab && s.t > .15 && s.t < .85) tag(s.item, q.x, q.y);
       }
       drawPool();
       // nodes
@@ -293,9 +299,8 @@
     }
 
     function step() {
-      if (settled && rnd() < 0.09) spawn();
+      if (settled && rnd() < 0.035) spawn();
       if (!shown && phase() > 0.6) { shown = true; document.getElementById('say').classList.add('show'); }
-      if (settled && !paid) { paid = true; document.getElementById('by').style.opacity = 1; }
       for (const s of pulses) {
         s.t += s.v;
       }
