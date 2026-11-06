@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>What are the books costing you? | Cartrel James, Sentari Software</title>
+<link rel="icon" href="data:,">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100,500;100,700;125,800&family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  /* Concept H (2026-11-05): a bean counter is moved by his own numbers, not by a designer's look. The visitor
+     works out what fixing the books by hand costs him a year, live, before he reads a word about Cartrel. */
+  :root{--ink:#121a16;--muted:#4a5650;--rule:#d7ddd9;--paper:#f7f8f6;--white:#fff;--accent:#0e5b34;--big:#0b3d24}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--paper);color:var(--ink);font:400 1.25rem/1.55 "Atkinson Hyperlegible",system-ui,sans-serif}
+  a{color:var(--accent)}
+  .wrap{max-width:1180px;margin:0 auto;padding-left:clamp(20px,4vw,48px);padding-right:clamp(20px,4vw,48px)}
+  header .wrap{display:flex;justify-content:space-between;align-items:center;min-height:80px}
+  .mark{font:700 1.15rem/1 "Archivo",sans-serif;font-stretch:110%;color:var(--ink);text-decoration:none}
+  header .tel{font-weight:700;color:var(--accent);text-decoration:none;font-size:1.15rem}
+
+  .calc{padding-top:clamp(32px,6vw,72px);padding-bottom:clamp(48px,6vw,80px)}
+  h1{font:800 clamp(2.4rem,5.2vw,4.4rem)/1.02 "Archivo",sans-serif;font-stretch:118%;letter-spacing:-.02em;margin:0 0 clamp(28px,4vw,48px);max-width:16ch}
+  .grid{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,5fr);gap:clamp(32px,5vw,72px);align-items:start}
+  .q{margin-bottom:2rem}
+  .q label{display:flex;justify-content:space-between;gap:1rem;font-weight:700;margin-bottom:.6rem}
+  .q output{font:800 1.5rem/1 "Archivo",sans-serif;font-variant-numeric:tabular-nums;color:var(--accent)}
+  input[type=range]{width:100%;height:44px;accent-color:var(--accent);cursor:pointer}
+  .q small{display:block;color:var(--muted);font-size:1rem;margin-top:.2rem}
+  .result{background:var(--white);border:1px solid var(--rule);border-radius:6px;padding:clamp(24px,3vw,36px)}
+  .result .lbl{font-weight:700;color:var(--muted);margin:0}
+  .result .num{font:800 clamp(2.8rem,5vw,4.4rem)/1 "Archivo",sans-serif;font-stretch:100%;font-variant-numeric:tabular-nums;color:var(--big);margin:.4rem 0 .2rem;letter-spacing:-.02em}
+  .result .per{color:var(--muted);margin:0 0 1.4rem}
+  .result .math{font-size:1rem;color:var(--muted);border-top:1px solid var(--rule);padding-top:1rem;margin:0 0 1.6rem}
+  .result h2{font:700 1.5rem/1.2 "Archivo",sans-serif;margin:0 0 .5rem}
+  .result p.say{margin:0 0 1.4rem}
+  .btn{display:inline-flex;align-items:center;min-height:54px;padding:0 1.5rem;background:var(--accent);color:#fff;text-decoration:none;font-weight:700;border-radius:4px}
+  .btn:hover{background:var(--big)}
+  .or{margin-top:.9rem;font-size:1.1rem}
+
+  .who{border-top:1px solid var(--rule);padding:clamp(48px,6vw,80px) 0}
+  .who .grid p{color:var(--muted);margin:0 0 1rem}
+  .who h2{font:800 clamp(1.7rem,3vw,2.3rem)/1.1 "Archivo",sans-serif;font-stretch:112%;margin:0}
+  @media (max-width:860px){.grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+  <a class="mark" href="#">Sentari Software</a>
+  <a class="tel" href="tel:+13144036685">(314) 403-6685</a>
+</div></header>
+
+<main>
+<div class="wrap calc">
+  <h1>What is fixing the books by hand costing you?</h1>
+  <div class="grid">
+    <div>
+      <div class="q">
+        <label for="h">Hours a month spent reconciling, retyping or rebuilding reports <output id="ho">12</output></label>
+        <input id="h" type="range" min="1" max="80" value="12">
+        <small>Month end, card payouts that don't match, the spreadsheet someone rebuilds every month.</small>
+      </div>
+      <div class="q">
+        <label for="p">People who do it <output id="po">2</output></label>
+        <input id="p" type="range" min="1" max="10" value="2">
+      </div>
+      <div class="q">
+        <label for="r">What an hour of their time costs <output id="ro">$45</output></label>
+        <input id="r" type="range" min="20" max="200" step="5" value="45">
+        <small>Pay plus benefits, or your bookkeeper's rate.</small>
+      </div>
+    </div>
+    <div class="result" aria-live="polite">
+      <p class="lbl">Every year, that is</p>
+      <p class="num" id="total">$12,960</p>
+      <p class="per" id="hours">288 hours of skilled time</p>
+      <p class="math" id="math">12 hours &times; 2 people &times; $45 &times; 12 months</p>
+      <h2>That is the money I go after.</h2>
+      <p class="say">I'm Cartrel James. I find why the numbers don't tie out, fix the systems behind them, mostly on Zoho Books, and set them up so the work stops coming back.</p>
+      <a class="btn" href="https://cal.com/cartrel-james-dwefpy/free-20-minute-call">Talk it through, 20 minutes</a>
+      <p class="or">or call <a href="tel:+13144036685">(314) 403-6685</a></p>
+    </div>
+  </div>
+</div>
+
+<section class="who"><div class="wrap grid">
+  <h2>Forty years where the money meets the machines.</h2>
+  <div>
+    <p>Mainframe operations from 1986, seventeen years at Bi-State Development, IT administrator for the St. Louis City Recorder of Deeds. Today I build and run the financial system a member organization runs on, every day.</p>
+    <p><a href="https://dashboard.sentarisoftware.com">See that system, with made-up data</a></p>
+  </div>
+</div></section>
+</main>
+
+<script>
+  // Live yearly cost from three inputs. All math happens in the visitor's browser; nothing is sent anywhere.
+  const $ = (id) => document.getElementById(id);
+  const money = (n) => '$' + Math.round(n).toLocaleString('en-US');
+  function update() {
+    const h = +$('h').value, p = +$('p').value, r = +$('r').value;
+    $('ho').textContent = h; $('po').textContent = p; $('ro').textContent = money(r);
+    const hours = h * p * 12;
+    $('total').textContent = money(hours * r);
+    $('hours').textContent = hours.toLocaleString('en-US') + ' hours of skilled time';
+    $('math').textContent = `${h} hours × ${p} ${p === 1 ? 'person' : 'people'} × ${money(r)} × 12 months`;
+  }
+  ['h', 'p', 'r'].forEach((id) => $(id).addEventListener('input', update));
+  update();
+</script>
+</body>
+</html>

@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cartrel James | Sentari Software</title>
+<link rel="icon" href="data:,">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100,500;110,800&family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  /* Layout to job-digests/website-research-2026-11-05/fundamentals.md: 12 column grid in one 1200px container,
+     8 point spacing tokens only, one section padding, Utopia scale (18 to 20px base, 1.2 to 1.25), symmetric hero,
+     no borders used for grouping. */
+  :root{
+    --bg:#030806;--ink:#eef5f0;--muted:#a7b9ae;--accent:#57e39a;
+    --s1:4px;--s2:8px;--s3:16px;--s4:24px;--s5:32px;--s6:48px;--s7:64px;--s8:96px;--s9:128px;
+    --gutter:var(--s3);--margin:var(--s3);--section:var(--s7);
+    --step-0:clamp(1.125rem,1.0739rem + 0.2273vw,1.25rem);
+    --step-1:clamp(1.35rem,1.2631rem + 0.3864vw,1.5625rem);
+    --step-2:clamp(1.62rem,1.4837rem + 0.6057vw,1.9531rem);
+    --step-3:clamp(1.944rem,1.7405rem + 0.9045vw,2.4414rem);
+    --step-5:clamp(2.7994rem,2.3871rem + 1.8325vw,3.8147rem);
+    --step-6:clamp(3.3592rem,2.7942rem + 2.5112vw,4.7684rem);
+  }
+  @media (min-width:600px){:root{--gutter:var(--s4);--margin:var(--s4)}}
+  @media (min-width:1024px){:root{--margin:var(--s5);--section:var(--s8)}}
+  *{box-sizing:border-box}
+  html,body{margin:0;background:var(--bg);color:var(--ink);font:400 var(--step-0)/1.55 "Atkinson Hyperlegible",system-ui,sans-serif}
+  a{color:var(--accent)}
+  :focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+  .container{max-width:1200px;margin-inline:auto;padding-inline:var(--margin)}
+  .grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--gutter)}
+  .center{grid-column:3 / 11;text-align:center}
+  @media (max-width:599px){.grid{grid-template-columns:repeat(4,minmax(0,1fr))}.center{grid-column:1 / -1}}
+
+  header{position:fixed;inset:0 0 auto 0;z-index:3}
+  header .container{display:flex;justify-content:space-between;align-items:center;min-height:var(--s8)}
+  .mark{font:800 var(--step-0)/1 "Archivo",sans-serif;font-stretch:110%;color:var(--ink);text-decoration:none}
+  .call{display:inline-flex;align-items:center;min-height:var(--s6);color:var(--ink);text-decoration:none;font-weight:700;white-space:nowrap}
+  .call:hover{color:var(--accent)}
+
+  .hero{position:relative;height:100svh;min-height:600px;overflow:hidden}
+  canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+  .hero .container{position:absolute;inset:auto 0 var(--s8) 0}
+  .say{opacity:0;transform:translateY(var(--s3));transition:opacity .9s ease,transform .9s ease}
+  .say.show{opacity:1;transform:none}
+  h1{font:800 var(--step-6)/1 "Archivo",sans-serif;font-stretch:110%;letter-spacing:-.025em;margin:0}
+  .by{margin:var(--s3) 0 0;color:var(--accent);font:800 var(--step-3)/1.1 "Archivo",sans-serif;font-stretch:108%}
+
+  section.band{padding-block:var(--section)}
+  .line{font:500 var(--step-5)/1.12 "Archivo",sans-serif;font-stretch:105%;letter-spacing:-.015em;margin:0 auto;max-width:20ch}
+  .line em{font-style:normal;color:var(--accent)}
+  .facts{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--gutter);margin-top:var(--s7)}
+  .facts b{display:block;font:800 var(--step-5)/1 "Archivo",sans-serif;font-variant-numeric:tabular-nums}
+  .facts span{display:block;margin-top:var(--s2);color:var(--muted);font-size:var(--step-0)}
+  .see{margin:var(--s6) 0 0;font-size:var(--step-1)}
+  .tel{display:inline-block;font:800 var(--step-6)/1 "Archivo",sans-serif;font-stretch:105%;letter-spacing:-.02em;color:var(--ink);text-decoration:none}
+  .tel:hover{color:var(--accent)}
+  .mail{margin:var(--s4) 0 0;font-size:var(--step-1)}
+  footer{padding-block:var(--s6);color:var(--muted);font-size:var(--step-0);text-align:center}
+  @media (max-width:599px){.facts{grid-template-columns:1fr;gap:var(--s5)}}
+  @media (prefers-reduced-motion:reduce){.say{opacity:1;transform:none;transition:none}}
+</style>
+</head>
+<body>
+<header><div class="container">
+  <a class="mark" href="#">Sentari Software</a>
+  <a class="call" href="tel:+13144036685">(314) 403-6685</a>
+</div></header>
+
+<main>
+<section class="hero" aria-label="Payments moving through several systems into books that balance">
+  <canvas id="flow"></canvas>
+  <div class="container"><div class="grid"><div class="center say" id="say">
+    <h1>I see how the money moves.</h1>
+    <p class="by">Finally, it all adds up.</p>
+  </div></div></div>
+</section>
+
+<section class="band"><div class="container"><div class="grid"><div class="center">
+  <p class="line">When money moves through more than one system, I make every system <em>agree</em>.</p>
+</div></div></div></section>
+
+<section class="band solve" aria-label="Problems I solve"><div class="container"><div class="grid">
+  <div class="sol" data-anim="recon">
+    <svg viewBox="0 0 240 120" aria-hidden="true">
+      <text class="n a" x="120" y="44" text-anchor="middle">$48,912.40</text>
+      <text class="n b" x="120" y="96" text-anchor="middle">$45,252.23</text>
+      <text class="ne" x="120" y="72" text-anchor="middle">&#8800;</text>
+      <text class="eq" x="120" y="72" text-anchor="middle">=</text>
+    </svg>
+    <h3>Books that reconcile</h3>
+    <p>To the penny, every month.</p>
+  </div>
+  <div class="sol" data-anim="link">
+    <svg viewBox="0 0 240 120" aria-hidden="true">
+      <circle class="dot" cx="36" cy="60" r="12"/><circle class="dot" cx="204" cy="60" r="12"/>
+      <path class="gap" d="M52 60 H104 M136 60 H188"/>
+      <path class="join" d="M52 60 H188"/>
+    </svg>
+    <h3>Systems that agree</h3>
+    <p>Payments, bank and books on one record.</p>
+  </div>
+  <div class="sol" data-anim="auto">
+    <svg viewBox="0 0 240 120" aria-hidden="true">
+      <g class="pages"><rect x="60" y="22" width="56" height="74" rx="4"/><rect x="92" y="30" width="56" height="74" rx="4"/><rect x="124" y="38" width="56" height="74" rx="4"/></g>
+      <path class="tick" d="M92 66 l20 20 l40 -44"/>
+    </svg>
+    <h3>Busywork, gone</h3>
+    <p>Software reads it. A person checks the hard ones.</p>
+  </div>
+</div></div></section>
+
+<section class="band"><div class="container"><div class="grid"><div class="center">
+  <div class="facts">
+    <div><b>1986</b><span>my first system</span></div>
+    <div><b>Daily</b><span>a live money system I run</span></div>
+    <div><b>4,170</b><span>checks behind it</span></div>
+  </div>
+  <p class="see"><a href="https://dashboard.sentarisoftware.com">See it running</a></p>
+</div></div></div></section>
+
+<section class="band"><div class="container"><div class="grid"><div class="center">
+  <a class="tel" href="tel:+13144036685">(314) 403-6685</a>
+  <p class="mail"><a href="mailto:info@sentarisoftware.com">info@sentarisoftware.com</a></p>
+</div></div></div></section>
+</main>
+<footer>Sentari Software, St. Louis</footer>
+
+<script>
+  // Money in motion: sources (cards, bank, invoices) send glowing payments along curved paths through
+  // a processor and the bank into the books, which settles into a ledger whose totals keep ticking and balance.
+  (function () {
+    const c = document.getElementById('flow');
+    const g = c.getContext('2d');
+    const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let W, H, dpr, nodes, paths, pulses = [];
+    const label = { font: '600 13px "Atkinson Hyperlegible", sans-serif' };
+
+    function layout() {
+      dpr = Math.min(2, devicePixelRatio || 1);
+      W = c.clientWidth; H = c.clientHeight;
+      c.width = W * dpr; c.height = H * dpr; g.setTransform(dpr, 0, 0, dpr, 0, 0);
+      const wide = W > 760;
+      const x = (f) => W * f, y = (f) => H * f;
+      nodes = wide ? {
+        cards:    { x: x(.14), y: y(.16), name: 'Payments in' },
+        invoices: { x: x(.14), y: y(.32), name: 'Invoices' },
+        deposits: { x: x(.14), y: y(.48), name: 'Deposits' },
+        stripe:   { x: x(.34), y: y(.22), name: 'Processor' },
+        bank:     { x: x(.34), y: y(.42), name: 'Bank' },
+        books:    { x: x(.66), y: y(.22), name: 'Your books' },
+        recon:    { x: x(.66), y: y(.42), name: 'Reconciled' },
+        reports:  { x: x(.86), y: y(.16), name: 'Reports' },
+        ledger:   { x: x(.86), y: y(.32), name: 'Ledger' },
+        audit:    { x: x(.86), y: y(.48), name: 'Audit trail' },
+      } : {
+        cards:    { x: x(.16), y: y(.15), name: 'Payments' },
+        invoices: { x: x(.50), y: y(.15), name: 'Invoices' },
+        deposits: { x: x(.84), y: y(.15), name: 'Deposits' },
+        stripe:   { x: x(.30), y: y(.235), name: 'Processor' },
+        bank:     { x: x(.70), y: y(.235), name: 'Bank' },
+        books:    { x: x(.30), y: y(.32), name: 'Books' },
+        recon:    { x: x(.70), y: y(.32), name: 'Reconciled' },
+        reports:  { x: x(.16), y: y(.405), name: 'Reports' },
+        ledger:   { x: x(.50), y: y(.405), name: 'Ledger' },
+        audit:    { x: x(.84), y: y(.405), name: 'Audit' },
+      };
+      const P = (a, b, bend) => ({ a: nodes[a], b: nodes[b], bend });
+      paths = [P('cards', 'stripe', -.18), P('invoices', 'stripe', .14), P('invoices', 'bank', -.14), P('deposits', 'bank', .18),
+        P('stripe', 'books', .06), P('bank', 'recon', -.06), P('stripe', 'bank', .30), P('books', 'recon', -.30),
+        P('books', 'reports', -.18), P('books', 'ledger', .14), P('recon', 'ledger', -.14), P('recon', 'audit', .18)];
+    }
+
+    function pointOn(p, t) {
+      const mx = (p.a.x + p.b.x) / 2, my = (p.a.y + p.b.y) / 2;
+      const dx = p.b.x - p.a.x, dy = p.b.y - p.a.y;
+      const cx = mx - dy * p.bend, cy = my + dx * p.bend;
+      const u = 1 - t;
+      return { x: u * u * p.a.x + 2 * u * t * cx + t * t * p.b.x, y: u * u * p.a.y + 2 * u * t * cy + t * t * p.b.y };
+    }
+
+    function spawn() {
+      const p = paths[Math.floor(Math.random() * paths.length)];
+      const amt = (Math.random() * 900 + 20).toFixed(2);
+      pulses.push({ p, t: 0, v: 0.0035 + Math.random() * 0.004, amt, gold: p.b === nodes.ledger || Math.random() < .12, lab: Math.random() < .33 });
+    }
+
+    let debits = 48912.40, credits = 48912.40, tick = 0;
+    let T0 = performance.now(), strays = [], settled = false, shown = false;
+    const ease = (k) => k < .5 ? 4 * k * k * k : 1 - Math.pow(-2 * k + 2, 3) / 2;
+    const phase = () => (performance.now() - T0) / 1000;
+    const money = (n) => '$' + Number(n).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    function makeStrays() {
+      strays = [];
+      const wide = W > 760;
+      for (let i = 0; i < (wide ? 38 : 24); i++) {
+        const p = paths[i % paths.length], t = Math.random() * .9 + .05;
+        strays.push({ x: wide ? W * (.08 + Math.random() * .84) : W * (.05 + Math.random() * .9),
+          y: wide ? H * (.10 + Math.random() * .46) : H * (.14 + Math.random() * .34),
+          vx: (Math.random() - .5) * .6, vy: (Math.random() - .5) * .6, lab: Math.random() < .33, p, t, amt: (Math.random() * 900 + 20).toFixed(2) });
+      }
+    }
+    function draw() {
+      // depth: a dark field with warm light rising behind the headline, darker at the edges
+      const bg = g.createRadialGradient(W / 2, H * 0.78, 0, W / 2, H * 0.78, Math.max(W, H) * 0.75);
+      bg.addColorStop(0, '#12301f'); bg.addColorStop(0.45, '#08170f'); bg.addColorStop(1, '#030806');
+      g.fillStyle = bg; g.fillRect(0, 0, W, H);
+      // paths draw themselves in between 2.0s and 3.6s, as soft luminous channels
+      const ph = reduce ? 9 : phase();
+      const prog = Math.max(0, Math.min(1, (ph - 2.0) / 1.6));
+      g.globalCompositeOperation = 'lighter';
+      for (const p of paths) {
+        g.beginPath();
+        for (let i = 0; i <= Math.round(48 * prog); i++) { const q = pointOn(p, i / 48); i ? g.lineTo(q.x, q.y) : g.moveTo(q.x, q.y); }
+        g.lineCap = 'round';
+        g.strokeStyle = 'rgba(87,227,154,0.05)'; g.lineWidth = 10; g.stroke();
+        g.strokeStyle = 'rgba(87,227,154,0.10)'; g.lineWidth = 4; g.stroke();
+        g.strokeStyle = 'rgba(150,240,190,0.30)'; g.lineWidth = 1.2; g.stroke();
+      }
+      g.globalCompositeOperation = 'source-over';
+      // strays drift unmatched, then snap onto the paths
+      if (!settled) {
+        const k = ease(Math.max(0, Math.min(1, (ph - 2.0) / 1.6)));
+        for (const s of strays) {
+          if (k === 0) { s.x += s.vx + (Math.random() - .5) * .8; s.y += s.vy + (Math.random() - .5) * .8; }
+          const q = pointOn(s.p, s.t);
+          const x = s.x + (q.x - s.x) * k, y = s.y + (q.y - s.y) * k;
+          const r = Math.round(240 - 153 * k), gr = Math.round(90 + 137 * k), b = Math.round(80 + 74 * k);
+          const grd = g.createRadialGradient(x, y, 0, x, y, 14);
+          grd.addColorStop(0, 'rgba(' + r + ',' + gr + ',' + b + ',0.95)'); grd.addColorStop(1, 'rgba(' + r + ',' + gr + ',' + b + ',0)');
+          g.fillStyle = grd; g.beginPath(); g.arc(x, y, 14, 0, 7); g.fill();
+          if (k < .5 && s.lab) { g.fillStyle = 'rgba(' + r + ',' + gr + ',' + b + ',0.85)'; g.font = label.font; g.fillText(money(s.amt) + (k === 0 ? '  unmatched' : ''), x + 12, y - 10); }
+        }
+        if (ph >= 3.6) {
+          for (const s of strays) pulses.push({ p: s.p, t: s.t, v: 0.0035 + Math.random() * 0.004, amt: s.amt, gold: s.p.b === nodes.ledger });
+          strays = []; settled = true;
+        }
+      }
+      // pulses: each payment is a point of light with a fading trail
+      g.globalCompositeOperation = 'lighter';
+      for (const s of pulses) {
+        const col = s.gold ? '255,200,92' : '96,236,160';
+        for (let k = 9; k >= 0; k--) {
+          const tt = s.t - k * 0.011; if (tt < 0) continue;
+          const q = pointOn(s.p, tt), a = (1 - k / 10) * 0.55, r = 3.2 - k * 0.22;
+          g.fillStyle = 'rgba(' + col + ',' + a.toFixed(3) + ')'; g.beginPath(); g.arc(q.x, q.y, Math.max(0.8, r), 0, 7); g.fill();
+        }
+        const q = pointOn(s.p, s.t);
+        const grd = g.createRadialGradient(q.x, q.y, 0, q.x, q.y, 22);
+        grd.addColorStop(0, 'rgba(' + col + ',0.9)'); grd.addColorStop(0.25, 'rgba(' + col + ',0.35)'); grd.addColorStop(1, 'rgba(' + col + ',0)');
+        g.fillStyle = grd; g.beginPath(); g.arc(q.x, q.y, 22, 0, 7); g.fill();
+      }
+      g.globalCompositeOperation = 'source-over';
+      for (const s of pulses) {
+        const q = pointOn(s.p, s.t);
+        const col = s.gold ? '255,200,92' : '96,236,160';
+        g.fillStyle = 'rgba(' + col + ',0.85)'; g.font = label.font;
+        if (s.lab && s.t > .3 && s.t < .7) g.fillText('$' + Number(s.amt).toLocaleString('en-US', { minimumFractionDigits: 2 }), q.x + 12, q.y - 10);
+      }
+      // nodes
+      for (const k in nodes) {
+        const n = nodes[k];
+        const big = k === 'books' || k === 'ledger';
+        const R = big ? 46 : 30;
+        g.globalCompositeOperation = 'lighter';
+        const orb = g.createRadialGradient(n.x, n.y, 0, n.x, n.y, R);
+        orb.addColorStop(0, big ? 'rgba(160,255,205,0.95)' : 'rgba(220,245,232,0.85)');
+        orb.addColorStop(0.18, big ? 'rgba(87,227,154,0.55)' : 'rgba(150,220,185,0.35)');
+        orb.addColorStop(1, 'rgba(87,227,154,0)');
+        g.fillStyle = orb; g.beginPath(); g.arc(n.x, n.y, R, 0, 7); g.fill();
+        g.globalCompositeOperation = 'source-over';
+        g.fillStyle = 'rgba(238,245,240,0.72)'; g.font = '400 14px "Atkinson Hyperlegible", sans-serif';
+        if (W > 760) {
+          const right = n.x > W / 2;
+          g.textAlign = right ? 'left' : 'right';
+          g.fillText(n.name, n.x + (right ? 1 : -1) * (big ? 30 : 22), n.y + 5);
+        } else {
+          g.textAlign = 'center';
+          g.fillText(n.name, n.x, n.y + (big ? 40 : 32));
+        }
+        g.textAlign = 'left';
+      }
+      // ledger totals
+      const L = nodes.ledger;
+      const f = (n) => '$' + n.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+      const tx = W > 760 ? L.x + 30 : L.x, ty = W > 760 ? L.y + 34 : L.y + 62;
+      g.textAlign = W > 760 ? 'left' : 'center';
+      g.font = '700 13px "Atkinson Hyperlegible", sans-serif'; g.fillStyle = 'rgba(238,245,240,0.62)';
+      g.fillText('Debits ' + f(debits), tx, ty);
+      g.fillText('Credits ' + f(settled || reduce ? credits : credits - 3660.17), tx, ty + 18);
+      g.font = '800 15px "Atkinson Hyperlegible", sans-serif';
+      if (settled || reduce) { g.fillStyle = '#57e39a'; g.fillText('Balanced', tx, ty + 40); }
+      else { g.fillStyle = '#ff6b5a'; g.fillText('Out of balance', tx, ty + 40); }
+      g.textAlign = 'left';
+    }
+
+    function step() {
+      if (settled && Math.random() < 0.09) spawn();
+      if (settled && !shown && phase() > 3.9) { shown = true; document.getElementById('say').classList.add('show'); }
+      for (const s of pulses) {
+        s.t += s.v;
+        if (s.t >= 1 && s.p.b === nodes.ledger) { const a = Number(s.amt); debits += a; credits += a; }
+      }
+      pulses = pulses.filter((s) => s.t < 1);
+      draw();
+      if (!reduce) requestAnimationFrame(step);
+    }
+
+    layout();
+    makeStrays();
+    addEventListener('resize', () => { layout(); if (reduce) draw(); });
+    if (reduce) { settled = true; for (let i = 0; i < 18; i++) { spawn(); pulses[i].t = Math.random(); } draw(); }
+    else { T0 = performance.now(); requestAnimationFrame(step); }
+  })();
+</script>
+</body>
+</html>

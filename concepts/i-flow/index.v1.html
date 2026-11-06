@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cartrel James | Sentari Software</title>
+<link rel="icon" href="data:,">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100,500;110,800&family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  /* Concept I (2026-11-05): show, don't explain. A living picture of money moving through the machines fills
+     the screen; six words sit on it. Whole page held to about 60 words. */
+  :root{--bg:#06110c;--ink:#eef5f0;--muted:#9fb3a8;--accent:#57e39a;--gold:#f4c25b}
+  *{box-sizing:border-box}
+  html,body{margin:0;background:var(--bg);color:var(--ink);font:400 1.2rem/1.5 "Atkinson Hyperlegible",system-ui,sans-serif}
+  a{color:var(--accent)}
+  header{position:fixed;inset:0 0 auto 0;z-index:3;display:flex;justify-content:space-between;align-items:center;padding:22px clamp(20px,4vw,48px)}
+  .mark{font:800 1.1rem/1 "Archivo",sans-serif;font-stretch:110%;color:var(--ink);text-decoration:none;letter-spacing:.01em}
+  .call{white-space:nowrap;display:inline-flex;align-items:center;min-height:48px;padding:0 1.1rem;border:1px solid rgba(238,245,240,.35);border-radius:999px;color:var(--ink);text-decoration:none;font-weight:700;backdrop-filter:blur(6px)}
+  .call:hover{border-color:var(--accent);color:var(--accent)}
+
+  .hero{position:relative;height:100svh;min-height:560px;overflow:hidden}
+  canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+  .hero .say{position:absolute;left:clamp(20px,5vw,72px);bottom:clamp(48px,10vh,110px);z-index:2;width:min(92vw,620px)}
+  h1{max-width:9ch;font:800 clamp(2.8rem,7vw,6.6rem)/.95 "Archivo",sans-serif;font-stretch:110%;letter-spacing:-.03em;margin:0;text-shadow:0 2px 40px rgba(6,17,12,.9)}
+  .hero .by{margin:1.2rem 0 0;color:var(--muted);font-size:clamp(1.05rem,1.6vw,1.3rem);text-shadow:0 1px 20px rgba(6,17,12,.9)}
+
+  .band{padding:clamp(72px,12vh,140px) clamp(20px,5vw,72px);max-width:1280px;margin:0 auto}
+  .line{font:500 clamp(1.8rem,4.2vw,3.6rem)/1.12 "Archivo",sans-serif;font-stretch:105%;letter-spacing:-.015em;margin:0;max-width:22ch}
+  .line em{font-style:normal;color:var(--accent)}
+  .facts{display:flex;flex-wrap:wrap;gap:clamp(28px,5vw,72px);margin-top:clamp(40px,6vh,64px)}
+  .facts div{min-width:9ch}
+  .facts b{display:block;font:800 clamp(2.4rem,5vw,4rem)/1 "Archivo",sans-serif;font-variant-numeric:tabular-nums;color:var(--ink)}
+  .facts span{color:var(--muted);font-size:1.05rem}
+  .see{margin-top:clamp(28px,4vh,44px);font-size:1.15rem}
+
+  .end{padding:clamp(72px,12vh,140px) clamp(20px,5vw,72px) 56px;max-width:1280px;margin:0 auto;border-top:1px solid rgba(238,245,240,.12)}
+  .end .tel{display:inline-block;font:800 clamp(2.4rem,7vw,6rem)/1 "Archivo",sans-serif;font-stretch:105%;color:var(--ink);text-decoration:none;letter-spacing:-.02em}
+  .end .tel:hover{color:var(--accent)}
+  .end p{color:var(--muted);margin:1rem 0 0}
+  footer{padding:24px clamp(20px,5vw,72px) 40px;color:var(--muted);font-size:1rem;max-width:1280px;margin:0 auto}
+</style>
+</head>
+<body>
+<header>
+  <a class="mark" href="#">Sentari Software</a>
+  <a class="call" href="tel:+13144036685">(314) 403-6685</a>
+</header>
+
+<main>
+<section class="hero" aria-label="Money moving through payment, bank and accounting systems into a balanced ledger">
+  <canvas id="flow"></canvas>
+  <div class="say">
+    <h1>I see how the money moves.</h1>
+    <p class="by">Cartrel James. Forty years in IT.</p>
+  </div>
+</section>
+
+<section class="band">
+  <p class="line">Zoho Books, the systems around it, and the AI that takes the <em>busywork</em> off your people.</p>
+  <div class="facts">
+    <div><b>1986</b><span>first mainframe</span></div>
+    <div><b>330</b><span>endpoints I run</span></div>
+    <div><b>4,170</b><span>tests behind them</span></div>
+  </div>
+  <p class="see"><a href="https://dashboard.sentarisoftware.com">See it running</a></p>
+</section>
+
+<section class="end">
+  <a class="tel" href="tel:+13144036685">(314) 403-6685</a>
+  <p><a href="mailto:info@sentarisoftware.com">info@sentarisoftware.com</a></p>
+</section>
+</main>
+<footer>Sentari Software, St. Louis</footer>
+
+<script>
+  // Money in motion: sources (cards, bank, invoices) send glowing payments along curved paths through
+  // Stripe and the bank into Zoho Books, which settles into a ledger whose totals keep ticking and balance.
+  (function () {
+    const c = document.getElementById('flow');
+    const g = c.getContext('2d');
+    const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let W, H, dpr, nodes, paths, pulses = [];
+    const label = { font: '600 13px "Atkinson Hyperlegible", sans-serif' };
+
+    function layout() {
+      dpr = Math.min(2, devicePixelRatio || 1);
+      W = c.clientWidth; H = c.clientHeight;
+      c.width = W * dpr; c.height = H * dpr; g.setTransform(dpr, 0, 0, dpr, 0, 0);
+      const wide = W > 760;
+      const x = (f) => W * f, y = (f) => H * f;
+      nodes = wide ? {
+        cards:    { x: x(.50), y: y(.18), name: 'Card payments' },
+        invoices: { x: x(.48), y: y(.44), name: 'Invoices' },
+        deposits: { x: x(.52), y: y(.70), name: 'Bank deposits' },
+        stripe:   { x: x(.66), y: y(.26), name: 'Stripe' },
+        bank:     { x: x(.67), y: y(.64), name: 'Bank' },
+        books:    { x: x(.80), y: y(.44), name: 'Zoho Books' },
+        ledger:   { x: x(.88), y: y(.62), name: 'Ledger' },
+      } : {
+        cards:    { x: x(.14), y: y(.14), name: 'Cards' },
+        invoices: { x: x(.50), y: y(.12), name: 'Invoices' },
+        deposits: { x: x(.84), y: y(.14), name: 'Deposits' },
+        stripe:   { x: x(.24), y: y(.25), name: 'Stripe' },
+        bank:     { x: x(.72), y: y(.25), name: 'Bank' },
+        books:    { x: x(.36), y: y(.36), name: 'Zoho Books' },
+        ledger:   { x: x(.72), y: y(.40), name: 'Ledger' },
+      };
+      const P = (a, b, bend) => ({ a: nodes[a], b: nodes[b], bend });
+      paths = [P('cards', 'stripe', -.18), P('invoices', 'stripe', .14), P('invoices', 'bank', -.12), P('deposits', 'bank', .16),
+        P('stripe', 'books', .10), P('bank', 'books', -.10), P('stripe', 'bank', .30), P('books', 'ledger', 0)];
+    }
+
+    function pointOn(p, t) {
+      const mx = (p.a.x + p.b.x) / 2, my = (p.a.y + p.b.y) / 2;
+      const dx = p.b.x - p.a.x, dy = p.b.y - p.a.y;
+      const cx = mx - dy * p.bend, cy = my + dx * p.bend;
+      const u = 1 - t;
+      return { x: u * u * p.a.x + 2 * u * t * cx + t * t * p.b.x, y: u * u * p.a.y + 2 * u * t * cy + t * t * p.b.y };
+    }
+
+    function spawn() {
+      const p = paths[Math.floor(Math.random() * paths.length)];
+      const amt = (Math.random() * 900 + 20).toFixed(2);
+      pulses.push({ p, t: 0, v: 0.0035 + Math.random() * 0.004, amt, gold: p.b === nodes.ledger || Math.random() < .12 });
+    }
+
+    let debits = 48912.40, credits = 48912.40, tick = 0;
+    function draw() {
+      g.clearRect(0, 0, W, H);
+      // faint ledger rules
+      g.strokeStyle = 'rgba(87,227,154,0.05)'; g.lineWidth = 1;
+      for (let yy = 0; yy < H; yy += 28) { g.beginPath(); g.moveTo(0, yy + .5); g.lineTo(W, yy + .5); g.stroke(); }
+      // paths
+      for (const p of paths) {
+        g.beginPath();
+        for (let i = 0; i <= 40; i++) { const q = pointOn(p, i / 40); i ? g.lineTo(q.x, q.y) : g.moveTo(q.x, q.y); }
+        g.strokeStyle = 'rgba(87,227,154,0.14)'; g.lineWidth = 1.2; g.stroke();
+      }
+      // pulses
+      for (const s of pulses) {
+        const q = pointOn(s.p, s.t);
+        const col = s.gold ? '244,194,91' : '87,227,154';
+        const grd = g.createRadialGradient(q.x, q.y, 0, q.x, q.y, 16);
+        grd.addColorStop(0, `rgba(${col},0.95)`); grd.addColorStop(1, `rgba(${col},0)`);
+        g.fillStyle = grd; g.beginPath(); g.arc(q.x, q.y, 16, 0, 7); g.fill();
+        g.fillStyle = `rgba(${col},0.8)`; g.font = label.font;
+        if (s.t > .15 && s.t < .85) g.fillText('$' + Number(s.amt).toLocaleString('en-US', { minimumFractionDigits: 2 }), q.x + 12, q.y - 10);
+      }
+      // nodes
+      for (const k in nodes) {
+        const n = nodes[k];
+        const big = k === 'books' || k === 'ledger';
+        g.beginPath(); g.arc(n.x, n.y, big ? 9 : 6, 0, 7);
+        g.fillStyle = big ? '#57e39a' : '#cfe6d9'; g.fill();
+        g.beginPath(); g.arc(n.x, n.y, big ? 22 : 15, 0, 7); g.strokeStyle = 'rgba(87,227,154,0.25)'; g.stroke();
+        g.fillStyle = 'rgba(238,245,240,0.75)'; g.font = '700 14px "Atkinson Hyperlegible", sans-serif';
+        g.fillText(n.name, n.x + (big ? 28 : 20), n.y + 5);
+      }
+      // ledger totals
+      const L = nodes.ledger;
+      g.font = '700 13px "Atkinson Hyperlegible", sans-serif';
+      g.fillStyle = 'rgba(238,245,240,0.6)';
+      const f = (n) => '$' + n.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+      g.fillText('Debits  ' + f(debits), L.x - 60, L.y + 46);
+      g.fillText('Credits ' + f(credits), L.x - 60, L.y + 64);
+      g.fillStyle = '#57e39a'; g.fillText('Balanced', L.x - 60, L.y + 84);
+    }
+
+    function step() {
+      if (Math.random() < 0.09) spawn();
+      for (const s of pulses) {
+        s.t += s.v;
+        if (s.t >= 1 && s.p.b === nodes.ledger) { const a = Number(s.amt); debits += a; credits += a; }
+      }
+      pulses = pulses.filter((s) => s.t < 1);
+      draw();
+      if (!reduce) requestAnimationFrame(step);
+    }
+
+    layout();
+    addEventListener('resize', () => { layout(); if (reduce) draw(); });
+    if (reduce) { for (let i = 0; i < 18; i++) { spawn(); pulses[i].t = Math.random(); } draw(); }
+    else { for (let i = 0; i < 10; i++) { spawn(); pulses[i].t = Math.random(); } requestAnimationFrame(step); }
+  })();
+</script>
+</body>
+</html>
