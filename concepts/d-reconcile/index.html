@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cartrel James | I find out why the books don't balance | Sentari Software</title>
+<link rel="icon" href="data:,">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;600;800&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  /* Concept D (2026-11-05): speak to bean counters in the first seconds. The opening is the thing they know
+     in their gut: a reconciliation that is off. On load the reconciling items tick off one by one and the
+     difference counts down to $0.00. One orchestrated motion moment; reduced motion shows the final state. */
+  :root{--ink:#14181a;--muted:#4f585c;--rule:#d9dee0;--paper:#ffffff;--sheet:#fbfcfc;--red:#b42318;--green:#1a6b45;--hi:#fff6d6}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--paper);color:var(--ink);font:400 1.25rem/1.55 "Libre Franklin",system-ui,sans-serif}
+  a{color:var(--green)}
+  .wrap{max-width:1200px;margin:0 auto;padding:0 clamp(20px,4vw,48px)}
+  header .wrap{display:flex;justify-content:space-between;align-items:center;min-height:80px}
+  .mark{font-weight:800;font-size:1.2rem;color:var(--ink);text-decoration:none;letter-spacing:-.01em}
+  header nav{display:flex;gap:1.8rem;align-items:center;font-size:1.05rem}
+  header nav a{color:var(--ink);text-decoration:none}
+  header .tel{color:var(--green);font-weight:600}
+
+  .open{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:clamp(32px,5vw,72px);align-items:center;padding-top:clamp(28px,5vw,64px);padding-bottom:clamp(56px,7vw,88px)}
+  h1{font-weight:800;font-size:clamp(2.6rem,5.2vw,4.4rem);line-height:1.02;letter-spacing:-.025em;margin:0}
+  .lede{font-size:1.3rem;color:var(--muted);margin:1.4rem 0 2rem;max-width:30em}
+  .act{display:flex;gap:1.4rem;align-items:center;flex-wrap:wrap}
+  .btn{display:inline-flex;align-items:center;min-height:54px;padding:0 1.6rem;background:var(--ink);color:#fff;text-decoration:none;font-weight:600;border-radius:4px}
+  .btn:hover{background:#000}
+  .act .tel{font-weight:600;font-size:1.25rem;color:var(--ink)}
+
+  /* The reconciliation sheet */
+  .sheet{background:var(--sheet);border:1px solid var(--rule);border-radius:6px;box-shadow:0 30px 60px -40px rgba(20,24,26,.45);
+    font-family:"IBM Plex Sans",sans-serif;font-variant-numeric:tabular-nums;font-size:1rem;overflow:hidden}
+  .sheet .top{display:flex;justify-content:space-between;align-items:baseline;padding:18px 22px;border-bottom:1px solid var(--rule);background:#fff}
+  .sheet .top strong{font-size:1.05rem}
+  .sheet .top span{color:var(--muted);font-size:.9rem}
+  .sheet table{width:100%;border-collapse:collapse}
+  .sheet td{padding:11px 22px;border-bottom:1px solid #eceff0;vertical-align:middle}
+  .sheet td.amt{text-align:right;white-space:nowrap}
+  .sheet tr.bal td{font-weight:600}
+  .sheet tr.item td:first-child{padding-left:46px;position:relative;color:var(--muted)}
+  .sheet tr.item td:first-child::before{content:"";position:absolute;left:22px;top:50%;width:14px;height:14px;margin-top:-7px;border:1.5px solid #b9c1c4;border-radius:3px;background:#fff}
+  .sheet tr.item.done td:first-child{color:var(--ink)}
+  .sheet tr.item.done td:first-child::before{background:var(--green) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 14'%3E%3Cpath d='M3 7.2l2.6 2.6L11 4.4' fill='none' stroke='%23fff' stroke-width='2'/%3E%3C/svg%3E") center/12px no-repeat;border-color:var(--green)}
+  .sheet tr.item.flash td{background:var(--hi)}
+  .sheet tr.item td,.sheet tr.item td::before{transition:background-color .5s,color .3s}
+  .diff{display:flex;justify-content:space-between;align-items:center;padding:18px 22px;background:#fff;border-top:2px solid var(--ink)}
+  .diff .lbl{font-weight:600}
+  .diff .val{font-size:1.6rem;font-weight:600;color:var(--red)}
+  .diff.ok .val{color:var(--green)}
+  .diff .state{font-size:.95rem;font-weight:600;color:var(--red);margin-left:.8rem}
+  .diff.ok .state{color:var(--green)}
+  .note{font-size:.9rem;color:var(--muted);margin:.7rem 2px 0}
+
+  section{border-top:1px solid var(--rule);padding:clamp(56px,7vw,88px) 0}
+  h2{font-weight:800;font-size:clamp(1.8rem,3vw,2.4rem);letter-spacing:-.02em;margin:0 0 1.2rem;line-height:1.1}
+  .two{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:clamp(32px,5vw,72px)}
+  .two p{color:var(--muted)}
+  .fixes p{margin:0 0 1rem}
+  .fixes strong{color:var(--ink)}
+  @media (max-width:860px){.open,.two{grid-template-columns:1fr}.sheet td{padding:10px 14px}.sheet tr.item td:first-child{padding-left:38px}.sheet tr.item td:first-child::before{left:14px}.diff{padding:16px 14px}header nav .hide{display:none}}
+  @media (prefers-reduced-motion:reduce){.sheet tr.item td,.sheet tr.item td::before{transition:none}}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+  <a class="mark" href="#">Sentari Software</a>
+  <nav><a class="hide" href="#fixes">What I fix</a><a class="hide" href="#about">About</a><a class="tel" href="tel:+13144036685">(314) 403-6685</a></nav>
+</div></header>
+
+<main>
+<div class="wrap open">
+  <div>
+    <h1>When the numbers don't tie out, I find out why.</h1>
+    <p class="lede">I'm Cartrel James in St. Louis, forty years in IT. I fix accounting systems, mostly on Zoho Books, and the integrations, data and paperwork around them. Where AI can take the busywork off your people, I put it to work.</p>
+    <div class="act">
+      <a class="btn" href="https://cal.com/cartrel-james-dwefpy/free-20-minute-call">Book a 20 minute call</a>
+      <a class="tel" href="tel:+13144036685">(314) 403-6685</a>
+    </div>
+  </div>
+
+  <div>
+    <div class="sheet" aria-label="Example bank reconciliation that balances once the reconciling items are found">
+      <div class="top"><strong>Bank reconciliation, Operating account</strong><span>Period ending Oct 31</span></div>
+      <table>
+        <tr class="bal"><td>Balance per bank statement</td><td class="amt">$48,912.40</td></tr>
+        <tr class="item" data-amt="2450.00"><td>Deposit in transit, Oct 31</td><td class="amt">+ 2,450.00</td></tr>
+        <tr class="bal"><td>Balance per books</td><td class="amt">$52,572.57</td></tr>
+        <tr class="item" data-amt="875.00"><td>Same member payment recorded twice</td><td class="amt">&minus; 875.00</td></tr>
+        <tr class="item" data-amt="312.85"><td>Stripe fee never booked</td><td class="amt">&minus; 312.85</td></tr>
+        <tr class="item" data-amt="22.32"><td>Bank service charge not in the books</td><td class="amt">&minus; 22.32</td></tr>
+      </table>
+      <div class="diff" id="diff"><span class="lbl">Unreconciled difference</span><span><span class="val" id="val">$3,660.17</span><span class="state" id="state">Off</span></span></div>
+    </div>
+    <p class="note">An example of the kind of month end I untangle. The numbers are made up.</p>
+  </div>
+</div>
+
+<section id="fixes"><div class="wrap two">
+  <h2>What I usually find when I'm called in</h2>
+  <div class="fixes">
+    <p><strong>Card fees never booked.</strong> The payout lands at gross, the fee goes missing, and cash never ties to the bank.</p>
+    <p><strong>Money counted twice.</strong> The same payment entered by hand and again by a sync.</p>
+    <p><strong>Systems that don't talk.</strong> Payments in one place, members in another, and someone retyping between them every week.</p>
+    <p><strong>Paperwork done by hand.</strong> Invoices and forms keyed in line by line, when software can read them and a person only checks the hard ones.</p>
+    <p><strong>Reports nobody trusts.</strong> Numbers that don't match the bank, so someone rebuilds them in a spreadsheet every month.</p>
+    <p>I fix the cause, set the books up so it doesn't happen again, and show you the proof line by line.</p>
+  </div>
+</div></section>
+
+<section id="about"><div class="wrap two">
+  <h2>Forty years in IT</h2>
+  <div>
+    <p>I started in mainframe operations in 1986, running the batch jobs and reports a business closed its books on. Seventeen years at Bi-State Development. IT administrator for the St. Louis City Recorder of Deeds.</p>
+    <p>Today I run the financial system for a member organization: dues, invoices, credits and card payments through Zoho Books and Stripe, every day. You own what I build.</p>
+    <p><a href="https://dashboard.sentarisoftware.com">See the system, with made-up data</a></p>
+  </div>
+</div></section>
+</main>
+
+<script>
+  // One orchestrated moment: tick each reconciling item, then count the difference down to zero.
+  (function () {
+    const items = [...document.querySelectorAll('.sheet tr.item')];
+    const diff = document.getElementById('diff');
+    const val = document.getElementById('val');
+    const state = document.getElementById('state');
+    const fmt = (n) => '$' + Math.abs(n).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    let left = 3660.17;
+    const settle = () => { val.textContent = '$0.00'; state.textContent = 'Balanced'; diff.classList.add('ok'); items.forEach((r) => r.classList.add('done')); };
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return settle();
+    const parts = [...items].map((r) => Number(r.dataset.amt));
+    const order = [0, 1, 2, 3];
+    let i = 0;
+    const step = () => {
+      if (i >= order.length) return settle();
+      const r = items[order[i]];
+      r.classList.add('flash');
+      setTimeout(() => {
+        r.classList.add('done');
+        r.classList.remove('flash');
+        const target = Math.max(0, Math.round((left - parts[order[i]]) * 100) / 100);
+        const from = left; const t0 = performance.now();
+        const anim = (t) => { const k = Math.min(1, (t - t0) / 500); val.textContent = fmt(from + (target - from) * k); if (k < 1) requestAnimationFrame(anim); };
+        requestAnimationFrame(anim); left = target; i++;
+        setTimeout(step, 650);
+      }, 450);
+    };
+    setTimeout(step, 900);
+  })();
+</script>
+</body>
+</html>
